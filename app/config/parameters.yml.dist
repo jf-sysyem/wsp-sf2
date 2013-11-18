@@ -1,15 +1,28 @@
 parameters:
-    database_driver:   pdo_mysql
-    database_host:     127.0.0.1
-    database_port:     ~
-    database_name:     symfony
-    database_user:     root
-    database_password: ~
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_port: null
+    database_name: swp
+    database_user: root
+    database_password: Ephraim76
+    
+    mailer_transport: gmail
+    mailer_encryption: ssl
+    mailer_auth_mode: login
+    mailer_host: smtp.gmail.com
+    mailer_username: staff@jf-system.com
+    mailer_password: livorno76
+    mailer_user: staff@jf-system.com
+    
+    locale: it
+    secret: ThisTokenIsNotSoSecretChangeIt
 
-    mailer_transport:  smtp
-    mailer_host:       127.0.0.1
-    mailer_user:       ~
-    mailer_password:   ~
+    dimensione_massima_immagine: 2000000
+    larghezza_minima_immagine: 200
+    altezza_minima_immagine: 200
 
-    locale:            en
-    secret:            ThisTokenIsNotSoSecretChangeIt
+    # SOCIAL NETWORK
+    facebook.app_id: 502928559799016
+    facebook.app_secret: 1378c3ebb45f5f9b63cdf992b6065eec
+    twitter.app_id: ert6gEM1Go8YBwTbeeR8g
+    twitter.app_secret: s3Qj0GkHmGdYJcV9SRYd0faxkNGKaxpmew5DrAT5dP0

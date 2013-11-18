@@ -64,3 +64,86 @@ swiftmailer:
     username:  %mailer_user%
     password:  %mailer_password%
     spool:     { type: memory }
+
+#GEDMO SLUG
+#https://github.com/stof/StofDoctrineExtensionsBundle/blob/master/Resources/doc/index.rst
+stof_doctrine_extensions:
+    default_locale: it_IT
+    orm:
+        default: 
+            timestampable:  true
+            sluggable:      true
+            translatable:   true
+            
+# FOS User
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: JF\ACLBundle\Entity\Gestore
+    service:
+        mailer:                 fos_user.mailer.default
+        email_canonicalizer:    fos_user.util.canonicalizer.default
+        username_canonicalizer: fos_user.util.canonicalizer.default
+        user_manager:           fos_user.user_manager.default
+    registration:
+        confirmation:
+            enabled:    true
+            template:   FOSUserBundle:Email:registrazioneAccount.txt.twig
+            from_email:
+                address:        %mailer_user%
+                sender_name:    %mailer_user%    
+hwi_oauth:
+    #Fornitore Utenti 
+    #questo è il mio fornitore utenti personalizzato, creato da FOSUBUserProvider - gestirà il
+    #registrazione utente # automatico sul tuo sito, con i dati del fornitore (facebook. google, ecc)
+    #e anche la parte di collegamento (ottenere il token e il user_id)
+    connect:
+        account_connector: my_user_provider
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: main
+    fosub:
+        username_iterations: 30
+        properties:
+            # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            facebook: facebook_id
+            #google: google_id
+            twitter: twitter_id
+    resource_owners:
+        twitter:
+            type:                twitter
+            client_id:           %twitter.app_id%
+            client_secret:       %twitter.app_secret%
+        facebook:
+            type:                facebook
+            client_id:           %facebook.app_id%
+            client_secret:       %facebook.app_secret%
+            scope:               "email,user_birthday,xmpp_login"
+            infos_url:           "https://graph.facebook.com/me?fields=id,name,email,gender,first_name,last_name,locale,birthday,username,picture.type(square)" #da Graph API EXPLORER
+            paths:
+                email:          email
+                profilepicture: picture.data.url
+            options:
+                display: popup #dialog is optimized for popup window
+                width: 400px
+                height: 400px
+   #     google:
+   #         type:                google
+   #         client_id:           824963536212-tkm7bkij8d52tpuhnba640q6ldf6purf.apps.googleusercontent.com
+   #         client_secret:       F5oyc_PKqS0T0hDh8xk0QEmB
+   #         scope:               "https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/userinfo.profile"
+   # here you will add one (or more) configurations for resource owners
+
+ephp_acl:
+  user_class: JF\ACLBundle\Entity\Gestore
+  access_log:
+    enable: true
+    class: JF\ACLBundle\Entity\AccessLogGestore
+    
+knp_menu:
+    twig: 
+        template: ::knp_menu_sidebar.html.twig
+
+knp_paginator:
+    template:
+        pagination: ::sliding.html.twig     
+        

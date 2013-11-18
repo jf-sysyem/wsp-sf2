@@ -1,0 +1,55 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="page-header">
+    <div class="icon">
+        <span class="ico-sale"></span>
+    </div>
+    <h1>Clienti</h1>
+</div>
+
+<a href="{{ path('eph_clienti_new') }}">
+    <span class="label label-important">Nuovo cliente</span>
+</a>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="block">
+            <div class="head blue">
+                <div class="icon"><i class="ico-unlocked-2"></i></div>
+                <h2>Clienti attivi</h2>
+                <ul class="buttons">
+                    <li><a href="#" onclick="source('table_sort'); return false;"><div class="icon"><span class="ico-info"></span></div></a></li>
+                </ul>
+            </div>                
+            <div class="data-fluid">
+                <table class="table" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th width="15%">Contatto</th>
+                            <th width="15%">Telefono</th>
+                            <th width="15%">Email</th>
+                            <th width="15%">Scadenza Licenza</th>
+                            <th width="40" class="TAC">Op.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for entity in entities %}
+                        <tr {% if entity.bloccato %}class="stroke"{% endif %}>
+                            <td><a href="{{ path('eph_clienti_show', { 'id': entity.id }) }}">{{ entity.nome }}</a></td>
+                            <td>{{ entity.referente.nome }}</td>
+                            <td>{{ entity.email }}</td>
+                            <td>{{ entity.telefono }}</td>
+                            <td>{% if entity.scadenzaLicenza %}{{ entity.scadenzaLicenza|date('Y-m-d H:i:s') }}{% endif %}</td>
+                            <td>
+                                {% include ":commons:edit.html.twig" with {'route': path('eph_clienti_edit', { 'id': entity.id })} %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>                    
+            </div> 
+        </div>            
+    </div>
+</div>
+    {% endblock %}
