@@ -2,7 +2,7 @@
 
 namespace Metronic\AdminBundle\Entity\Traits;
 
-trait Todo {
+trait Todotask {
 
     /**
      * @var string
@@ -36,7 +36,7 @@ trait Todo {
      * Set task
      *
      * @param string $task
-     * @return Todo
+     * @return Todotask
      */
     public function setTask($task) {
         $this->task = $task;
@@ -57,7 +57,7 @@ trait Todo {
      * Set severity
      *
      * @param string $severity
-     * @return Todo
+     * @return Todotask
      */
     public function setSeverity($severity) {
         $this->severity = $severity;
@@ -78,7 +78,7 @@ trait Todo {
      * Set percent
      *
      * @param integer $percent
-     * @return Todo
+     * @return Todotask
      */
     public function setPercent($percent) {
         $this->percent = $percent;
@@ -99,7 +99,7 @@ trait Todo {
      * Set striped
      *
      * @param boolean $striped
-     * @return Todo
+     * @return Todotask
      */
     public function setStriped($striped) {
         $this->striped = $striped;

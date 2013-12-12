@@ -2,7 +2,7 @@
 
 namespace Metronic\AdminBundle\Entity\Interfaces;
 
-interface Notify extends Route {
+interface Notify  {
 
     /**
      * Get id

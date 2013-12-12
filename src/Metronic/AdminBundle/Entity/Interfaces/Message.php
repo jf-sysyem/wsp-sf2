@@ -2,7 +2,7 @@
 
 namespace Metronic\AdminBundle\Interfaces;
 
-interface Message extends Route {
+interface Message {
 
     /**
      * Get id

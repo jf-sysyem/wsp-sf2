@@ -1,0 +1,26 @@
+# Promo
+slogan:
+    h2: Your Business is our Business
+    
+# Content
+content:
+    business: Your <b>Business</b><br/>is our <b>Business</b>
+    businessdetail: Qui ci va la frase abbastanza lunga tradotta in inglese dove viene <b>spiegato</b> cosa si intente con lo slogan <i>"Il tuo <b>Business</b> è il nostro <b>Business</b>"</i>
+    frasi: 
+        1: Sei più ganzo degli altri
+        2: Prima ti iscrivi prima sei più ganzo
+        3: Non indugiare e contattaci
+        4: Ma che cosa stai aspettando
+        5: Non sai cosa ti perdi
+    moreinfo: More info?<br/>Come back, soon<br/><b>On-Line</b>
+    response:
+        new: Your request is registred.<br/>Verrai contattato tramite l'indirizzo email %email%. 
+        already: È già presente una richiesta registrata con l'email %email% effettuata il $data%.<br/>La tua richiesta è stata sollecitata. 
+        contact: Ci risulta che un'email di risposta è già stata inviata all'indirizzo %email% in data $dataRisposta%.<br/>Se non hai ricevuto nulla, controlla nello spam della tua casella di posta elettronica. 
+        
+# Contact
+contact:
+    question: Vuoi essere uno dei primi a iscriverti a <b>World Sticker Price</b>?
+    placeholder: Scrivi qui la tua email
+    button: Scrivici
+    postaction: e ti contatteremo presto!

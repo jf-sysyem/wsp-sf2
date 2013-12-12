@@ -2,7 +2,7 @@
 
 namespace Metronic\AdminBundle\Entity\Traits;
 
-interface Todo extends Route {
+interface Todo {
 
     /**
      * Get id
@@ -15,7 +15,7 @@ interface Todo extends Route {
      * Set task
      *
      * @param string $task
-     * @return Todo
+     * @return Todotask
      */
     public function setTask($task);
 
@@ -30,7 +30,7 @@ interface Todo extends Route {
      * Set severity
      *
      * @param string $severity
-     * @return Todo
+     * @return Todotask
      */
     public function setSeverity($severity);
 
@@ -45,7 +45,7 @@ interface Todo extends Route {
      * Set percent
      *
      * @param integer $percent
-     * @return Todo
+     * @return Todotask
      */
     public function setPercent($percent);
 
@@ -60,7 +60,7 @@ interface Todo extends Route {
      * Set striped
      *
      * @param boolean $striped
-     * @return Todo
+     * @return Todotask
      */
     public function setStriped($striped);
 

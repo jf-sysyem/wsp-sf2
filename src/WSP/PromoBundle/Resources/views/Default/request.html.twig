@@ -1,0 +1,9 @@
+<p>
+    {% if msg == 'new' %}
+    {{ 'contact.response.new'|trans({'%email%': contatto.email, '%data%': contatto.createdAt|date('d-m-Y'), '%dataRisposta%': contatto.contattato|date('d-m-Y')}, "WSPPromo")|raw }}
+    {% elseif msg == 'already' %}
+    {{ 'contact.response.already'|trans({'%email%': contatto.email, '%data%': contatto.createdAt|date('d-m-Y'), '%dataRisposta%': contatto.contattato|date('d-m-Y')}, "WSPPromo")|raw }}
+    {% elseif msg == 'contact' %}
+    {{ 'contact.response.contact'|trans({'%email%': contatto.email, '%data%': contatto.createdAt|date('d-m-Y'), '%dataRisposta%': contatto.contattato|date('d-m-Y')}, "WSPPromo")|raw }}
+    {% endif %}
+</p>
