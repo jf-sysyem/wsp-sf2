@@ -1,0 +1,18 @@
+{% if app.user %}
+<!-- BEGIN TOP NAVIGATION MENU -->
+<ul class="nav navbar-nav pull-right">
+    {% if notification %}
+        {% include "MetronicAdminBundle::layout/header/navbar/notification.html.twig" %}
+    {% endif %}
+    {% if inbox %}
+        {% include "MetronicAdminBundle::layout/header/navbar/inbox.html.twig" %}
+    {% endif %}
+    {% if todo %}
+        {% include "MetronicAdminBundle::layout/header/navbar/todo.html.twig" %}
+    {% endif %}
+    {% if user %}
+        {% include "MetronicAdminBundle::layout/header/navbar/user.html.twig" %}
+    {% endif %}
+</ul>
+<!-- END TOP NAVIGATION MENU -->
+{% endif %}

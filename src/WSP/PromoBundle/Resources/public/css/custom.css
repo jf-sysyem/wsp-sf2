@@ -1,0 +1,76 @@
+.vertical-title {
+    display: block; 
+    position: relative;
+
+    text-align: right;
+    vertical-align: middle;
+
+    border: 7px solid #ffe42e;
+    margin: 0px;
+
+    font-size: 5em;
+    color: #fff;
+
+    background: url(../../metronicadmin/img/bg-opacity.png) repeat;
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    /*also accepts left, right, top, bottom coordinates; not required, but a good idea for styling*/ 
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 00%;
+    -o-transform-origin: 100% 0%;
+    transform-origin: 100% 00%;
+
+    /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+
+.vertical-title span.red{
+    color: #d10;
+}
+
+.vertical-title span.solid-yellow{
+    border: 3px solid #ffe42e;
+    margin: 0px;
+    color: #000;
+    background-color: #ffe42e;
+}
+
+.slogan {
+    margin-top: 0px;
+    text-align: center;
+    color: #ffe42e !important;
+    text-shadow: 2px 2px 3px #000;
+}
+
+.testo {
+    text-align: justify;
+    color: #000 !important;
+    font-size: 1.15em;
+    text-shadow: 0px 0px 4px #fff;
+    margin-bottom: 10px;
+}
+
+.grassetto {
+    text-align: justify;
+    color: #fff !important;
+    font-size: 1.25em;
+    text-shadow: 0px 0px 4px #000;
+    margin-top: 10px;
+}
+
+.grassetto a {
+    color: #ffe42e !important;
+}
+
+.coming-soon-countdown {
+    width: 480px ;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}

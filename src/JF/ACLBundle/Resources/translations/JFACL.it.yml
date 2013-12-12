@@ -1,0 +1,35 @@
+# Sidebar
+sidebar:
+    search: Cerca...
+    
+# Header
+header:
+    notification:
+        new: "{0}Non ci sono nuove notifiche|{1}Hai una nuova notifica!|]2,Inf]Hai %count% nuove notifiche!"
+        all: Leggi tutte le notifiche
+    inbox:
+        new: "{0}Non ci sono nuovi messaggi|{1}Hai un nuovo messaggio!|]2,Inf]Hai %count% nuovi messaggi!"
+        all: Leggi tutti i messaggi
+    task:
+        new: "{0}Hai completato le tue attività!|{1}Ti rimane solo un'attività da completare|]2,Inf]Hai %count% attività da completare!"
+        all: Guarda tutte le attività
+    user:
+        profile: Il mio Profilo
+        calendar: Il mio Calendario
+        inbox: La mia Posta
+        tasks: Le mie attività
+        full_screen: Schermo intero
+        lock_screen: Blocca schermo
+        logout: Esci
+
+# Content
+content:
+    theme:
+        title: CAMBIA COLORI
+        layout:
+            fluid: Fluido
+            boxed: Statico
+        elements:
+            fixed: Fisso
+            default: Dinamico
+        

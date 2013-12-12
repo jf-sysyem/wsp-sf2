@@ -1,0 +1,32 @@
+{% if notifies is defined %}
+<!-- BEGIN NOTIFICATION DROPDOWN -->
+<li class="dropdown" id="header_notification_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+       data-close-others="true">
+        <i class="fa fa-warning"></i>
+        <span class="badge">{{ notifies|length }}</span>
+    </a>
+    <ul class="dropdown-menu extended notification">
+        <li>
+            <p>{{ 'header.notification.new'|transchoice(notifies|length, {'count': notifies|length}, "MetronicAdminLayout") }}</p>
+        </li>
+        <li>
+            <ul class="dropdown-menu-list scroller" style="height: 250px;">
+                {% for notify in notifies %}
+                <li>  
+                    <a href="{% if notify.route %}{{ path(notify.route, notify.routeParams) }}{% else %}javascript:;{% endif %}">
+                        <span class="label label-sm label-icon label-{{ notify.severity }}"><i class="fa fa-{{ notify.type }}"></i></span>
+                        {{ notify.message }} 
+                        <span class="time" time="{{ notify.notifiedAt|date('Y-m-d H:i:s') }}"></span>
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="external">   
+            <a href="#">{{ 'header.notification.all'|trans({}, "MetronicAdminLayout") }} <i class="m-icon-swapright"></i></a>
+        </li>
+    </ul>
+</li>
+<!-- END NOTIFICATION DROPDOWN -->
+{% endif %}

@@ -1,0 +1,63 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block spanElement %}<a href="javascript:;"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>{% endblock %}
+
+{% block list %}
+{% import 'knp_menu.html.twig' as macros %}
+
+{% spaceless %}
+{% if item.hasChildren and options.depth is not sameas(0) and item.displayChildren %}
+    {% if item.isRoot %}
+        <ul class="page-breadcrumb breadcrumb">
+            {{ block('children') }}
+        </ul>
+    {% else %}
+        {{ block('children') }}
+    {% endif %}
+{% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block children %}
+{# save current variables #}
+{% set currentOptions = options %}
+{% set currentItem = item %}
+{# update the depth for children #}
+{% if options.depth is not none %}
+{% set options = currentOptions|merge({'depth': currentOptions.depth - 1}) %}
+{% endif %}
+{% for item in currentItem.children %}
+    {% if item.extra('active') %}
+        {{ block('item') }}
+    {% endif %}
+{% endfor %}
+{# restore current variables #}
+{% set item = currentItem %}
+{% set options = currentOptions %}
+{% endblock %}
+
+{% block label %}
+{% spaceless %}
+{% if item.extra('icon') %}
+    <i class="fa fa-{{ item.extra('icon') }}"></i>
+{% endif %}
+{% if item.parent.isRoot %}
+    <span class="title">{{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages')) }}</span>
+    {% if item.extra('new') %}
+        <span class="badge badge-roundless badge-important">new</span>
+    {% endif %}
+{% else %}
+    {% if item.extra('new') %}
+        <span class="badge badge-roundless badge-important">new</span>
+    {% endif %}
+    {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages')) }}
+{% endif %}
+{% if item.extra('active') and item.parent.isRoot %}
+    <span class="selected"></span>
+{% endif %}
+{% if item.hasChildren %}
+    <span class="arrow {% if item.extra('active') %}open{% endif %}"></span>
+{% endif %}
+{% endspaceless %}
+{% endblock %}
+

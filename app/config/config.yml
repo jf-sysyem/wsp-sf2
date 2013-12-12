@@ -4,7 +4,7 @@ imports:
 
 framework:
     #esi:             ~
-    #translator:      { fallback: %locale% }
+    translator:      { fallback: %locale% }
     secret:          %secret%
     router:
         resource: "%kernel.root_dir%/config/routing.yml"
@@ -21,16 +21,22 @@ framework:
     fragments:       ~
     http_method_override: true
 
+metronic_admin:
+    logo: /bundles/wspadmin/images/logo_favicon.png        
+    logo_big: /bundles/wspadmin/images/logo_big.png        
+
 # Twig Configuration
 twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
+    globals:
+        page_title: World Sticker Price 
 
 # Assetic Configuration
 assetic:
     debug:          %kernel.debug%
     use_controller: false
-    bundles:        [ ]
+    #bundles:        [ ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

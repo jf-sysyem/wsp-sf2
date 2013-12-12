@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>{% block title %}Metronic | Admin Dashboard Template{% endblock title %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="{% block description %}{% endblock description %}" name="description" />
+	<meta content="{% block author %}{% endblock author %}" name="author" />
+	<meta name="MobileOptimized" content="320">
+        
+        {% include "MetronicAdminBundle::layout/stylesheetsEmpty.html.twig" %}
+        {% block css %}{% endblock %}
+        <script type="text/css">
+            {% block inline_css %}{% endblock %}
+        </script>
+        
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body class="login">
+        {% block precontent %}{% endblock %}
+        {% render(controller("MetronicAdminBundle:Render:headerEmpty")) %}
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+        {% block postcontent %}{% endblock %}
+        <!-- END CONTAINER -->
+        {% include "MetronicAdminBundle::layout/footerEmpty.html.twig" %}
+        {% include "MetronicAdminBundle::layout/javascriptsEmpty.html.twig" %}
+        {% block js %}{% endblock %}
+        <script>
+            {% block inline_js %}{% endblock %}
+            jQuery(document).ready(function() {
+                App.init(); // initlayout and core plugins
+                Soft.init();
+                {% block ready_js %}{% endblock %}
+            });
+        </script>
+    </body>
+    <!-- END BODY -->
+</html>       

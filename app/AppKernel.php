@@ -36,10 +36,12 @@ class AppKernel extends Kernel {
             new JF\GeneratorBundle\JFGeneratorBundle(),
             new JF\CoreBundle\JFCoreBundle(),
             new JF\ACLBundle\JFACLBundle(),
+            new Metronic\AdminBundle\MetronicAdminBundle(),
+            new WSP\PromoBundle\WSPPromoBundle(),
+            new WSP\AdminBundle\WSPAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
-            $bundles[] = new Acme\DemoBundle\AcmeDemoBundle();
             $bundles[] = new Symfony\Bundle\WebProfilerBundle\WebProfilerBundle();
             $bundles[] = new Sensio\Bundle\DistributionBundle\SensioDistributionBundle();
             $bundles[] = new Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle();

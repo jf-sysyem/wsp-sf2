@@ -1,0 +1,10 @@
+{% if widgets is defined %}
+<!-- BEGIN WIDGETS -->
+<div class="clearfix"></div>
+<div class="row">
+    {% for widget in widgets %}
+        {% render(controller(widget.render, widget.params)) %}
+    {% endfor %}
+</div>
+<!-- END WIDGETS -->
+{% endif %}

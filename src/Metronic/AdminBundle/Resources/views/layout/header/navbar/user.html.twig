@@ -1,0 +1,38 @@
+<!-- BEGIN USER LOGIN DROPDOWN -->
+<li class="dropdown user">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <img alt="" src="{{ asset(app.user.avatar) }}"/>
+        <span class="username">{{ app.user.name }}</span>
+        <i class="fa fa-angle-down"></i>
+    </a>
+    <ul class="dropdown-menu">
+        {% if routeHeader.profile is defined %}
+        <li><a href="{{ path(routeHeader.profile) }}"><i class="fa fa-user"></i> {{ 'header.user.profile'|trans({}, "MetronicAdminLayout") }}</a>
+        </li>
+        {% endif %}
+        {% if routeHeader.calendar is defined %}
+        <li><a href="{{ path(routeHeader.calendar) }}"><i class="fa fa-calendar"></i> {{ 'header.user.calendar'|trans({}, "MetronicAdminLayout") }}</a>
+        </li>
+        {% endif %}
+        {% if routeHeader.inbox is defined %}
+        <li><a href="{{ path(routeHeader.inbox) }}"><i class="fa fa-envelope"></i> {{ 'header.user.inbox'|trans({}, "MetronicAdminLayout") }} <span class="badge badge-danger">3</span></a>
+        </li>
+        {% endif %}
+        {% if routeHeader.task is defined %}
+        <li><a href="{{ path(routeHeader.task) }}"><i class="fa fa-tasks"></i> {{ 'header.user.tasks'|trans({}, "MetronicAdminLayout") }} <span class="badge badge-success">7</span></a>
+        </li>
+        {% endif %}
+        <li class="divider"></li>
+        <li><a href="javascript:;" id="trigger_fullscreen"><i class="fa fa-move"></i> {{ 'header.user.full_screen'|trans({}, "MetronicAdminLayout") }}</a>
+        </li>
+        {% if routeHeader.lock is defined %}
+        <li><a href="{{ path(routeHeader.lock) }}"><i class="fa fa-lock"></i> {{ 'header.user.lock_screen'|trans({}, "MetronicAdminLayout") }}</a>
+        </li>
+        {% endif %}
+        {% if routeHeader.logout is defined %}
+        <li><a href="{{ path(routeHeader.logout) }}"><i class="fa fa-key"></i> {{ 'header.user.logout'|trans({}, "MetronicAdminLayout") }}</a>
+        </li>
+        {% endif %}
+    </ul>
+</li>
+<!-- END USER LOGIN DROPDOWN -->

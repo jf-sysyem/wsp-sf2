@@ -1,0 +1,27 @@
+wsp_admin:
+    resource: "@WSPAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wsp_promo:
+    resource: "@WSPPromoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+jf_acl:
+    resource: "@JFACLBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+jf_core:
+    resource: "@JFCoreBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+ephp_drag_drop:
+    resource: "@EphpDragDropBundle/Controller/"
+    type:     annotation
+    prefix:   /
+    
+_fos:
+    resource: routing_fos.yml

@@ -47,7 +47,7 @@ class JFCoreExtension extends Extension implements IExtension {
             'show' => array('always' => true),
             'order' => 1,
             'a' => array('class' => 'bldblue'),
-            'icon' => 'ico-home',
+            'icon' => 'home',
         );
 
         $menu['admin'] = array(
@@ -86,7 +86,7 @@ class JFCoreExtension extends Extension implements IExtension {
             'submenu' => array(),
             'order' => 100,
             'a' => array('class' => 'blgreen'),
-            'icon' => 'ico-lab',
+            'icon' => 'cogs',
         );
         if($container->getParameter("kernel.environment") == 'dev') {
             $menu['utility']['submenu'][] = array(

@@ -79,9 +79,8 @@ class MenuBuilder {
                 } else {
                     if (isset($voce['submenu'])) {
                         $vm = $menu->addChild($voce['label'], array('url' => 'javascript:void(0);'));
-                        $vm->setAttribute('class', 'submenu');
                         $this->buildHeaderMenu($vm, $voce['submenu'], $route, $level +1);
-                        $vm->setChildrenAttribute('class', 'sub');
+                        $vm->setChildrenAttribute('class', 'sub-menu');
                         if(!$vm->hasChildren()) {
                             $vm->setDisplay(false);
                         }
@@ -163,6 +162,7 @@ class MenuBuilder {
 
     private function active(\Knp\Menu\MenuItem $vm) {
         if(!$vm->isRoot()) {
+            $vm->setExtra('active', true);
             $vm->setAttribute('class', 'active');
             $this->active($vm->getParent());
         }

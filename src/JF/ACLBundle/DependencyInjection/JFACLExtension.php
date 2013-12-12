@@ -66,7 +66,7 @@ class JFACLExtension extends Extension implements IExtension {
             'show' => array('logged' => false),
             'order' => 999,
             'a' => array('class' => 'blyellow'),
-            'icon' => 'ico-lock',
+            'icon' => 'lock',
         );
 
         $menu['profilo'] = array(
@@ -75,7 +75,7 @@ class JFACLExtension extends Extension implements IExtension {
             'show' => array('logged' => true),
             'order' => 999,
             'a' => array('class' => 'blyellow'),
-            'icon' => 'ico-user',
+            'icon' => 'user',
         );
         $menu['profilo']['submenu'][] = array(
             'label' => 'Visualizza',

@@ -1,0 +1,8 @@
+.no-display {
+    display: none;
+}
+
+.trasparent {
+    background: none !important;
+    background-color: transparent !important;
+}

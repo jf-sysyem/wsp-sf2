@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="it" class="ie8 no-js"> <![endif]-->
+<!--[if IE 9]> <html lang="it" class="ie9 no-js"> <![endif]-->
+<!--[if !IE]><!--> <html lang="it" class="no-js"> <!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+	<meta charset="utf-8" />
+	<title>{% block title %}Metronic | Admin Dashboard Template{% endblock title %}</title>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="{% block description %}{% endblock description %}" name="description" />
+	<meta content="{% block author %}{% endblock author %}" name="author" />
+	<meta name="MobileOptimized" content="320">
+        
+        {% include "MetronicAdminBundle::layout/stylesheets.html.twig" %}
+        {% block css %}{% endblock %}
+        <script type="text/css">
+            {% block inline_css %}{% endblock %}
+        </script>
+        
+        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body class="page-header-fixed">
+        {% render(controller("MetronicAdminBundle:Render:header")) %}
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container">
+            {% include "MetronicAdminBundle::layout/sidebar.html.twig" %}
+            <!-- BEGIN PAGE -->
+            <div class="page-content">
+                {% include "MetronicAdminBundle::layout/content/modal_form.html.twig" %}
+                {% if nocostumizerstyle is not defined or not nocostumizerstyle %}
+                    {% include "MetronicAdminBundle::layout/content/style_customizer.html.twig" %}
+                {% endif %}
+                {% include "MetronicAdminBundle::layout/content/header.html.twig" %}
+                <div class="clearfix"></div>
+                {% block content %}{% endblock %}
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+        {% include "MetronicAdminBundle::layout/footer.html.twig" %}
+        {% include "MetronicAdminBundle::layout/javascripts.html.twig" %}
+        {% block js %}{% endblock %}
+        <script>
+            {% block inline_js %}{% endblock %}
+            jQuery(document).ready(function() {
+                App.init(); // initlayout and core plugins
+                {% block ready_js %}{% endblock %}
+            });
+        </script>
+    </body>
+    <!-- END BODY -->
+</html>       

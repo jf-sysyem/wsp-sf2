@@ -1,0 +1,64 @@
+{% extends 'knp_menu.html.twig' %}
+
+{% block spanElement %}<a href="javascript:;"{{ knp_menu.attributes(item.linkAttributes) }}>{{ block('label') }}</a>{% endblock %}
+
+{% block list %}
+{% import 'knp_menu.html.twig' as macros %}
+
+{% spaceless %}
+{% if item.hasChildren and options.depth is not sameas(0) and item.displayChildren %}
+    {% if item.isRoot %}
+        <ul class="page-sidebar-menu"{{ macros.attributes(listAttributes) }}>
+            <li>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+                <div class="sidebar-toggler hidden-phone"></div>
+                <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            </li>
+            <li>
+                <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+                <form class="sidebar-search" method="GET">
+                    <div class="form-container">
+                        <div class="input-box">
+                            <a href="javascript:;" class="remove"></a>
+                            <input type="text" placeholder="{{ "sidebar.search"|trans({}, "MetronicAdminLayout") }}"/>
+                            <input type="button" class="submit" value=" "/>
+                        </div>
+                    </div>
+                </form>
+                <!-- END RESPONSIVE QUICK SEARCH FORM -->
+            </li>
+            {{ block('children') }}
+        </ul>
+    {% else %}
+        <ul{{ knp_menu.attributes(listAttributes) }}> {# class="sub-menu" #}
+            {{ block('children') }}
+        </ul>
+    {% endif %}
+{% endif %}
+{% endspaceless %}
+{% endblock %}
+
+{% block label %}
+{% spaceless %}
+{% if item.extra('icon') %}
+    <i class="fa fa-{{ item.extra('icon') }}"></i>
+{% endif %}
+{% if item.parent.isRoot %}
+    <span class="title">{{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages')) }}</span>
+    {% if item.extra('new') %}
+        <span class="badge badge-roundless badge-important">new</span>
+    {% endif %}
+{% else %}
+    {% if item.extra('new') %}
+        <span class="badge badge-roundless badge-important">new</span>
+    {% endif %}
+    {{ item.label|trans(item.getExtra('translation_params', {}), item.getExtra('translation_domain', 'messages')) }}
+{% endif %}
+{% if item.extra('active') and item.parent.isRoot %}
+    <span class="selected"></span>
+{% endif %}
+{% if item.hasChildren %}
+    <span class="arrow {% if item.extra('active') %}open{% endif %}"></span>
+{% endif %}
+{% endspaceless %}
+{% endblock %}

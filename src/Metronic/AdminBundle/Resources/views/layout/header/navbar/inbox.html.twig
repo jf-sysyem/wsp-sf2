@@ -1,0 +1,38 @@
+{% if inbox is defined %}
+<!-- BEGIN INBOX DROPDOWN -->
+<li class="dropdown" id="header_inbox_bar">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown"
+       data-close-others="true">
+        <i class="fa fa-envelope"></i>
+        <span class="badge">{{ inbox|length }}</span>
+    </a>
+    <ul class="dropdown-menu extended inbox">
+        <li>
+            <p>{{ 'header.inbox.new'|transchoice(inbox|length, {'count': inbox|length}, "MetronicAdminLayout") }}</p>
+        </li>
+        <li>
+            <ul class="dropdown-menu-list scroller" style="height: 250px;">
+                {% for message in inbox %}
+                <li>  
+                    <a href="{% if message.route %}{{ path(message.route, message.routeParams) }}{% else %}javascript:;{% endif %}">
+                        <span class="photo"><img src="{{ asset(message.userAvatar) }}" alt=""/></span>
+                        <span class="subject">
+                            <span class="from">{{ message.sender }}</span>
+                            <span class="time" time="{{ message.sendedAt|date('Y-m-d H:i:s') }}"></span>
+                        </span>
+                        <span class="message">
+                            {% if message.subject %}<b>{{ message.subject }}</b><br/>{% endif %}
+                            {{ message.message }}
+                        </span>  
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="external">   
+            <a href="inbox.html">{{ 'header.notification.all'|trans({}, "MetronicAdminLayout") }} <i class="m-icon-swapright"></i></a>
+        </li>
+    </ul>
+</li>
+<!-- END INBOX DROPDOWN -->
+{% endif %}
