@@ -16,7 +16,7 @@ content:
         
 # Contact
 contact:
-    question: Vuoi essere uno dei primi a iscriverti a <b>World Sticker Price</b>?
+    question: Vuoi essere uno dei primi a iscriverti a<br/><b>World Sticker Price</b>?
     placeholder: Scrivi qui la tua email
     button: Scrivici
     postaction: e ti contatteremo presto!
