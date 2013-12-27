@@ -20,9 +20,19 @@ class Configuration implements ConfigurationInterface
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('jf_acl');
 
-        // Here you should define the parameters that are allowed to
-        // configure your bundle. See the documentation linked above for
-        // more information on that topic.
+
+        $rootNode
+                ->children()
+                    ->arrayNode('cliente')
+                        ->addDefaultsIfNotSet()
+                        ->children()
+                            ->scalarNode('class')->defaultValue('Ephp\ACLBundle\Entity\Cliente')->cannotBeEmpty()->end()
+                            ->scalarNode('form')->defaultValue('Ephp\ACLBundle\Form\ClienteType')->cannotBeEmpty()->end()
+                        ->end()
+                    ->end()
+                ->end()
+        ;
+
 
         return $treeBuilder;
     }

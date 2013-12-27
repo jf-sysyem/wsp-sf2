@@ -10,6 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="acl_gestori")
  * @ORM\Entity(repositoryClass="JF\ACLBundle\Entity\GestoreRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Gestore extends BaseUser {
 
@@ -42,6 +43,13 @@ class Gestore extends BaseUser {
      * @ORM\Column(name="telefono", type="string", length=16)
      */
     protected $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="codice_invito", type="string", length=10, nullable=true)
+     */
+    protected $codiceInvito;
 
     /**
      * @var Cliente
@@ -121,6 +129,27 @@ class Gestore extends BaseUser {
      */
     public function getTelefono() {
         return $this->telefono;
+    }
+    
+    /**
+     * Set codiceInvito
+     *
+     * @param string $codiceInvito
+     * @return Gestore
+     */
+    public function setCodiceInvito($codiceInvito) {
+        $this->codiceInvito = $codiceInvito;
+
+        return $this;
+    }
+
+    /**
+     * Get codiceInvito
+     *
+     * @return string
+     */
+    public function getCodiceInvito() {
+        return $this->codiceInvito;
     }
 
     /**
@@ -207,4 +236,25 @@ class Gestore extends BaseUser {
         return $this;
     }
 
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist() {
+        if(!$this->getSigla()) {
+            $this->setSigla($this->getUsername());
+        }
+        if(!$this->getNome()) {
+            $this->setNome('');
+        }
+        if(!$this->getFirstname()) {
+            $this->setFirstname('');
+        }
+        if(!$this->getLastname()) {
+            $this->setLastname('');
+        }
+        if(!$this->getTelefono()) {
+            $this->setTelefono('');
+        }
+    }
+    
 }

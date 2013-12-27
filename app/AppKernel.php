@@ -36,9 +36,13 @@ class AppKernel extends Kernel {
             new JF\GeneratorBundle\JFGeneratorBundle(),
             new JF\CoreBundle\JFCoreBundle(),
             new JF\ACLBundle\JFACLBundle(),
+            
             new Metronic\AdminBundle\MetronicAdminBundle(),
+            
             new WSP\PromoBundle\WSPPromoBundle(),
             new WSP\AdminBundle\WSPAdminBundle(),
+            new WSP\ACLBundle\WSPACLBundle(),
+            new Hours\VideoBundle\HoursVideoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

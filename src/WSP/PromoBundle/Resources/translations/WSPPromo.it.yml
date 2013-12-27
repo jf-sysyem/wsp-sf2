@@ -4,7 +4,7 @@ slogan:
     
 # Content
 content:
-    business: Il tuo <b>Business</b><br/>è il nostro <b>Business</b>
+    business: Il tuo <b>Business</b> è il nostro <b>Business</b>
     businessdetail: Qui ci va una frase abbastanza lunga dove viene <b>spiegato</b> cosa si intente con lo slogan <i>"Il tuo <b>Business</b> è il nostro <b>Business</b>"</i>
     frasi: 
         1: Sei più ganzo degli altri
@@ -12,7 +12,7 @@ content:
         3: Non indugiare e contattaci
         4: Ma che cosa stai aspettando
         5: Non sai cosa ti perdi
-    moreinfo: Vuoi più informazioni?<br/>Torna a visitarci, presto saremo<br/><b>On-Line</b>
+    moreinfo: Vuoi più informazioni?<br/>Torna a visitarci, presto saremo <b>On-Line</b>
         
 # Contact
 contact:
@@ -20,6 +20,7 @@ contact:
     placeholder: Scrivi qui la tua email
     button: Scrivici
     postaction: e ti contatteremo presto!
+    number: "{0}Scrivici immediatamente!|{1}Un negozio ha già chiesto di registrarsi!|]2,Inf]%n% negozi hanno già chiesto di registrarsi!"
     response:
         new: La tua richiesta è stata registrata.<br/>Verrai contattato tramite l'indirizzo email %email%. 
         already: È già presente una richiesta registrata con l'indirizzo email<br/>%email%<br/>effettuata il %data%.<br/>La tua richiesta è stata sollecitata. 
@@ -29,3 +30,12 @@ contact:
         contact:
             required: Scrivere la propria email
             email: L'email inserita non è valida
+
+# Pagine
+page:
+    about:
+        title: Chi siamo
+        text: Testo a piacere <b>1</b>...
+    philosophy:
+        title: La nostra filosofia
+        text: Testo a piacere <b>2</b>...

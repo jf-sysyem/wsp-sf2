@@ -30,7 +30,8 @@ twig:
     debug:            %kernel.debug%
     strict_variables: %kernel.debug%
     globals:
-        page_title: World Sticker Price 
+        page_title: World Sticker Price
+        logo: /bundles/wspadmin/images/logo_favicon.png     
 
 # Assetic Configuration
 assetic:
@@ -94,7 +95,7 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
-            template:   FOSUserBundle:Email:registrazioneAccount.txt.twig
+            template:   WSPACLBundle:email:registrazioneAccount.html.twig
             from_email:
                 address:        %mailer_user%
                 sender_name:    %mailer_user%    
@@ -111,9 +112,9 @@ hwi_oauth:
         username_iterations: 30
         properties:
             # these properties will be used/redefined later in the custom FOSUBUserProvider service.
+            twitter: twitter_id
             facebook: facebook_id
             #google: google_id
-            twitter: twitter_id
     resource_owners:
         twitter:
             type:                twitter

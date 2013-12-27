@@ -14,10 +14,35 @@ class DefaultController extends Controller {
 
     /**
      * @Route("/", name="promo_index")
+     * @Route("/", name="home")
      * @Template()
      */
     public function indexAction() {
-        return array();
+        $n = $this->countDql('WSPPromoBundle:Contatto');
+        return array(
+            'richieste' => $n,
+        );
+    }
+
+    /**
+     * @Route("/video", name="promo_video")
+     * @Template()
+     */
+    public function videoAction() {
+        $n = $this->countDql('WSPPromoBundle:Contatto');
+        return array(
+            'sections' => array(
+                array(
+                    'title' => 'page.about.title',
+                    'text' => 'page.about.text'
+                ),
+                array(
+                    'title' => 'page.philosophy.title',
+                    'text' => 'page.philosophy.text'
+                ),
+            ),
+            'richieste' => $n,
+        );
     }
 
     /**

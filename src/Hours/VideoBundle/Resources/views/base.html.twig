@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+    <head>
+
+        <meta charset="utf-8">
+        <title>{% block title %}Hours Video template{% endblock title %}</title>
+
+        <meta name="description" content="{% block description %}{% endblock description %}">
+        <meta name="author" content="{% block author %}{% endblock author %}">
+
+        <meta name="keywords" content="{% block keywords %}{% endblock keywords %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+{% include "HoursVideoBundle::layout/stylesheets.html.twig" %}
+{% block css %}{% endblock %}
+        <script type="text/css">
+            {% block inline_css %}{% endblock %}
+        </script>
+
+    </head>
+    <body>
+
+
+        <!-- site loader -->
+        <div class="loader"></div>
+        <!-- site loader end -->
+
+
+        <!-- curtains -->
+        <div id="curtains"></div>
+        <!-- curtains end -->
+
+
+        <!-- shade -->
+        <div id="shade"></div>
+        <!-- shade end -->
+
+        {% render(controller("HoursVideoBundle:Render:social")) %}
+
+        {% render(controller("HoursVideoBundle:Render:youtube")) %}
+
+        <!-- hours wrapper -->
+        <div id="hours-wrapper">
+            <div class="hours-wrapper">
+
+                <!-- intro -->
+                <div class="intro">
+                    <div class="introduction">
+
+                        <!-- author -->
+                        <div id="intro-author">{% block slogan %}AN EX NIHILO TEMPLATE{% endblock slogan %}</div>
+                        <!-- author end -->
+                        {% if title_logo is not defined %}
+                        <div id="intro-title">{% block intro_title %}HOURS{% endblock intro_title %}</div>
+                        {% else %}
+                        <div id="intro-title-img" title="{% block img_title %}HOURS{% endblock img_title %}"></div>
+                        {% endif %}
+
+                        <!-- countdown -->
+                        <div id="countdown-wrapper">
+                            <div id="countdown-wrap">
+                                <ul id="countdown">
+                                    <!-- days -->
+                                    <li><span class="days">00</span>
+                                        <p class="timeRefDays">days</p>
+                                    </li>
+                                    <!-- days end -->
+                                    <!-- hours -->
+                                    <li><span class="hours">00</span>
+                                        <p class="timeRefHours">hours</p>
+                                    </li>
+                                    <!-- hours end -->
+                                    <!-- minutes -->
+                                    <li><span class="minutes">00</span>
+                                        <p class="timeRefMinutes">minutes</p>
+                                    </li>
+                                    <!-- minutes end -->
+                                    <!-- seconds -->
+                                    <li><span class="seconds">00</span>
+                                        <p class="timeRefSeconds">seconds</p>
+                                    </li>
+                                    <!-- seconds end -->
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- countdown end -->
+
+                        <!-- intro line -->
+                        <div><span class="intro-line"></span><span class="intro-intro">{% block base %}A MATTER SECONDS{% endblock base %}</span></div>
+                        <!-- intro line end -->
+
+                    </div>
+                </div>
+                <!-- intro end -->
+
+
+                <!-- page -->
+                <div id="page" class="hide">
+                    <div id="content-wrapper">
+
+                        {% if sections is defined %}
+                            {% for section in sections %}
+                                {% if translateDomain is defined %} 
+                                    <section id="section{{ loop.index }}">
+                                        <!-- content -->
+                                        <div class="content" id="content{{ loop.index }}">
+                                            <!-- container -->
+                                            <div class="container left">
+
+                                                <h1>{{ section.title|trans({}, translateDomain) }}</h1>
+                                                    {% if section.text is defined %}
+                                                <div class="sixteen columns">
+                                                    {% if section.params is defined %}
+                                                        <p>{{ section.text|trans(section.params, translateDomain)|raw }}</p>
+                                                    {% else %}
+                                                        <p>{{ section.text|trans({}, translateDomain)|raw }}</p>
+                                                    {% endif  %}
+                                                </div>
+                                                    {% endif %}
+                                                    {% if section.parts is defined %}
+                                                        {% for part in section.parts %}
+                                                            <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
+                                                                {% if section.params is defined %}
+                                                                    {{ part.text|trans(part.params, translateDomain)|raw }}
+                                                                {% else %}
+                                                                    {{ part.text|trans({}, translateDomain)|raw }}
+                                                                {% endif  %}
+                                                            </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                            </div>
+                                            <!-- container end -->
+                                        </div>
+                                        <!-- content end -->
+                                    </section>
+                                {% else %} 
+                                    <section id="section{{ loop.index }}">
+                                        <!-- content -->
+                                        <div class="content" id="content{{ loop.index }}">
+                                            <!-- container -->
+                                            <div class="container left">
+
+                                                <h1>{{ section.title }}</h1>
+                                                    {% if section.text is defined %}
+                                                <div class="sixteen columns">
+                                                    <p>{{ section.text|raw }}</p>
+                                                </div>
+                                                    {% endif %}
+                                                    {% if section.parts is defined %}
+                                                        {% for part in section.parts %}
+                                                <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
+                                                                {{ part|raw }}
+                                                </div>
+                                                        {% endfor %}
+                                                    {% endif %}
+                                            </div>
+                                            <!-- container end -->
+                                        </div>
+                                        <!-- content end -->
+                                    </section>
+                                {% endif %} 
+                            {% endfor %}
+                        {% else %}
+                        <!-- about -->
+                        <section id="section1">
+                            <!-- content -->
+                            <div class="content" id="about">
+                                <!-- container -->
+                                <div class="container left">
+
+                                    <h1>About</h1>
+
+                                    <!-- about column -->
+                                    <!-- sixteen columns -->
+                                    <div class="sixteen columns">
+                                        <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Donec placerat congue leo, nec vehicula elit vehicula vel. Duis odio nibh, malesuada sed luctus ut, consectetur vel dui. Mauris vel imperdiet nulla. Sed eu ligula augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a justo nec elit feugiat facilisis quis quis elit.</p>
+                                        <p>Curabitur gravida, magna id condimentum convallis, nibh odio tristique lorem, vel imperdiet ipsum lorem nec ligula. Maecenas volutpat erat quis nisi fermentum malesuada. Fusce accumsan, diam eu aliquet vehicula, turpis tortor sagittis dolor, eu lobortis justo elit quis justo. Donec enim leo, imperdiet ut auctor in, consequat a lectus. Sed in aliquet justo. In sit amet dui urna, ac fermentum eros.</p>
+                                    </div>
+                                    <!-- sixteen columns end -->
+                                    <!-- about column end -->
+
+                                </div>
+                                <!-- container end -->
+                            </div>
+                            <!-- content end -->
+                        </section>
+                        <!-- about end -->
+
+
+                        <!-- services -->
+                        <section id="section2" class="hide">
+                            <!-- content -->
+                            <div class="content" id="services">
+                                <!-- container -->
+                                <div class="container left">
+
+                                    <h1>Services</h1>
+
+                                    <!-- services column 1 -->
+                                    <!-- eight columns -->
+                                    <div class="eight columns column">
+                                        <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Donec placerat congue leo, nec vehicula elit vehicula vel. Duis odio nibh, malesuada sed luctus ut, consectetur vel dui.</p>
+                                        <p>Mauris vel imperdiet nulla. Sed eu ligula augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a justo nec elit feugiat facilisis quis quis elit.</p>
+                                    </div>
+                                    <!-- eight columns end -->
+                                    <!-- services column 1 end -->
+
+                                    <!-- services column 2 -->
+                                    <!-- eight columns -->
+                                    <div class="eight columns column">
+                                        <p>Lorem ipsum dolor sit amet, <a href="#">consectetur adipiscing elit</a>. Donec placerat congue leo, nec vehicula elit vehicula vel. Duis odio nibh, malesuada sed luctus ut, consectetur vel dui.</p>
+                                        <p>Mauris vel imperdiet nulla. Sed eu ligula augue. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a justo nec elit feugiat facilisis quis quis elit.</p>
+                                    </div>
+                                    <!-- eight columns end -->
+                                    <!-- services column 2 end -->
+
+                                </div>
+                                <!-- container end -->
+                            </div>
+                            <!-- content end -->
+                        </section>
+                        <!-- services end -->
+
+
+                        <!-- contact -->
+                        <section id="section3" class="hide">
+                            <!-- content -->
+                            <div class="content" id="contact">
+                                <!-- container -->
+                                <div class="container left">
+
+                                    <h1>Contact</h1>
+
+                                    <!-- contact column 1 -->
+                                    <!-- one third column -->
+                                    <div class="one-third column">
+                                        <div class="info-address">
+                                            <p><strong>Address</strong><br>
+                                                ex nihilo, Inc.<br>
+                                                Touchdown Dr<br>
+                                                1176</p>
+                                        </div>
+                                    </div>
+                                    <!-- one third column end -->
+                                    <!-- contact column 1 end -->
+
+                                    <!-- contact column 2 -->
+                                    <!-- one third column -->
+                                    <div class="one-third column">
+                                        <div class="info-phone">
+                                            <p><strong>Telephone</strong><br>
+                                                [00] 11 - 76<br>
+                                                [01] 11 - 76</p>
+                                        </div>
+                                    </div>
+                                    <!-- one third column end -->
+                                    <!-- contact column 2 end -->
+
+                                    <!-- contact column 3 -->
+                                    <!-- one third column -->
+                                    <div class="one-third column">
+                                        <div class="info-email">
+                                            <p><strong>Email</strong><br>
+                                                <a href="mailto:you@yoursite.com">you@yoursite.com</a></p>
+                                        </div>
+                                    </div>
+                                    <!-- one third column end -->
+                                    <!-- contact column 3 end -->
+
+                                </div>
+                                <!-- container end -->
+                            </div>
+                            <!-- content end -->
+                        </section>
+                        <!-- contact end -->
+                        {% endif %}
+
+                    </div>
+                </div>
+                <!-- page end -->
+
+
+            </div>
+        </div>
+        <!-- hours wrapper end -->
+
+
+        <!-- menu -->
+        <div class="menu-mobile">
+            <ul>
+                <li>
+                    <ul>
+                        {% if sections is defined %}
+                            {% for section in sections %}
+                                <li class="lifting"><a class="menu" href="#section{{ loop.index }}">{{ section.title }}</a></li>
+                            {% endfor %}
+                        {% else %}
+                            <li class="lifting"><a class="menu" href="#section1">About</a></li>
+                            <li class="lifting"><a class="menu" href="#section2">Services</a></li>
+                            <li class="lifting"><a class="menu" href="#section3">Contact</a></li>
+                            <li class="lifting-first"><a class="menu" href="http://themeforest.net/item/hours-responsive-coming-soon-page/6191047?ref=ex-nihilo" target="_top">Purchase</a>
+                        {% endif %}
+                    </ul>
+                    <a class="menu-trigger" href="#">Menu</a></li>
+            </ul>
+        </div>
+        <!-- menu end -->
+
+
+        <!-- top panel -->
+        <div id="top-panel-container">
+            <div id="top-panel">
+                <div id="panel">
+                    <div id="panel-contents">
+
+                        <!-- newsletter form -->
+                        <div id="subscribe-wrapper">
+                            <div id="newsletter">
+                                <div class="newsletter">
+{% block form %}
+                                    {% render(controller("HoursVideoBundle:Render:subscribe")) %}
+{% endblock form %}
+                                </div>
+                            </div>
+                        </div>
+                        <!-- newsletter form end -->
+
+                    </div>
+                </div>
+                <div class="panel-button"><a href="#">{{ "form.open"|trans({}, "HoursVideo") }}</a></div>
+                <div class="panel-button" id="close-button"><a href="#">{{ "form.close"|trans({}, "HoursVideo") }}</a></div>
+            </div>
+        </div>
+        <!-- top panel end -->
+
+{% include "HoursVideoBundle::layout/javascripts.html.twig" %}
+{% block js %}{% endblock %}
+        <script type="text/javascript">
+            {% block inline_js %}{% endblock %}
+            jQuery(document).ready(function() {
+                ComingSoon.init();
+                {% block ready_js %}{% endblock %}
+            });
+        </script>
+
+    </body>
+</html>

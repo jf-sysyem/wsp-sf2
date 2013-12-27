@@ -1,0 +1,12 @@
+{% extends "::email.html.twig" %}
+
+{% block title %}Conferma il tuo account{% endblock title %}
+
+{% block content %}
+<h2 class="h2">{{ "email.registration.title"|trans({}, 'WSPACL') }}</h2>
+<br />
+<div class="textdark">
+    {{ "email.registration.message"|trans({'%name%': user.nickname}, 'WSPACL') }}  
+    <a href="{{ confirmationUrl }}" target="_blank">{{ "email.registration.activate"|trans({}, 'WSPACL') }} </a>. 
+</div>
+{% endblock content %}

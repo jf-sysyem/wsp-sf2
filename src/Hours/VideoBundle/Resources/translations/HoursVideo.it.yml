@@ -1,0 +1,8 @@
+# Sidebar
+form:
+    open: Iscriviti alla newsletter
+    close: Chiudi
+    label: EMAIL
+    placeholder: Inserisci qui la tua email
+    button: Iscriviti
+    

@@ -1,0 +1,9 @@
+jf_acl_rubrica:
+    resource: "@JFACLBundle/Controller/RubricaController.php"
+    type:     annotation
+    prefix:   /
+    
+jf_acl_cliente:
+    resource: "@JFACLBundle/Controller/ClienteController.php"
+    type:     annotation
+    prefix:   /

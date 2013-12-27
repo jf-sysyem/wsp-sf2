@@ -25,7 +25,12 @@ class JFACLExtension extends Extension implements IExtension {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('jf_acl.cliente.entity', $config['cliente']['class']);
+        $container->setParameter('jf_acl.cliente.class', '\\'.$config['cliente']['class']);
+        $container->setParameter('jf_acl.cliente.form', '\\'.$config['cliente']['form']);
+        
         $this->configure($container);
+        
 
         $loaderYml = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loaderYml->load('services.yml');

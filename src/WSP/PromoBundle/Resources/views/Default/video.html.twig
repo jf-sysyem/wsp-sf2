@@ -1,0 +1,11 @@
+{% set translateDomain = 'HoursVideo' %}
+
+{% extends "::video.html.twig" %}
+
+{% block slogan %}World Sticker Price{% endblock slogan %}
+
+{% block intro_title %}WSP{% endblock intro_title %}
+
+{% block img_title %}{{ 'content.businessdetail'|trans({}, "WSPPromo")|raw }}{% endblock img_title %}
+
+{% block base %}{{ 'content.business'|trans({}, "WSPPromo")|raw }}{% endblock base %}

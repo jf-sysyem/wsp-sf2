@@ -35,9 +35,10 @@ ContactForm.init();
 <h3 class="slogan">{{ 'content.business'|trans({}, "WSPPromo")|raw }}</h3>
 <div class="testo">
     <p>{{ 'content.businessdetail'|trans({}, "WSPPromo")|raw }}</p>
-    <p id="spot">
+{#    <p id="spot">
         {{ 'content.frasi.1'|trans({}, "WSPPromo")|raw }}
     </p>
+#}
 </div>
 <h4 class="slogan">{{ 'content.moreinfo'|trans({}, "WSPPromo")|raw }}</h4>
 {% endblock %}
@@ -49,10 +50,11 @@ ContactForm.init();
             <div class="input-group input-large">
                     <input id="contact_email" type="email" class="form-control" name="contact" placeholder="{{ 'contact.placeholder'|trans({}, "WSPPromo") }}">
                     <span class="input-group-btn">
-                    <button class="btn yellow" id="contact_btn" type="button"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-white"></i></button>
+                        <button class="btn yellow" id="contact_btn" type="subimt"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-white"></i></button>
                     </span>
             </div>
     </form> {{ 'contact.postaction'|trans({}, "WSPPromo")|raw }}
+    {{ 'contact.number'|transchoice(richieste, {'%n%': richieste}, "WSPPromo")|raw }}<br/>
 </div>
 <div class="coming-soon-countdown">
     <div id="defaultCountdown"></div>

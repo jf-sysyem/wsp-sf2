@@ -47,6 +47,7 @@ class ClienteController extends Controller {
      * Creates a new Cliente entity.
      *
      * @Route("/", name="eph_clienti_create", options={"ACL": {"in_role": "R_EPH"}})
+     * @Route("/", name="eph_clienti_configure_save")
      * @Method("POST")
      * @Template("JFACLBundle:Cliente:new.html.twig")
      */
@@ -80,12 +81,13 @@ class ClienteController extends Controller {
      * Displays a form to create a new Cliente entity.
      *
      * @Route("/new", name="eph_clienti_new", options={"ACL": {"in_role": "R_EPH"}})
+     * @Route("/configure", name="eph_clienti_configure")
      * @Method("GET")
      * @Template()
      */
     public function newAction() {
         $entity = new Cliente();
-        $form = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity, $this->getParam('_route') == 'eph_clienti_configure');
 
         return array(
             'entity' => $entity,
@@ -100,9 +102,10 @@ class ClienteController extends Controller {
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Cliente $entity) {
+    private function createCreateForm(Cliente $entity, $cofigure = false) {
+        $formType = $this->container->getParameter('jf_acl.cliente.form');
         $form = $this->createForm(new ClienteType(), $entity, array(
-            'action' => $this->generateUrl('eph_clienti_create'),
+            'action' => $this->generateUrl($cofigure ? 'eph_clienti_configure_save' : 'eph_clienti_create'),
             'method' => 'POST',
         ));
 

@@ -1,0 +1,15 @@
+# Login
+login:
+    title: Login to your account
+# Forget
+forget:
+    question: Forgot your password ?
+    answer:
+        start: No worries, click
+        link: here
+        end: to reset your password.
+# Register
+register:
+    question: Don't have an account yet?
+    link: Create an account
+        

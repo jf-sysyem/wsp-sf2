@@ -1,0 +1,47 @@
+# Login
+login:
+    title: Accedi a WSP
+    social: Accedi con i Social Network
+    error:
+        username:
+            required: Inserisci la tua email per accedere
+        password:
+            required: Inserisci la tua password
+# Forget
+forget:
+    question: Hai scordato la tua password?
+    answer:
+        start: Niente paura, fai click
+        link: qui
+        end: per reimpostare la password.
+    error:
+        username:
+            required: Inserisci la tua email per recuperare la password
+# Register
+register:
+    title: Registrati subito!
+    social: Registrati con i tuoi Social Network
+    insert: "Oppure inserisci i tuoi dati personali:"
+    question: Non sei ancora registrato?
+    link: Registrati ora!   
+    form:
+        username: "Nome utente:"
+        email: "Email:"
+        password: "Password:"
+        password_confirmation: "Verifica:"
+        codice_invito: "Hai un codice invito? Scrivilo qua sotto per avere un regalo:"
+        agree: "Accetto i <a href='javascript:openTds();' id='tos'>Termini di servizio</a> e il <a href='javascript:openTdp()'>Trattamento dei dati personali</a> per la privacy"
+    error:
+        agree:
+            required: È necessario accettare i Termini di servizio e il Trattamento dei dati personali
+    welcome: Benvenuto %username% su World Sticker Prize   
+    continue: Continua la registrazione delle tua attività   
+# Email
+email:
+    registration:
+        title: Conferma la tua email
+        message: Benvenuto in World Sticker Prize! Prima di iniziare a interagire con WSP devi verificare la tua email!
+        activate: Clicca qui per verificare la tua email!
+# Commons
+commons:
+    back: Torna indietro

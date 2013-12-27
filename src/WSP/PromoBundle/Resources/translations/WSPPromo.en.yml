@@ -1,22 +1,18 @@
 # Promo
 slogan:
-    h2: Your Business is our Business
+    h2: Il tuo Business è il nostro Business
     
 # Content
 content:
-    business: Your <b>Business</b><br/>is our <b>Business</b>
-    businessdetail: Qui ci va la frase abbastanza lunga tradotta in inglese dove viene <b>spiegato</b> cosa si intente con lo slogan <i>"Il tuo <b>Business</b> è il nostro <b>Business</b>"</i>
+    business: Il tuo <b>Business</b><br/>è il nostro <b>Business</b>
+    businessdetail: Qui ci va una frase abbastanza lunga dove viene <b>spiegato</b> cosa si intente con lo slogan <i>"Il tuo <b>Business</b> è il nostro <b>Business</b>"</i>
     frasi: 
         1: Sei più ganzo degli altri
         2: Prima ti iscrivi prima sei più ganzo
         3: Non indugiare e contattaci
         4: Ma che cosa stai aspettando
         5: Non sai cosa ti perdi
-    moreinfo: More info?<br/>Come back, soon<br/><b>On-Line</b>
-    response:
-        new: Your request is registred.<br/>Verrai contattato tramite l'indirizzo email %email%. 
-        already: È già presente una richiesta registrata con l'email %email% effettuata il $data%.<br/>La tua richiesta è stata sollecitata. 
-        contact: Ci risulta che un'email di risposta è già stata inviata all'indirizzo %email% in data $dataRisposta%.<br/>Se non hai ricevuto nulla, controlla nello spam della tua casella di posta elettronica. 
+    moreinfo: Vuoi più informazioni?<br/>Torna a visitarci, presto saremo<br/><b>On-Line</b>
         
 # Contact
 contact:
@@ -24,3 +20,13 @@ contact:
     placeholder: Scrivi qui la tua email
     button: Scrivici
     postaction: e ti contatteremo presto!
+    number: "{0}Scrivici immediatamente!|{1}Un negozio ha già chiesto di registrarsi!|]2,Inf]%n% negozi hanno già chiesto di registrarsi!"
+    response:
+        new: La tua richiesta è stata registrata.<br/>Verrai contattato tramite l'indirizzo email %email%. 
+        already: È già presente una richiesta registrata con l'indirizzo email<br/>%email%<br/>effettuata il %data%.<br/>La tua richiesta è stata sollecitata. 
+        contact: Ci risulta che un'email di risposta è già stata inviata all'indirizzo<br/>%email%<br/>in data %dataRisposta%.<br/>Se non hai ricevuto nulla, controlla nello spam della tua casella di posta elettronica. 
+    # Form error
+    error:
+        contact:
+            required: Scrivere la propria email
+            email: L'email inserita non è valida

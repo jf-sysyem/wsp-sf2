@@ -401,6 +401,27 @@ class UtenzeController extends Controller {
     /**
      * Creates a new Gestore entity.
      *
+     * @Route("/activate/{salt}", name="jf_acl_activate")
+     */
+    public function activateAction($salt) {
+        if ($entity = $this->findOneBy($this->container->getParameter('ephp_acl.user.class'), array('salt' => $salt))) {
+            /* @var $entity Gestore */
+            $entity
+                    ->addRole('R_REGISTERED')
+                    ->setEnabled(true)
+            ;
+            try {
+                $this->persist($entity);
+            } catch (\Exception $e) {
+                throw $e;
+            }
+        }
+        return $this->redirect($this->generateUrl('home'));
+    }
+
+    /**
+     * Creates a new Gestore entity.
+     *
      * @Route("/create-eph", name="utenze_eph_create")
      * @Method("post")
      */

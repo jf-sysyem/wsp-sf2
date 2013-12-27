@@ -1,3 +1,13 @@
+hours_video:
+    resource: "@HoursVideoBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+wspacl:
+    resource: "@WSPACLBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 wsp_admin:
     resource: "@WSPAdminBundle/Controller/"
     type:     annotation
@@ -23,6 +33,9 @@ ephp_drag_drop:
     type:     annotation
     prefix:   /
     
+_jf_acl:
+    resource: routing_jf_acl.yml
+
 _fos:
     resource: routing_fos.yml
     
