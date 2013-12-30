@@ -25,7 +25,7 @@
         {% render(controller("MetronicAdminBundle:Render:headerEmpty")) %}
         <div class="clearfix"></div>
         <!-- BEGIN CONTAINER -->
-        <div class="content {% block contentcss %}{% endblock %}">
+        <div class="content {% block contentcss %}{% endblock %}" id="content">
             {% block content %}{% endblock %}
         </div>
         {% block postcontent %}{% endblock %}

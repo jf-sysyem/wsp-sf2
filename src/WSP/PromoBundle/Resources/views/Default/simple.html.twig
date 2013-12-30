@@ -12,11 +12,13 @@
 <script src="/bundles/metronicadmin/plugins/countdown/jquery.countdown.js" type="text/javascript"></script>
 <script src="/bundles/metronicadmin/scripts/coming-soon.js" type="text/javascript"></script>
 <script src="/bundles/wsppromo/js/contact_form.js" type="text/javascript"></script>
+<script src="/bundles/wsppromo/js/vertical_justify.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ url('bazinga_exposetranslation_js', { 'domain_name': 'WSPPromo' }) }}"></script>
 {% endblock %}
 {% block ready_js %}
 ComingSoon.init();
 ContactForm.init();
+VerticalJustify.init();
 {% endblock %}
 
 {% block precontent %}
@@ -45,7 +47,7 @@ ContactForm.init();
 {% endblock %}
 
 {% block postcontent %}
-<div class="coming-soon-countdown">
+<div class="coming-soon-countdown" id="countdown">
     <div id="defaultCountdown"></div>
 </div>
 {% endblock %}
