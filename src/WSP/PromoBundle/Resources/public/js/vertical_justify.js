@@ -4,14 +4,16 @@ var VerticalJustify = function() {
     var tot_height = 0;
     var margin = 0;
     var div_logo = null;
-    var logo_top_margin = null;
+    var logo_top_margin = 30;
 
     return {
         //main function to initiate the module
         init: function() {
             div_logo = $('#logo').closest('div');
+            console.log(div_logo.css('padding-top'));
+            console.log(div_logo.css('margin-top'));
             margin = parseInt(div_logo.css('padding-top')) + parseInt(div_logo.css('margin-top')) + 10;
-            logo_top_margin = parseInt(div_logo.css('margin-top'));
+            console.log(margin);
             tot_height = $('#logo').height() + parseInt(div_logo.css('padding-top')) + parseInt(div_logo.css('margin-top')) + 
                          $('#content').height() + parseInt($('#content').css('padding-bottom')) + parseInt($('#content').css('margin-bottom')) +
                          $('#countdown').height() + parseInt($('#countdown').css('padding-top')) + parseInt($('#countdown').css('margin-top'));
