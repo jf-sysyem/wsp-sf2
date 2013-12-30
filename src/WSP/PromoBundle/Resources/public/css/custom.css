@@ -2,9 +2,9 @@
     font-family: 'helveticaregular';
     src: url('../../wspadmin/fonts/helvetica-webfont.eot');
     src: url('../../wspadmin/fonts/helvetica-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../../wspadmin/fonts/helvetica-webfont.woff') format('woff'),
-         url('../../wspadmin/fonts/helvetica-webfont.ttf') format('truetype'),
-         url('../../wspadmin/fonts/helvetica-webfont.svg#helveticaregular') format('svg');
+        url('../../wspadmin/fonts/helvetica-webfont.woff') format('woff'),
+        url('../../wspadmin/fonts/helvetica-webfont.ttf') format('truetype'),
+        url('../../wspadmin/fonts/helvetica-webfont.svg#helveticaregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
@@ -107,7 +107,7 @@
     width: 113px !important;
     text-align: center !important;
     text-shadow: 2px 2px 3px #000;
-    padding: 7px 7PX !important;
+    padding: 7px 7px !important;
 }
 
 .login .content {
@@ -149,3 +149,70 @@
     font-family: 'helveticaregular';
     margin: 0 auto;
 }
+
+@media (min-width: 992px) and (max-width: 1200px) {  
+
+}
+
+/***
+From Medium Devices Up To Larger Devices
+***/
+
+@media (min-width: 992px) { 
+
+}
+
+/***
+Up To Medium Devices
+***/
+
+@media (max-width:991px) { 
+
+}
+
+/***
+From Small Devices Up To Medium Devices
+***/
+
+@media (min-width: 768px) and (max-width: 991px) { 
+
+} 
+
+/***
+Extra Small Devices Only
+***/
+
+@media (max-width: 767px) { 
+
+}
+
+/***
+The Most Extra Small Devices Landscape Mode Only
+***/
+
+@media (max-width: 480px) {
+    .input-group .input-large {
+        width: 280px !important;
+    }
+    .login .content {
+        width: 318px !important;
+    }
+    .coming-soon-countdown {
+        width: 340px !important;
+    }
+    #defaultCountdown span.countdown_section {
+        font-size: 0.9em !important;
+        width: 78px !important;
+        padding: 5px 5px !important;
+    }
+    #defaultCountdown span.countdown_amount {
+        font-size: 1.8em !important;
+    }
+}
+
+/***
+The Most Extra Small Devices Portrait Mode Only
+***/
+
+@media (max-width: 320px) {
+}	
