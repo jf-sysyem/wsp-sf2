@@ -23,7 +23,7 @@ var VerticalJustify = function() {
                 var _tot, _margin, _area = 0;
                 _tot = windows_height - tot_height + margin - 10;
                 _margin = _tot / 4;
-                if(_margin > logo_top_margin) {
+                if(_margin > margin) {
                     _area = _tot - 2 * _margin - 10;
                     div_logo.css('margin-top', _margin + 'px');
                     $('#content').css('margin-top', _area + 'px');
