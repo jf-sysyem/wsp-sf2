@@ -3,7 +3,7 @@ var VerticalBar = function() {
     var windows_width = 0;
     var right = 0;
     var bar_height = 0;
-    var bar_class = '.vertical-title';
+    var bar_class = '.vertical-bar';
     
     return {
         //main function to initiate the module
@@ -15,6 +15,14 @@ var VerticalBar = function() {
         
         _posizionaBanner: function() {
             windows_width = $(window).width();
+            var h = 0;
+            $(bar_class).each(function(n, div) {
+                $div = $(div);
+                $span = $div.children('span');
+                $div.css('top', h + 'px');
+                h += $span.width() - $div.height();
+                console.log(n, $span.height(), $span.width(), $div.css('top'), $div.css('left'));
+            });
             right = 4 * windows_width / 5 + bar_height;
             if(windows_width < 640) {
                $(bar_class).hide(); 

@@ -9,21 +9,26 @@
     font-style: normal;
 }
 
+.vertical-barr {
+    border-top: 7px solid #ffe42e;
+    border-bottom: 7px solid #ffe42e;
+}
+
 .vertical-title {
-    font-family: 'helveticaregular';
     display: block; 
     position: relative;
 
     text-align: right;
     vertical-align: middle;
 
-    border: 7px solid #ffe42e;
     margin: 0px;
 
     font-size: 5em;
     color: #fff;
 
     background: url(../../metronicadmin/img/bg-opacity.png) repeat;
+    
+    font-family: 'helveticaregular';
 
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
@@ -42,14 +47,44 @@
     filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-.vertical-title span.red{
-    color: #d10;
+.vertical-title-transparent {
+    display: block; 
+    position: relative;
+
+    text-align: right;
+    vertical-align: middle;
+
+    margin: 0px;
+
+    font-size: 5em;
+    color: #000;
+    
+    font-family: 'helveticaregular';
+
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+
+    /*also accepts left, right, top, bottom coordinates; not required, but a good idea for styling*/ 
+    -webkit-transform-origin: 100% 0%;
+    -moz-transform-origin: 100% 0%;
+    -ms-transform-origin: 100% 00%;
+    -o-transform-origin: 100% 0%;
+    transform-origin: 100% 00%;
+
+    /* Should be unset in IE9+ I think. */
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
 }
 
-.vertical-title span.solid-yellow{
-    border: 8px solid #ffe42e;
+span.red {
+    color: #d10 !important;
+}
+
+.vertical-title-transparent span.solid-yellow{
     margin: 0px;
-    color: #000;
+    padding: 7px;
     background-color: #ffe42e;
 }
 
