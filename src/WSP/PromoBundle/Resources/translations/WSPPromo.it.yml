@@ -19,7 +19,7 @@ contact:
     question: Vuoi essere uno dei primi a iscriverti a<br/><b>World Sticker Price</b>?
     placeholder: Scrivi qui la tua email
     button: Scrivici
-    postaction: e ti contatteremo presto!
+    postaction: Scrivici! Ti contatteremo presto!
     number: "{0}Scrivici immediatamente!|{1}Un negozio ha già chiesto di registrarsi!|]2,Inf]%n% negozi hanno già chiesto di registrarsi!"
     response:
         new: La tua richiesta è stata registrata.<br/>Verrai contattato tramite l'indirizzo email %email%. 

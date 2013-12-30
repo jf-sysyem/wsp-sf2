@@ -18,6 +18,25 @@ class DefaultController extends Controller {
      * @Template()
      */
     public function indexAction() {
+        return array();
+    }
+    
+    /**
+     * @Route("/promo/vertical", name="promo_vertical")
+     * @Template()
+     */
+    public function verticalAction() {
+        $n = $this->countDql('WSPPromoBundle:Contatto');
+        return array(
+            'richieste' => $n,
+        );
+    }
+    
+    /**
+     * @Route("/promo/simple", name="promo_simple")
+     * @Template()
+     */
+    public function simpleAction() {
         $n = $this->countDql('WSPPromoBundle:Contatto');
         return array(
             'richieste' => $n,
@@ -25,7 +44,7 @@ class DefaultController extends Controller {
     }
 
     /**
-     * @Route("/video", name="promo_video")
+     * @Route("/promo/video", name="promo_video")
      * @Template()
      */
     public function videoAction() {

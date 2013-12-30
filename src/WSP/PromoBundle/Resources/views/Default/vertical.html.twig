@@ -1,0 +1,64 @@
+{% extends "::empty.html.twig" %}
+
+{% block css %}
+<link href="/bundles/metronicadmin/css/pages/coming-soon.css" rel="stylesheet" type="text/css"/>
+<link href="/bundles/wsppromo/css/custom.css" rel="stylesheet" type="text/css"/>
+
+{% endblock %}
+{% block js %}
+<script src="/bundles/wspadmin/js/soft.js" type="text/javascript"></script>
+<script src="/bundles/metronicadmin/plugins/jquery-validation/dist/jquery.validate.min.js" type="text/javascript"></script>
+<script src="/bundles/metronicadmin/plugins/jquery-validation/dist/additional-methods.min.js" type="text/javascript"></script>
+<script src="/bundles/metronicadmin/plugins/countdown/jquery.countdown.js" type="text/javascript"></script>
+<script src="/bundles/metronicadmin/scripts/coming-soon.js" type="text/javascript"></script>
+<script src="/bundles/wsppromo/js/vertical_bar.js" type="text/javascript"></script>
+<script src="/bundles/wsppromo/js/contact_form.js" type="text/javascript"></script>
+<script type="text/javascript" src="{{ url('bazinga_exposetranslation_js', { 'domain_name': 'WSPPromo' }) }}"></script>
+{% endblock %}
+{% block ready_js %}
+VerticalBar.init();
+ComingSoon.init();
+ContactForm.init();
+{% endblock %}
+
+{% block precontent %}
+<hgroup class="no-display">
+    <h1>World Sticker Prize</h1>
+    <h2>{{ 'promo.h2'|trans({}, "WSPPromo") }}</h2>
+</hgroup>
+<div class="header navbar navbar-inverse navbar-fixed-top trasparent">
+    <div class="vertical-title">
+        <span class="red">W</span>orld <span class="red">S</span>ticker <span class="solid-yellow"><span class="red">P</span>rice<span class="red">
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<h3 class="slogan">{{ 'content.business'|trans({}, "WSPPromo")|raw }}</h3>
+<div class="testo">
+    <p>{{ 'content.businessdetail'|trans({}, "WSPPromo")|raw }}</p>
+{#    <p id="spot">
+        {{ 'content.frasi.1'|trans({}, "WSPPromo")|raw }}
+    </p>
+#}
+</div>
+<h4 class="slogan">{{ 'content.moreinfo'|trans({}, "WSPPromo")|raw }}</h4>
+{% endblock %}
+
+{% block postcontent %}
+<div class="content trasparent grassetto padding10" id="contact" style="margin-top: 10px;">
+    {{ 'contact.question'|trans({}, "WSPPromo")|raw }}<br/>
+    <form class="form-inline" onsubmit="return false;">
+            <div class="input-group input-large">
+                    <input id="contact_email" type="email" class="form-control" name="contact" placeholder="{{ 'contact.placeholder'|trans({}, "WSPPromo") }}">
+                    <span class="input-group-btn">
+                        <button class="btn yellow" id="contact_btn" type="subimt"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-white"></i></button>
+                    </span>
+            </div>
+    </form> {{ 'contact.postaction'|trans({}, "WSPPromo")|raw }}
+    {{ 'contact.number'|transchoice(richieste, {'%n%': richieste}, "WSPPromo")|raw }}<br/>
+</div>
+<div class="coming-soon-countdown no-padding" style="margin-top: 0px;">
+    <div id="defaultCountdown"></div>
+</div>
+{% endblock %}
