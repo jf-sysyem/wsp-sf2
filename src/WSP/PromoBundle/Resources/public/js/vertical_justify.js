@@ -10,10 +10,7 @@ var VerticalJustify = function() {
         //main function to initiate the module
         init: function() {
             div_logo = $('#logo').closest('div');
-            console.log(div_logo.css('padding-top'));
-            console.log(div_logo.css('margin-top'));
             margin = parseInt(div_logo.css('padding-top')) + parseInt(div_logo.css('margin-top')) + 10;
-            console.log(margin);
             tot_height = $('#logo').height() + parseInt(div_logo.css('padding-top')) + parseInt(div_logo.css('margin-top')) + 
                          $('#content').height() + parseInt($('#content').css('padding-bottom')) + parseInt($('#content').css('margin-bottom')) +
                          $('#countdown').height() + parseInt($('#countdown').css('padding-top')) + parseInt($('#countdown').css('margin-top'));
@@ -23,7 +20,7 @@ var VerticalJustify = function() {
         _giustifica: function() {
             windows_height = $(window).height();
             if(tot_height + margin < windows_height) {
-                if(2 * margin < windows_height - tot_height) {
+                if(2 * margin - 10 < windows_height - tot_height) {
                     var _tot, _margin, _area = 0;
                     _tot = windows_height - tot_height + margin - 10;
                     _margin = _tot / 4;
