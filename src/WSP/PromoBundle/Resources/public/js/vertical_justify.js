@@ -20,7 +20,7 @@ var VerticalJustify = function() {
         _giustifica: function() {
             windows_height = $(window).height();
             if(tot_height + margin < windows_height) {
-                if(2 * margin - 10 < windows_height - tot_height) {
+                if(2 * margin + 10 < windows_height - tot_height) {
                     var _tot, _margin, _area = 0;
                     _tot = windows_height - tot_height + margin - 10;
                     _margin = _tot / 4;
