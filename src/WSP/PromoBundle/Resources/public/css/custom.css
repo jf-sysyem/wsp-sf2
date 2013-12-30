@@ -96,7 +96,7 @@
 
 .coming-soon-countdown {
     font-family: 'helveticaregular';
-    width: 500px ;
+    width: 470px ;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -195,14 +195,14 @@ The Most Extra Small Devices Landscape Mode Only
         width: 280px !important;
     }
     .login .content {
-        width: 318px !important;
+        width: 308px !important;
     }
     .coming-soon-countdown {
-        width: 340px !important;
+        width: 318px !important;
     }
     #defaultCountdown span.countdown_section {
         font-size: 0.9em !important;
-        width: 78px !important;
+        width: 75px !important;
         padding: 5px 5px !important;
     }
     #defaultCountdown span.countdown_amount {
