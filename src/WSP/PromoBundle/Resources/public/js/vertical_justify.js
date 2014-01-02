@@ -16,7 +16,10 @@ var VerticalJustify = function() {
             logo_top_margin = parseInt(div_logo.css('margin-top'));
             logo_height = $('#logo').height() - 10;
             tot_height = $('#content').height() + parseInt($('#content').css('padding-bottom')) + parseInt($('#content').css('margin-bottom')) +
-                         $('#countdown').height() + parseInt($('#countdown').css('padding-top')) + parseInt($('#countdown').css('margin-top'));
+                    $('#countdown').height() + parseInt($('#countdown').css('padding-top')) + parseInt($('#countdown').css('margin-top'));
+            if ($('#contact').length > 0) {
+                tot_height += $('#contact').height() + parseInt($('#contact').css('padding-bottom')) + parseInt($('#contact').css('margin-bottom')) + parseInt($('#contact').css('padding-top')) + parseInt($('#contact').css('margin-top'));
+            }
             this._giustifica();
             $(window).resize(this._giustifica);
         },
@@ -28,11 +31,11 @@ var VerticalJustify = function() {
             _tot = windows_height - tot_height - logo_height;
             _margin = _tot / 3;
 
-            if(_margin < logo_top_margin + logo_extra_margin) {
+            if (_margin < logo_top_margin + logo_extra_margin) {
                 _margin = logo_top_margin + logo_extra_margin;
             }
             _area = _tot - 2 * _margin;
-            if(_area < 0) {
+            if (_area < 0) {
                 _area = 0;
             }
             console.log([windows_height, _margin, _area]);

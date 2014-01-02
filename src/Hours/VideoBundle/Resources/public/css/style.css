@@ -192,15 +192,6 @@ body {
     text-transform: none;
 }
 
-#intro-title-img {
-    background-image: url(../images/logo_big.png);
-    background-repeat: no-repeat;
-    padding: 0;
-    margin: 5px 0 5px -7px;
-    width: 589px;
-    height: 190px;
-}
-
 .intro-line {
     width: 440px;
     height: 5px;

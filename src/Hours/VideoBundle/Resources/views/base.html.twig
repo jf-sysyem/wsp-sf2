@@ -104,63 +104,63 @@
                         {% if sections is defined %}
                             {% for section in sections %}
                                 {% if translateDomain is defined %} 
-                                    <section id="section{{ loop.index }}">
-                                        <!-- content -->
-                                        <div class="content" id="content{{ loop.index }}">
-                                            <!-- container -->
-                                            <div class="container left">
+                        <section id="section{{ loop.index }}">
+                            <!-- content -->
+                            <div class="content" id="content{{ loop.index }}">
+                                <!-- container -->
+                                <div class="container left">
 
-                                                <h1>{{ (section.title)|trans({}, translateDomain) }}</h1>
+                                    <h1>{{ (section.title)|trans({}, translateDomain) }}</h1>
                                                     {% if section.text is defined %}
-                                                <div class="sixteen columns">
+                                    <div class="sixteen columns">
                                                     {% if section.params is defined %}
-                                                        <p>{{ (section.text)|trans(section.params, translateDomain)|raw }}</p>
+                                        <p>{{ (section.text)|trans(section.params, translateDomain)|raw }}</p>
                                                     {% else %}
-                                                        <p>{{ (section.text)|trans({}, translateDomain)|raw }}</p>
+                                        <p>{{ (section.text)|trans({}, translateDomain)|raw }}</p>
                                                     {% endif  %}
-                                                </div>
+                                    </div>
                                                     {% endif %}
                                                     {% if section.parts is defined %}
                                                         {% for part in section.parts %}
-                                                            <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
+                                    <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
                                                                 {% if section.params is defined %}
                                                                     {{ (part.text)|trans(part.params, translateDomain)|raw }}
                                                                 {% else %}
                                                                     {{ (part.text)|trans({}, translateDomain)|raw }}
                                                                 {% endif  %}
-                                                            </div>
+                                    </div>
                                                         {% endfor %}
                                                     {% endif %}
-                                            </div>
-                                            <!-- container end -->
-                                        </div>
-                                        <!-- content end -->
-                                    </section>
+                                </div>
+                                <!-- container end -->
+                            </div>
+                            <!-- content end -->
+                        </section>
                                 {% else %} 
-                                    <section id="section{{ loop.index }}">
-                                        <!-- content -->
-                                        <div class="content" id="content{{ loop.index }}">
-                                            <!-- container -->
-                                            <div class="container left">
+                        <section id="section{{ loop.index }}">
+                            <!-- content -->
+                            <div class="content" id="content{{ loop.index }}">
+                                <!-- container -->
+                                <div class="container left">
 
-                                                <h1>{{ section.title }}</h1>
+                                    <h1>{{ section.title }}</h1>
                                                     {% if section.text is defined %}
-                                                <div class="sixteen columns">
-                                                    <p>{{ section.text|raw }}</p>
-                                                </div>
+                                    <div class="sixteen columns">
+                                        <p>{{ section.text|raw }}</p>
+                                    </div>
                                                     {% endif %}
                                                     {% if section.parts is defined %}
                                                         {% for part in section.parts %}
-                                                <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
+                                    <div class="{% if section.parts|length == 1 %}sixteen columns{% elseif section.parts|length == 2 %}eight columns column{% else %}one-third column">{% endif %}">
                                                                 {{ part|raw }}
-                                                </div>
+                                    </div>
                                                         {% endfor %}
                                                     {% endif %}
-                                            </div>
-                                            <!-- container end -->
-                                        </div>
-                                        <!-- content end -->
-                                    </section>
+                                </div>
+                                <!-- container end -->
+                            </div>
+                            <!-- content end -->
+                        </section>
                                 {% endif %} 
                             {% endfor %}
                         {% else %}
@@ -296,16 +296,16 @@
                         {% if sections is defined %}
                             {% for section in sections %}
                                 {% if translateDomain is defined %}
-                                    <li class="lifting"><a class="menu" href="#section{{ loop.index }}">{{ (section.title)|trans({}, translateDomain) }}</a></li>
+                        <li class="lifting"><a class="menu" href="#section{{ loop.index }}">{{ (section.title)|trans({}, translateDomain) }}</a></li>
                                 {% else %}
-                                    <li class="lifting"><a class="menu" href="#section{{ loop.index }}">{{ section.title }}</a></li>
+                        <li class="lifting"><a class="menu" href="#section{{ loop.index }}">{{ section.title }}</a></li>
                                 {% endif %}
                             {% endfor %}
                         {% else %}
-                            <li class="lifting"><a class="menu" href="#section1">About</a></li>
-                            <li class="lifting"><a class="menu" href="#section2">Services</a></li>
-                            <li class="lifting"><a class="menu" href="#section3">Contact</a></li>
-                            <li class="lifting-first"><a class="menu" href="http://themeforest.net/item/hours-responsive-coming-soon-page/6191047?ref=ex-nihilo" target="_top">Purchase</a>
+                        <li class="lifting"><a class="menu" href="#section1">About</a></li>
+                        <li class="lifting"><a class="menu" href="#section2">Services</a></li>
+                        <li class="lifting"><a class="menu" href="#section3">Contact</a></li>
+                        <li class="lifting-first"><a class="menu" href="http://themeforest.net/item/hours-responsive-coming-soon-page/6191047?ref=ex-nihilo" target="_top">Purchase</a>
                         {% endif %}
                     </ul>
                     <a class="menu-trigger" href="#">Menu</a></li>
@@ -340,6 +340,9 @@
         </div>
         <!-- top panel end -->
 
+        <script type="text/javascript">
+{% block var_js %}{% endblock %}
+        </script>
 {% include "HoursVideoBundle::layout/javascripts.html.twig" %}
 {% block js %}{% endblock %}
         <script type="text/javascript">

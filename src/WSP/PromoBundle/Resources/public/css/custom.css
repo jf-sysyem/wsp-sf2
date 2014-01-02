@@ -2,16 +2,15 @@
     font-family: 'helveticaregular';
     src: url('../../wspadmin/fonts/helvetica-webfont.eot');
     src: url('../../wspadmin/fonts/helvetica-webfont.eot?#iefix') format('embedded-opentype'),
-        url('../../wspadmin/fonts/helvetica-webfont.woff') format('woff'),
-        url('../../wspadmin/fonts/helvetica-webfont.ttf') format('truetype'),
-        url('../../wspadmin/fonts/helvetica-webfont.svg#helveticaregular') format('svg');
+         url('../../wspadmin/fonts/helvetica-webfont.woff') format('woff'),
+         url('../../wspadmin/fonts/helvetica-webfont.ttf') format('truetype'),
+         url('../../wspadmin/fonts/helvetica-webfont.svg#helveticaregular') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-.vertical-barr {
-    border-top: 7px solid #ffe42e;
-    border-bottom: 7px solid #ffe42e;
+.vertical-bar {
+    font-family: 'helveticaregular';
 }
 
 .vertical-title {
@@ -28,8 +27,6 @@
 
     background: url(../../metronicadmin/img/bg-opacity.png) repeat;
     
-    font-family: 'helveticaregular';
-
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -59,8 +56,8 @@
     font-size: 5em;
     color: #000;
     
-    font-family: 'helveticaregular';
-
+    background-color: #ffe42e;
+    
     -webkit-transform: rotate(-90deg);
     -moz-transform: rotate(-90deg);
     -ms-transform: rotate(-90deg);
@@ -84,8 +81,6 @@ span.red {
 
 .vertical-title-transparent span.solid-yellow{
     margin: 0px;
-    padding: 7px;
-    background-color: #ffe42e;
 }
 
 .slogan {
@@ -203,7 +198,9 @@ Up To Medium Devices
 ***/
 
 @media (max-width:991px) { 
-
+    .vertical-bar {
+        display: none;
+    }
 }
 
 /***

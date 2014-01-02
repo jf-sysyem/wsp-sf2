@@ -31,13 +31,6 @@
         margin: 5px 0 5px -5px;
     }
     
-    #intro-title-img {
-        background-image: url(../images/logo_medium.png);
-        width: 310px;
-        height: 100px;
-        margin: 5px 0 5px -3px;
-    }
-
     .intro-line {
         width: 340px;
     }
@@ -72,13 +65,6 @@
         font-size: 90px;
         letter-spacing: 1px;
         line-height: 90px;
-        margin: 5px 0 5px -3px;
-    }
-
-    #intro-title-img {
-        background-image: url(../images/logo_medium.png);
-        width: 310px;
-        height: 100px;
         margin: 5px 0 5px -3px;
     }
 
@@ -151,13 +137,6 @@
         font-size: 90px;
         letter-spacing: 1px;
         line-height: 90px;
-        margin: 5px 0 5px -3px;
-    }
-
-    #intro-title-img {
-        background-image: url(../images/logo_small.png);
-        width: 250px;
-        height: 81px;
         margin: 5px 0 5px -3px;
     }
 

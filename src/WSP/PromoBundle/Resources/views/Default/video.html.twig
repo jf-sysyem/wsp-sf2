@@ -1,11 +1,22 @@
 {% set translateDomain = 'WSPPromo' %}
+{% set title_logo = 'World Sticker Price' %}
 
 {% extends "::video.html.twig" %}
+
+{% block var_js %}
+    var bg = [
+        {image: '/bundles/wspadmin/images/bg/3.jpg', title: '', thumb: '', url: ''}
+    ];
+{% endblock var_js %}
+
+{% block css %}
+<link href="/bundles/wsppromo/css/video.css" rel="stylesheet" type="text/css"/>
+{% endblock css %}
 
 {% block slogan %}World Sticker Price{% endblock slogan %}
 
 {% block intro_title %}WSP{% endblock intro_title %}
 
-{% block img_title %}{{ 'content.businessdetail'|trans({}, "WSPPromo")|raw }}{% endblock img_title %}
+{% block img_title %}World Sticker Price, {{ 'content.business'|trans({}, "WSPPromo")|raw }}{% endblock img_title %}
 
 {% block base %}{{ 'content.business'|trans({}, "WSPPromo")|raw }}{% endblock base %}
