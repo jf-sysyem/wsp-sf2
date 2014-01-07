@@ -25,6 +25,8 @@ class JFCoreExtension extends Extension implements IExtension {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
+        $container->setParameter('default_home_route', $config['default_home_route']);
+
         $this->configure($container);
 
         $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
@@ -88,7 +90,7 @@ class JFCoreExtension extends Extension implements IExtension {
             'a' => array('class' => 'blgreen'),
             'icon' => 'cogs',
         );
-        if($container->getParameter("kernel.environment") == 'dev') {
+        if ($container->getParameter("kernel.environment") == 'dev') {
             $menu['utility']['submenu'][] = array(
                 'label' => 'Variabili di sistema',
                 'route' => 'debug',

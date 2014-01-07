@@ -154,3 +154,5 @@ knp_paginator:
     template:
         pagination: ::sliding.html.twig     
         
+jf_core:
+    default_home_route: negozio

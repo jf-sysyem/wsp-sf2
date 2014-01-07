@@ -15,7 +15,7 @@ class DispatcherController extends Controller {
      * @Route("/", name="index")
      */
     public function indexAction() {
-        return $this->redirect($this->generateUrl('fos_user_profile_show'));
+        return $this->redirect($this->generateUrl($this->container->getParameter('default_home_route')));
     }
 
     /**
@@ -37,11 +37,17 @@ class DispatcherController extends Controller {
         \Ephp\UtilityBundle\Utility\Debug::pr($this->getUser()->getCliente()->getDati(), true);
         $configurazione = ob_get_contents();
         ob_end_clean();
+        
+        ob_start();
+        \Ephp\UtilityBundle\Utility\Debug::pr($this->container->getParameter('jf.menu'), true);
+        $menu = ob_get_contents();
+        ob_end_clean();
 
         return array(
             'variabili' => $variabili,
             'licenze' => $licenze,
             'configurazione' => $configurazione,
+            'menu' => $menu,
         );
     }
 

@@ -30,15 +30,15 @@ class NegozioController extends Controller {
     /**
      * Lists all Negozio entities.
      *
-     * @Route("/", name="negozio")
+     * @Route("/", name="negozio", options={"ACL": {"in_role": "R_NEGOZIANTE"}})
      * @Method("GET")
      * @Template()
      */
     public function indexAction() {
-        $entities = $this->findAll('WSPACLBundle:Negozio');
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
 
         return array(
-            'entities' => $entities,
+            'negozio' => $negozio,
         );
     }
 

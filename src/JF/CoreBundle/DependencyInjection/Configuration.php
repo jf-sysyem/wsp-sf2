@@ -19,7 +19,13 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
         $rootNode = $treeBuilder->root('jf_core');
-
+        $rootNode->children()
+                    ->scalarNode('default_home_route')->defaultValue('fos_user_profile_show')->cannotBeEmpty()->end()
+                ->end()
+        ;
+        
+        
+        
         // Here you should define the parameters that are allowed to
         // configure your bundle. See the documentation linked above for
         // more information on that topic.

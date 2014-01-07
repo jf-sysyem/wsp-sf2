@@ -27,9 +27,28 @@ class WSPACLExtension extends JFACLExtension {
         $loader->load('services.xml');
     }
 
+    public function setInstall(ContainerBuilder $container) {
+        parent::setInstall($container);
+        $install = array();
+
+        $this->newInstall($install, '\WSP\ACLBundle\Controller\InstallController', 'indexAction');
+
+        $container->setParameter('jf.install', $install);
+    }
+
     public function setMenu(ContainerBuilder $container) {
         parent::setMenu($container);
         $menu = $container->getParameter('jf.menu');
+
+        $menu['negozio'] = array(
+            'label' => 'Negozio',
+            'route' => 'negozio',
+            'show' => array(
+                'in_role' => 'R_NEGOZIANTE'
+            ),
+            'order' => 15,
+            'icon' => 'building',
+        );
 
         $menu['utility']['submenu'][] = array(
             'label' => 'Categorie',

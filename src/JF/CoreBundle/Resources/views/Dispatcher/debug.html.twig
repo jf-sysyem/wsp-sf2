@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
+{% block content %}
                 
 <div class="page-header">
     <div class="icon">
@@ -28,5 +28,14 @@
 </div>
 
 {{ configurazione|raw }}
+
+<div class="page-header">
+    <div class="icon">
+        <span class="ico-cog-2"></span>
+    </div>
+    <h1>Menu</h1>
+</div>
+
+{{ menu|raw }}
 
 {% endblock %}
