@@ -2,7 +2,7 @@
     background-image: url(/bundles/wspadmin/images/video/logo_big.png);
     background-repeat: no-repeat;
     padding: 0;
-    margin: 5px 0 5px -7px;
+    margin: 5px 0 5px -40px;
     width: 361px;
     height: 190px;
 }
@@ -18,7 +18,7 @@
         background-image: url(/bundles/wspadmin/images/video/logo_medium.png);
         width: 190px;
         height: 100px;
-        margin: 5px 0 5px -3px;
+        margin: 5px 0 5px -7px;
     }
 
 }
@@ -34,9 +34,13 @@
         background-image: url(/bundles/wspadmin/images/video/logo_medium.png);
         width: 190px;
         height: 100px;
-        margin: 5px 0 5px -3px;
+        margin: 5px 0 5px -7px;
     }
 
+    .intro-line {
+        width: 310px;
+    }
+    
 }
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
@@ -46,7 +50,10 @@
         background-image: url(/bundles/wspadmin/images/video/logo_small.png);
         width: 154px;
         height: 81px;
-        margin: 5px 0 5px -3px;
+        margin: 5px 0 5px -7px;
     }
 
+    .intro-line {
+        width: 310px;
+    }
 }
