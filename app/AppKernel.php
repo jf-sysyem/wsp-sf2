@@ -23,7 +23,7 @@ class AppKernel extends Kernel {
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new PunkAve\FileUploaderBundle\PunkAveFileUploaderBundle(),
             new Liuggio\ExcelBundle\LiuggioExcelBundle(),
-            new Bazinga\ExposeTranslationBundle\BazingaExposeTranslationBundle(),
+            new Bazinga\Bundle\JsTranslationBundle\BazingaJsTranslationBundle(),
             new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
             
             new Ephp\UtilityBundle\EphpUtilityBundle(),
