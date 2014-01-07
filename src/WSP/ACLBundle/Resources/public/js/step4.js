@@ -66,36 +66,36 @@ var Step = function() {
             },
             messages: {// custom messages for radio buttons and checkboxes
                 "wsp_aclbundle_negozio[nome]": {
-                    required: Translator.get('WSPACL:negozio.error.nome.required')
+                    required: Translator.trans('negozio.error.nome.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[indirizzo]": {
-                    required: Translator.get('WSPACL:negozio.error.indirizzo.required')
+                    required: Translator.trans('negozio.error.indirizzo.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[citta]": {
-                    required: Translator.get('WSPACL:negozio.error.localita.required')
+                    required: Translator.trans('negozio.error.localita.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[cap]": {
-                    required: Translator.get('WSPACL:negozio.error.cap.required')
+                    required: Translator.trans('negozio.error.cap.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[partitaIva]": {
-                    required: Translator.get('WSPACL:negozio.error.partitaIva.required'),
-                    piva: Translator.get('WSPACL:negozio.error.partitaIva.piva')
+                    required: Translator.trans('negozio.error.partitaIva.required', {}, 'WSPACL'),
+                    piva: Translator.trans('negozio.error.partitaIva.piva', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[email]": {
-                    required: Translator.get('WSPACL:negozio.error.emailNegozio.required'),
-                    email: Translator.get('WSPACL:negozio.error.emailNegozio.email')
+                    required: Translator.trans('negozio.error.emailNegozio.required', {}, 'WSPACL'),
+                    email: Translator.trans('negozio.error.emailNegozio.email', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[sito]": {
-                    url: Translator.get('WSPACL:negozio.error.sito.url')
+                    url: Translator.trans('negozio.error.sito.url', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[telefono]": {
-                    telefono: Translator.get('WSPACL:negozio.error.telefono.telefono')
+                    telefono: Translator.trans('negozio.error.telefono.telefono', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[cellulare]": {
-                    telefono: Translator.get('WSPACL:negozio.error.cellulare.telefono')
+                    telefono: Translator.trans('negozio.error.cellulare.telefono', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[fax]": {
-                    telefono: Translator.get('WSPACL:negozio.error.fax.telefono')
+                    telefono: Translator.trans('negozio.error.fax.telefono', {}, 'WSPACL')
                 }
 
             },

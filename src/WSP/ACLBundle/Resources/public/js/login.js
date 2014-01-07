@@ -18,10 +18,10 @@ var Login = function() {
             },
             messages: {
                 _username: {
-                    required: Translator.get('WSPACL:login.error.username.required')
+                    required: Translator.trans('login.error.username.required', {}, 'WSPACL')
                 },
                 _password: {
-                    required: Translator.get('WSPACL:login.error.password.required')
+                    required: Translator.trans('login.error.password.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   
@@ -66,7 +66,7 @@ var Login = function() {
             },
             messages: {
                 username: {
-                    required: Translator.get('WSPACL:forget.error.username.required')
+                    required: Translator.trans('forget.error.username.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   
@@ -136,7 +136,7 @@ var Login = function() {
             },
             messages: {// custom messages for radio buttons and checkboxes
                 "fos_user_registration_form[agree]": {
-                    required: Translator.get('WSPACL:login.error.agree.required')
+                    required: Translator.trans('login.error.agree.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   

@@ -176,19 +176,19 @@ var Step = function() {
             },
             messages: {// custom messages for radio buttons and checkboxes
                 "wsp_aclbundle_negozio[nome]": {
-                    required: Translator.get('WSPACL:negozio.error.nome.required')
+                    required: Translator.trans('negozio.error.nome.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[indirizzo]": {
-                    required: Translator.get('WSPACL:negozio.error.indirizzo.required')
+                    required: Translator.trans('negozio.error.indirizzo.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[localita]": {
-                    required: Translator.get('WSPACL:negozio.error.localita.required')
+                    required: Translator.trans('negozio.error.localita.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[cap]": {
-                    required: Translator.get('WSPACL:negozio.error.cap.required')
+                    required: Translator.trans('negozio.error.cap.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[categoria]": {
-                    required: Translator.get('WSPACL:negozio.error.categoria.required')
+                    required: Translator.trans('negozio.error.categoria.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   

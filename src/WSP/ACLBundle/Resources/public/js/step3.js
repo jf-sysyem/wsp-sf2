@@ -44,20 +44,20 @@ var Step = function() {
             },
             messages: {// custom messages for radio buttons and checkboxes
                 "wsp_aclbundle_negozio[firstname]": {
-                    required: Translator.get('WSPACL:negozio.error.emailNegozio.required')
+                    required: Translator.trans('negozio.error.emailNegozio.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[lastname]": {
-                    required: Translator.get('WSPACL:negozio.error.sito.required')
+                    required: Translator.trans('negozio.error.sito.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[telefono]": {
-                    required: Translator.get('WSPACL:negozio.error.recapitoTelefonico.required'),
-                    telefono: Translator.get('WSPACL:negozio.error.recapitoTelefonico.telefono')
+                    required: Translator.trans('negozio.error.recapitoTelefonico.required', {}, 'WSPACL'),
+                    telefono: Translator.trans('negozio.error.recapitoTelefonico.telefono', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[birthday]": {
-                    required: Translator.get('WSPACL:negozio.error.birthday.required')
+                    required: Translator.trans('negozio.error.birthday.required', {}, 'WSPACL')
                 },
                 "wsp_aclbundle_negozio[gender]": {
-                    required: Translator.get('WSPACL:negozio.error.gender.required')
+                    required: Translator.trans('negozio.error.gender.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   

@@ -20,8 +20,8 @@ var ContactForm = function() {
                 },
                 messages: {// custom messages for radio buttons and checkboxes
                     'contact': {
-                        required: Translator.get("WSPPromo:contact.error.contact.required"),
-                        email: Translator.get("WSPPromo:contact.error.contact.email")
+                        required: Translator.trans('contact.error.contact.required', {}, 'WSPPromo'),
+                        email: Translator.trans('contact.error.contact.email', {}, 'WSPPromo')
                     }
                 },
                 invalidHandler: function(event, validator) { //display error alert on form submit   
