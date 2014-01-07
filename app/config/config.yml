@@ -95,7 +95,7 @@ fos_user:
     registration:
         confirmation:
             enabled:    true
-            template:   WSPACLBundle:email:registrazioneAccount.html.twig
+            template:   WSPACLBundle:email:registrazioneAccount.txt.twig
             from_email:
                 address:        %mailer_user%
                 sender_name:    %mailer_user%    

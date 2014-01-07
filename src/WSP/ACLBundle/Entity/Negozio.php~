@@ -1,0 +1,160 @@
+<?php
+
+namespace WSP\ACLBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Negozio
+ *
+ * @ORM\Table(name="acl_negozio")
+ * @ORM\Entity(repositoryClass="WSP\ACLBundle\Entity\NegozioRepository")
+ */
+class Negozio
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var \JF\ACLBundle\Entity\Cliente
+     * 
+     * @ORM\ManyToOne(targetEntity="JF\ACLBundle\Entity\Cliente")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id", nullable=true)
+     */
+    private $cliente;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nome", type="string", length=255)
+     */
+    private $nome;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="indirizzo", type="string", length=255)
+     */
+    private $indirizzo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="comune", type="string", length=255)
+     */
+    private $comune;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cap", type="string", length=5)
+     */
+    private $cap;
+
+    /**
+     * @var Categoria
+     * 
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id", nullable=true)
+     */
+    private $categoria;
+
+    /**
+     * @var Categoria
+     * 
+     * @ORM\ManyToMany(targetEntity="Categoria")
+     * @ORM\JoinTable(name="acl_categorie_negozi",
+     *      joinColumns={@ORM\JoinColumn(name="negozio_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="categoria_id", referencedColumnName="id")}
+     *      )
+     */
+    private $categorie;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email_negozio", type="string", length=255)
+     */
+    private $emailNegozio;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="logo", type="string", length=255)
+     */
+    private $logo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="descrizione", type="text")
+     */
+    private $descrizione;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telefono", type="string", length=20)
+     */
+    private $telefono;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="cellulare", type="string", length=20)
+     */
+    private $cellulare;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="fax", type="string", length=20)
+     */
+    private $fax;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="sito", type="string", length=255)
+     */
+    private $sito;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="orari", type="array")
+     */
+    private $orari;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="aperture_speciali", type="text")
+     */
+    private $apertureSpeciali;
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="ambulante", type="boolean")
+     */
+    private $ambulante;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+}

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ClienteType extends AbstractType {
+class NegozioStep1Type extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -38,7 +38,7 @@ class ClienteType extends AbstractType {
                         'placeholder' => 'negozio.form.indirizzo',
                     ),
                 ))
-                ->add('citta', null, array(
+                ->add('localita', null, array(
                     'label' => 'negozio.form.localita',
                     'translation_domain' => 'WSPACL',
                     'label_attr' => array(
@@ -62,79 +62,45 @@ class ClienteType extends AbstractType {
                         'placeholder' => 'negozio.form.cap',
                     ),
                 ))
-                ->add('partitaIva', null, array(
-                    'label' => 'negozio.form.partitaIva',
+                ->add('categoria', null, array(
+                    'label' => 'negozio.form.categoria',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'phone',
-                        'placeholder' => 'negozio.form.partitaIva',
+                        'placeholder' => 'negozio.form.categoria',
                     ),
+                    'query_builder' => function(\WSP\ACLBundle\Entity\CategoriaRepository $er) {
+                        return $er->createQueryBuilder('u')
+                                ->where('u.public = :true')
+                                ->setParameter('true', true)
+                                ->orderBy('u.categoria', 'ASC');
+                    },
                 ))
-                ->add('telefono', null, array(
-                    'label' => 'negozio.form.telefono',
+                ->add('categorie', null, array(
+                    'label' => 'negozio.form.categorie',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
+                    'expanded' => true,
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'phone',
-                        'placeholder' => 'negozio.form.telefono',
+                        'placeholder' => 'negozio.form.categorie',
                     ),
+                    'query_builder' => function(\WSP\ACLBundle\Entity\CategoriaRepository $er) {
+                        return $er->createQueryBuilder('u')
+                                ->where('u.public = :true')
+                                ->setParameter('true', true)
+                                ->orderBy('u.categoria', 'ASC');
+                    },
                 ))
-                ->add('cellulare', null, array(
-                    'label' => 'negozio.form.cellulare',
+                ->add('ambulante', null, array(
+                    'label' => 'negozio.form.ambulante',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'mobile',
-                        'placeholder' => 'negozio.form.cellulare',
+                        'placeholder' => 'negozio.form.ambulante',
                     ),
                 ))
-                ->add('fax', null, array(
-                    'label' => 'negozio.form.fax',
-                    'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
-                    'attr' => array(
-                        'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'print',
-                        'placeholder' => 'negozio.form.fax',
-                    ),
-                ))
-                ->add('email', null, array(
-                    'label' => 'negozio.form.email',
-                    'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
-                    'attr' => array(
-                        'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'envelope',
-                        'placeholder' => 'negozio.form.email',
-                        'readonly' => 'readonly',
-                    ),
-                ))
-                ->add('sito', null, array(
-                    'label' => 'negozio.form.sito',
-                    'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
-                    'attr' => array(
-                        'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'link',
-                        'placeholder' => 'negozio.form.sito',
-                    ),
-                ))
+                ->add('latitudine', 'hidden')
+                ->add('longitudine', 'hidden')
         ;
     }
 
@@ -143,7 +109,7 @@ class ClienteType extends AbstractType {
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'JF\ACLBundle\Entity\Cliente'
+            'data_class' => 'WSP\ACLBundle\Entity\Negozio'
         ));
     }
 

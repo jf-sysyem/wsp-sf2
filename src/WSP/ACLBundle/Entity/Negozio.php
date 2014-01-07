@@ -7,11 +7,15 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Negozio
  *
- * @ORM\Table()
+ * @ORM\Table(name="acl_negozio")
  * @ORM\Entity(repositoryClass="WSP\ACLBundle\Entity\NegozioRepository")
+ * @ORM\HasLifecycleCallbacks
  */
 class Negozio
 {
+    
+    use \Ephp\GeoBundle\Model\Traits\BaseGeo;
+    
     /**
      * @var integer
      *
@@ -22,6 +26,14 @@ class Negozio
     private $id;
 
     /**
+     * @var \JF\ACLBundle\Entity\Cliente
+     * 
+     * @ORM\ManyToOne(targetEntity="JF\ACLBundle\Entity\Cliente")
+     * @ORM\JoinColumn(name="cliente_id", referencedColumnName="id", nullable=true)
+     */
+    private $cliente;
+
+    /**
      * @var string
      *
      * @ORM\Column(name="nome", type="string", length=255)
@@ -29,131 +41,101 @@ class Negozio
     private $nome;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="indirizzo", type="string", length=255)
-     */
-    private $indirizzo;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="comune", type="string", length=255)
-     */
-    private $comune;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="cap", type="string", length=5)
-     */
-    private $cap;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="partita_iva", type="string", length=16)
-     */
-    private $partitaIva;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="categoria", type="integer")
+     * @var Categoria
+     * 
+     * @ORM\ManyToOne(targetEntity="Categoria")
+     * @ORM\JoinColumn(name="categoria_id", referencedColumnName="id", nullable=true)
      */
     private $categoria;
 
     /**
+     * @var Categoria
+     * 
+     * @ORM\ManyToMany(targetEntity="Categoria")
+     * @ORM\JoinTable(name="acl_categorie_negozi",
+     *      joinColumns={@ORM\JoinColumn(name="negozio_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="categoria_id", referencedColumnName="id")}
+     *      )
+     */
+    private $categorie;
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="email_negozio", type="string", length=255)
+     * @ORM\Column(name="email_negozio", type="string", length=255, nullable=true)
      */
     private $emailNegozio;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="logo", type="string", length=255)
+     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
      */
     private $logo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="descrizione", type="text")
+     * @ORM\Column(name="descrizione", type="text", nullable=true)
      */
     private $descrizione;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="capo_negozio", type="string", length=255)
-     */
-    private $capoNegozio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="email_capo_negozio", type="string", length=255)
-     */
-    private $emailCapoNegozio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="telefono", type="string", length=20)
+     * @ORM\Column(name="telefono", type="string", length=20, nullable=true)
      */
     private $telefono;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cellulare", type="string", length=20)
+     * @ORM\Column(name="cellulare", type="string", length=20, nullable=true)
      */
     private $cellulare;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="fax", type="string", length=20)
+     * @ORM\Column(name="fax", type="string", length=20, nullable=true)
      */
     private $fax;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="telefono_capo_negozio", type="string", length=20)
-     */
-    private $telefonoCapoNegozio;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="sito", type="string", length=255)
+     * @ORM\Column(name="sito", type="string", length=255, nullable=true)
      */
     private $sito;
 
     /**
      * @var array
      *
-     * @ORM\Column(name="orari", type="array")
+     * @ORM\Column(name="orari", type="array", nullable=true)
      */
     private $orari;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="aperture_speciali", type="text")
+     * @ORM\Column(name="aperture_speciali", type="text", nullable=true)
      */
     private $apertureSpeciali;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="ambulante", type="boolean")
+     * @ORM\Column(name="ambulante", type="boolean", nullable=true)
      */
     private $ambulante;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categorie = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -164,7 +146,7 @@ class Negozio
     {
         return $this->id;
     }
-
+    
     /**
      * Set nome
      *
@@ -186,121 +168,6 @@ class Negozio
     public function getNome()
     {
         return $this->nome;
-    }
-
-    /**
-     * Set indirizzo
-     *
-     * @param string $indirizzo
-     * @return Negozio
-     */
-    public function setIndirizzo($indirizzo)
-    {
-        $this->indirizzo = $indirizzo;
-    
-        return $this;
-    }
-
-    /**
-     * Get indirizzo
-     *
-     * @return string 
-     */
-    public function getIndirizzo()
-    {
-        return $this->indirizzo;
-    }
-
-    /**
-     * Set comune
-     *
-     * @param string $comune
-     * @return Negozio
-     */
-    public function setComune($comune)
-    {
-        $this->comune = $comune;
-    
-        return $this;
-    }
-
-    /**
-     * Get comune
-     *
-     * @return string 
-     */
-    public function getComune()
-    {
-        return $this->comune;
-    }
-
-    /**
-     * Set cap
-     *
-     * @param string $cap
-     * @return Negozio
-     */
-    public function setCap($cap)
-    {
-        $this->cap = $cap;
-    
-        return $this;
-    }
-
-    /**
-     * Get cap
-     *
-     * @return string 
-     */
-    public function getCap()
-    {
-        return $this->cap;
-    }
-
-    /**
-     * Set partitaIva
-     *
-     * @param string $partitaIva
-     * @return Negozio
-     */
-    public function setPartitaIva($partitaIva)
-    {
-        $this->partitaIva = $partitaIva;
-    
-        return $this;
-    }
-
-    /**
-     * Get partitaIva
-     *
-     * @return string 
-     */
-    public function getPartitaIva()
-    {
-        return $this->partitaIva;
-    }
-
-    /**
-     * Set categoria
-     *
-     * @param integer $categoria
-     * @return Negozio
-     */
-    public function setCategoria($categoria)
-    {
-        $this->categoria = $categoria;
-    
-        return $this;
-    }
-
-    /**
-     * Get categoria
-     *
-     * @return integer 
-     */
-    public function getCategoria()
-    {
-        return $this->categoria;
     }
 
     /**
@@ -373,52 +240,6 @@ class Negozio
     }
 
     /**
-     * Set capoNegozio
-     *
-     * @param string $capoNegozio
-     * @return Negozio
-     */
-    public function setCapoNegozio($capoNegozio)
-    {
-        $this->capoNegozio = $capoNegozio;
-    
-        return $this;
-    }
-
-    /**
-     * Get capoNegozio
-     *
-     * @return string 
-     */
-    public function getCapoNegozio()
-    {
-        return $this->capoNegozio;
-    }
-
-    /**
-     * Set emailCapoNegozio
-     *
-     * @param string $emailCapoNegozio
-     * @return Negozio
-     */
-    public function setEmailCapoNegozio($emailCapoNegozio)
-    {
-        $this->emailCapoNegozio = $emailCapoNegozio;
-    
-        return $this;
-    }
-
-    /**
-     * Get emailCapoNegozio
-     *
-     * @return string 
-     */
-    public function getEmailCapoNegozio()
-    {
-        return $this->emailCapoNegozio;
-    }
-
-    /**
      * Set telefono
      *
      * @param string $telefono
@@ -485,29 +306,6 @@ class Negozio
     public function getFax()
     {
         return $this->fax;
-    }
-
-    /**
-     * Set telefonoCapoNegozio
-     *
-     * @param string $telefonoCapoNegozio
-     * @return Negozio
-     */
-    public function setTelefonoCapoNegozio($telefonoCapoNegozio)
-    {
-        $this->telefonoCapoNegozio = $telefonoCapoNegozio;
-    
-        return $this;
-    }
-
-    /**
-     * Get telefonoCapoNegozio
-     *
-     * @return string 
-     */
-    public function getTelefonoCapoNegozio()
-    {
-        return $this->telefonoCapoNegozio;
     }
 
     /**
@@ -600,5 +398,100 @@ class Negozio
     public function getAmbulante()
     {
         return $this->ambulante;
+    }
+
+    /**
+     * Set cliente
+     *
+     * @param \JF\ACLBundle\Entity\Cliente $cliente
+     * @return Negozio
+     */
+    public function setCliente(\JF\ACLBundle\Entity\Cliente $cliente = null)
+    {
+        $this->cliente = $cliente;
+    
+        return $this;
+    }
+
+    /**
+     * Get cliente
+     *
+     * @return \JF\ACLBundle\Entity\Cliente 
+     */
+    public function getCliente()
+    {
+        return $this->cliente;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param \WSP\ACLBundle\Entity\Categoria $categoria
+     * @return Negozio
+     */
+    public function setCategoria(\WSP\ACLBundle\Entity\Categoria $categoria = null)
+    {
+        $this->categoria = $categoria;
+    
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return \WSP\ACLBundle\Entity\Categoria 
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+
+    /**
+     * Add categorie
+     *
+     * @param \WSP\ACLBundle\Entity\Categoria $categorie
+     * @return Negozio
+     */
+    public function addCategorie(\WSP\ACLBundle\Entity\Categoria $categorie)
+    {
+        $this->categorie[] = $categorie;
+    
+        return $this;
+    }
+
+    /**
+     * Remove categorie
+     *
+     * @param \WSP\ACLBundle\Entity\Categoria $categorie
+     */
+    public function removeCategorie(\WSP\ACLBundle\Entity\Categoria $categorie)
+    {
+        $this->categorie->removeElement($categorie);
+    }
+
+    /**
+     * Get categorie
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+    
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist() {
+        $this->latitudinerad = deg2rad($this->latitudine);
+        $this->longitudinerad = deg2rad($this->longitudine);
+    }
+
+    /**
+     * @ORM\PreUpdate
+     */
+    public function preUpdate() {
+        $this->latitudinerad = deg2rad($this->latitudine);
+        $this->longitudinerad = deg2rad($this->longitudine);
     }
 }

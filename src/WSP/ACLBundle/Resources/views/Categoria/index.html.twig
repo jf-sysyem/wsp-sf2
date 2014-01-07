@@ -1,0 +1,58 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+<div class="page-header">
+    <div class="icon">
+        <span class="ico-cog"></span>
+    </div>
+    <h1>Categoria</h1>
+</div>
+<a href="{{ path('categoria_new') }}">
+    <span class="label label-important">Nuovo categoria</span>
+</a>
+<div class="row-fluid">
+    <div class="span12">
+        <div class="block">
+            <div class="data-fluid">
+                <table class="table" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Categoria</th>
+                            <th>Icon</th>
+                            <th>Image</th>
+                            <th>Public</th>
+                            <th width="40" class="TAC">Op.</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for entity in entities %}
+                        <tr>
+                            <td>{{ entity.id }}</td>
+                            <td>{{ entity.categoria }}</td>
+                            <td>{{ entity.icon }}</td>
+                            <td>{{ entity.image }}</td>
+                            <td width="40" class="no-padding js-public">
+                                {% if entity.public %}
+                                    <a href="javascript:void()" class="button green role">
+                                        <div class="icon"><span class="ico-check"></span></div>
+                                    </a>
+                                {% else %}
+                                    <a href="javascript:void()" class="button red role">
+                                        <div class="icon"><span class="ico-check-empty"></span></div>
+                                    </a>
+                                {% endif %}
+                            </td>
+                            <td>
+                <ul>                    
+                    {% include ":commons:edit.html.twig" with {'route': path('categoria_edit', { 'id': entity.id })} %}
+                </ul>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                
+                
+        </tbody>
+    </table>
+
+{% endblock %}

@@ -1,0 +1,32 @@
+<div id="wizard" class="form-wizard">
+    <ul class="nav nav-pills nav-justified steps">
+        <li{% if step >= 1 %} class="active"{% endif %}>
+            <a href="javascript:;" data-toggle="tab" class="step">
+                <span class="number">1</span>
+                <span class="desc">{{ 'negozio.step1.titolo'|trans({}, 'WSPACL') }}</span>   
+            </a>
+        </li>
+        <li{% if step >= 2 %} class="active"{% endif %}>
+            <a href="javascript:;" data-toggle="tab" class="step">
+                <span class="number">2</span>
+                <span class="desc">{{ 'negozio.step2.titolo'|trans({}, 'WSPACL') }}</span>   
+            </a>
+        </li>
+        <li{% if step >= 3 %} class="active"{% endif %}>
+            <a href="javascript:;" data-toggle="tab" class="step">
+                <span class="number">3</span>
+                <span class="desc">{{ 'negozio.step3.titolo'|trans({}, 'WSPACL') }}</span>   
+            </a>
+        </li>
+        <li{% if step >= 4 %} class="active"{% endif %}>
+            <a href="javascript:;" data-toggle="tab" class="step">
+                <span class="number">4</span>
+                <span class="desc">{{ 'negozio.step4.titolo'|trans({}, 'WSPACL') }}</span>   
+            </a> 
+        </li>
+    </ul>
+</div>
+<h1>{{ ('negozio.step'~step~'.titolo')|trans({}, 'WSPACL') }}</h1>
+<div id="bar" class="progress progress-striped" role="progressbar">
+    <div class="progress-bar progress-bar-warning" style="width: {{ step * 25 }}%;"></div>
+</div>

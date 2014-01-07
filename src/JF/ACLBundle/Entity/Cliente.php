@@ -60,8 +60,8 @@ class Cliente {
      *
      * @ORM\Column(name="partita_iva", type="string", length=16)
      * @Assert\NotBlank()
-     * @Assert\Regex(
-     *     pattern="/\([0-9]{11}|[A-Za-z0-9]{16}/",
+     * #Assert\Regex(
+     *     pattern="/([0-9]{11}|[a-zA-Z]{6}[0-9a-zA-Z]{2}[a-zA-Z]{1}[0-9a-zA-Z]{2}[a-zA-Z]{1}[0-9a-zA-Z]{3}[a-zA-Z]{1})/",
      *     match=false,
      *     message="Partita IVA non valida"
      * )     
@@ -599,10 +599,37 @@ class Cliente {
     }
 
     /**
+     * Set tutti i dati vuoti
+     *
+     * @return Cliente
+     */
+    public function setEmptyData($scadenza = 1) {
+        $ora = new \DateTime();
+        $anno = $ora->add(new \DateInterval("P{$scadenza}Y"));
+        $this->bloccato = false;
+        $this->cap = '';
+        $this->cellulare = '';
+        $this->citta = '';
+        $this->dati = null;
+        $this->email = '';
+        $this->fax = '';
+        $this->indirizzo = '';
+        $this->nome = '';
+        $this->partitaIva = '';
+        $this->sito = '';
+        $this->scadenzaLicenza = $anno;
+        $this->telefono = '';
+        
+        return $this;
+    }
+
+    /**
      * @ORM\PrePersist
      */
     public function prePersist() {
-        $this->scadenzaLicenza = new \DateTime();
+        if(!$this->scadenzaLicenza) {
+            $this->scadenzaLicenza = new \DateTime();
+        }
         $this->bloccato = false;
     }
 

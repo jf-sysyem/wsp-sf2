@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ClienteType extends AbstractType {
+class NegozioType extends AbstractType {
 
     /**
      * @param FormBuilderInterface $builder
@@ -38,7 +38,7 @@ class ClienteType extends AbstractType {
                         'placeholder' => 'negozio.form.indirizzo',
                     ),
                 ))
-                ->add('citta', null, array(
+                ->add('localita', null, array(
                     'label' => 'negozio.form.localita',
                     'translation_domain' => 'WSPACL',
                     'label_attr' => array(
@@ -62,16 +62,64 @@ class ClienteType extends AbstractType {
                         'placeholder' => 'negozio.form.cap',
                     ),
                 ))
-                ->add('partitaIva', null, array(
-                    'label' => 'negozio.form.partitaIva',
+                ->add('categoria', null, array(
+                    'label' => 'negozio.form.categoria',
                     'translation_domain' => 'WSPACL',
                     'label_attr' => array(
                         'class' => 'control-label visible-ie8 visible-ie9',
                     ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'phone',
-                        'placeholder' => 'negozio.form.partitaIva',
+                        'icon' => 'road',
+                        'placeholder' => 'negozio.form.categoria',
+                    ),
+                ))
+                ->add('categorie', null, array(
+                    'label' => 'negozio.form.categorie',
+                    'translation_domain' => 'WSPACL',
+                    'label_attr' => array(
+                        'class' => 'control-label visible-ie8 visible-ie9',
+                    ),
+                    'attr' => array(
+                        'class' => 'form-control placeholder-no-fix',
+                        'icon' => 'road',
+                        'placeholder' => 'negozio.form.categorie',
+                    ),
+                ))
+                ->add('emailNegozio', 'email', array(
+                    'label' => 'negozio.form.emailNegozio',
+                    'translation_domain' => 'WSPACL',
+                    'label_attr' => array(
+                        'class' => 'control-label visible-ie8 visible-ie9',
+                    ),
+                    'attr' => array(
+                        'class' => 'form-control placeholder-no-fix',
+                        'icon' => 'email',
+                        'placeholder' => 'negozio.form.emailNegozio',
+                    ),
+                ))
+                ->add('logo', 'file', array(
+                    'label' => 'negozio.form.logo',
+                    'translation_domain' => 'WSPACL',
+                    'label_attr' => array(
+                        'class' => 'control-label visible-ie8 visible-ie9',
+                    ),
+                    'attr' => array(
+                        'class' => 'form-control placeholder-no-fix',
+                        'icon' => 'picture-o',
+                        'placeholder' => 'negozio.form.logo',
+                    ),
+                ))
+                ->add('descrizione', 'textarea', array(
+                    'label' => 'negozio.form.descrizione',
+                    'translation_domain' => 'WSPACL',
+                    'label_attr' => array(
+                        'class' => 'control-label visible-ie8 visible-ie9',
+                    ),
+                    'attr' => array(
+                        'class' => 'form-control placeholder-no-fix',
+                        'icon' => 'font',
+                        'placeholder' => 'negozio.form.descrizione',
                     ),
                 ))
                 ->add('telefono', null, array(
@@ -106,21 +154,8 @@ class ClienteType extends AbstractType {
                     ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'print',
+                        'icon' => 'phone-square',
                         'placeholder' => 'negozio.form.fax',
-                    ),
-                ))
-                ->add('email', null, array(
-                    'label' => 'negozio.form.email',
-                    'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
-                    'attr' => array(
-                        'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'envelope',
-                        'placeholder' => 'negozio.form.email',
-                        'readonly' => 'readonly',
                     ),
                 ))
                 ->add('sito', null, array(
@@ -135,6 +170,18 @@ class ClienteType extends AbstractType {
                         'placeholder' => 'negozio.form.sito',
                     ),
                 ))
+                ->add('ambulante', null, array(
+                    'label' => 'negozio.form.ambulante',
+                    'translation_domain' => 'WSPACL',
+                    'label_attr' => array(
+                        'class' => 'control-label visible-ie8 visible-ie9',
+                    ),
+                    'attr' => array(
+                        'class' => 'form-control placeholder-no-fix',
+                        'icon' => 'truck',
+                        'placeholder' => 'negozio.form.ambulante',
+                    ),
+                ))
         ;
     }
 
@@ -143,7 +190,7 @@ class ClienteType extends AbstractType {
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver) {
         $resolver->setDefaults(array(
-            'data_class' => 'JF\ACLBundle\Entity\Cliente'
+            'data_class' => 'WSP\ACLBundle\Entity\Negozio'
         ));
     }
 

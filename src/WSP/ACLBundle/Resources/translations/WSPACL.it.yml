@@ -45,3 +45,103 @@ email:
 # Commons
 commons:
     back: Torna indietro
+# Negozio
+negozio:
+    step1:
+        titolo: Il tuo negozio
+        posizione: Controlla la posizione della tua attività prima di procedere
+    step2:
+        titolo: Contatti negozio
+    step3:
+        titolo: Dati personali
+    step4:
+        titolo: Dati fattura
+    gender:
+        m: Uomo
+        f: Donna
+    form:
+        # Step 1
+        nome: "Nome della tua attività:"
+        indirizzo: "Indirizzo:"
+        localita: "Località:"
+        cap: "CAP:"
+        categoria: "Cosa vendi:"
+        categorie: "Vendi anche altre cose?"
+        ambulante: "Sei un negozio ambulante?"
+        # Step 2
+        emailNegozio: "Indirizzo Email del negozio:"
+        sito: "Sito Internet del negozio:"
+        telefono: "Telefono del negozio:"
+        cellulare: "cellulare del negozio:"
+        fax: "Fax del negozio:"
+        # Step 3
+        firstname: "Nome:"
+        lastname: "Cognome:"
+        email: "Email di registrazione:"
+        recapitoTelefonico: "Recapito telefonico:"
+        birthday: "Data di nascita:"
+        gender: "Sesso:"
+        # Step 4
+        partitaIva: "Partita IVA o Codice Fiscale:"
+        
+        continua: "Continua"
+        concludi: "Concludi"
+    error:
+        # Step 1
+        nome:
+            required: Nome dell'attività obbligatorio
+        indirizzo:
+            required: Indirizzo dell'attività obbligatorio
+        localita:
+            required: Località obbligatoria
+        cap:
+            required: CAP obbligatorio
+        categoria:
+            required: Indica la categoria principale dei prodotti che vendi
+        # Step 2
+        emailNegozio:
+            required: Inserire l'email principale del negozio
+            email: L'email inserita non è valida
+        sito:
+            url: Il sito internet inserito non è valido
+        telefono:
+            telefono: Il numero di telefono non è valido
+        cellulare:
+            telefono: Il numero di cellulare non è valido
+        fax:
+            telefono: Il numero di fax non è valido
+        # Step 3
+        firstname:
+            required: Nome obbligatorio
+        lastname:
+            required: Cognome obbligatorio
+        recapitoTelefonico: 
+            required: Recapito telefonico personale obbligatorio
+            telefono: Il numero di telefono non è valido
+        birthday:
+            required: Data di nascita obbligatoria
+        gender:
+            required: Indica il tuo sesso
+        # Step 4
+        partitaIva:
+            required: Inserire la partita IVA o il codice fiscale
+            piva: Partita IVA o codice fiscale non conformi
+    
+# Categorie
+Abbigliamento e accessori: Abbigliamento e accessori
+Alimentari e bevande: Alimentari e bevande
+Animali: Animali
+Arredamento: Arredamento per interni ed esterni
+Arte e antiquariato: Arte e antiquariato
+Audio TV elettronica e informatica: Audio, TV, elettronica e informatica
+Giocattoli e modellismo: Giocattoli e modellismo
+Immobili: Immobili
+Mezzi di trasporto: Mezzi di trasporto
+Oreficeria e bigiotteria: Oreficeria e bigiotteria
+Prodotti per attività lavorative: Prodotti per attività lavorative
+Prodotti per la scuola e lo studio: Prodotti per la scuola e lo studio
+Salute e bellezza: Salute e bellezza
+Sport: Sport
+Tempo libero: Tempo libero
+
+
