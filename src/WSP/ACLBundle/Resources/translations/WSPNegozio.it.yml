@@ -1,0 +1,14 @@
+# Tab
+tab:
+    riepilogo:  Riepilogo
+    prodotti:   I tuoi prodotti
+    mappa:      La mappa
+    fatture:    Fatture
+    profilo:    Il tuo profilo
+
+# Azioni
+azioni:
+    titolo: Azioni
+    logo:
+        titolo: Inserisci il tuo logo
+        descrizione: Inserisci il tuo logo o una foto del tuo negozio

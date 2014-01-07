@@ -494,4 +494,11 @@ class Negozio
         $this->latitudinerad = deg2rad($this->latitudine);
         $this->longitudinerad = deg2rad($this->longitudine);
     }
+    
+    public function getAvatar() {
+        if($this->logo) {
+            return $this->logo;
+        }
+        return "/bundles/wspadmin/images/shop-icons/".$this->categoria->getImage();
+    }
 }

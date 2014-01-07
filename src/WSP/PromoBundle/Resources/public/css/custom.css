@@ -91,6 +91,37 @@ span.red {
     text-shadow: 2px 2px 3px #000;
 }
 
+/*  Yellow */
+.btn.yellow {
+  color: #2c325f; 
+  text-shadow: none;	
+  background-color: #ffe42e;
+}
+.btn.yellow:hover, 
+.btn.yellow:focus, 
+.btn.yellow:active, 
+.btn.yellow.active, 
+.btn.yellow.disabled,
+.btn.yellow[disabled] { 
+  background-color: #eca22e !important;
+  color: #46485a !important;
+  outline: none !important;
+}
+
+.btn-group .btn.yellow.dropdown-toggle {
+  background-color: #ffe42e !important;
+}
+.btn-group .btn.yellow:hover, 
+.btn-group .btn.yellow:focus, 
+.btn-group .btn.yellow:active, 
+.btn-group .btn.yellow.active, 
+.btn-group .btn.yellow.disabled,
+.btn-group .btn.yellow[disabled] { 
+  background-color: #eca22e !important;
+  color: #46485a !important;
+  outline: none !important;
+}
+
 .testo {
     font-family: 'helveticaregular';
     text-align: justify;

@@ -1,0 +1,10 @@
+{% if tab is not defined %}
+    {% set tab = 'home' %}
+{% endif %}
+<ul class="nav nav-tabs">
+    <li {% if tab == 'home' %}class="active"{% endif %}><a href="#tab_home" data-toggle="tab">{{ 'tab.riepilogo'|trans({}, 'WSPNegozio') }}</a></li>
+    <li {% if tab == 'prod' %}class="active"{% endif %}><a href="#tab_prod" data-toggle="tab">{{ 'tab.prodotti'|trans({}, 'WSPNegozio') }}</a></li>
+    <li {% if tab == 'maps' %}class="active"{% endif %}><a href="#tab_maps" data-toggle="tab">{{ 'tab.mappa'|trans({}, 'WSPNegozio') }}</a></li>
+    <li {% if tab == 'invc' %}class="active"{% endif %}><a href="#tab_invc" data-toggle="tab">{{ 'tab.fatture'|trans({}, 'WSPNegozio') }}</a></li>
+    <li {% if tab == 'prof' %}class="active"{% endif %}><a href="#tab_prof" data-toggle="tab">{{ 'tab.profilo'|trans({}, 'WSPNegozio') }}</a></li>
+</ul>

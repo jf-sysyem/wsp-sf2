@@ -13,8 +13,7 @@ class DefaultController extends Controller {
     use \Ephp\UtilityBundle\Controller\Traits\BaseController;
 
     /**
-     * @Route("/", name="promo_index")
-     * @Route("/", name="home")
+     * @Route("/promo", name="promo_index")
      * @Template()
      */
     public function indexAction() {
@@ -33,7 +32,8 @@ class DefaultController extends Controller {
     }
     
     /**
-     * @Route("/promo/simple", name="promo_simple")
+     * @Route("/", name="promo_simple")
+     * @Route("/", name="home")
      * @Template()
      */
     public function simpleAction() {

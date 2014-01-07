@@ -4,22 +4,23 @@ slogan:
     
 # Content
 content:
-    business: Il tuo <b>Business</b> è il nostro <b>Business</b>
-    businessdetail: Qui ci va una frase abbastanza lunga dove viene <b>spiegato</b> cosa si intente con lo slogan <i>"Il tuo <b>Business</b> è il nostro <b>Business</b>"</i>
     frasi: 
-        1: Sei più ganzo degli altri
-        2: Prima ti iscrivi prima sei più ganzo
-        3: Non indugiare e contattaci
-        4: Ma che cosa stai aspettando
-        5: Non sai cosa ti perdi
+        1: Il tuo <b>Business</b> è il nostro <b>Business</b>
+        2: Il <b>nuovo modo</b> di scegliere
+        3: Valorizzazione dei <b>prodotti locali</b> e <b>riduzione dello spreco</b> di risorse
+    dettagli:
+        1: Se il tuo lavoro è produrre e/o vendere merci, il nostro è aiutarti a farlo. Offriamo la migliore
+        2: La nostra missione è aiutarti ad optare per la scelta migliore, che tu debba fare il più importante investimento della tua vita o semplicemente la spesa per il pranzo, con noi puoi davvero scegliere cosa è meglio per te.
+        3: Questi sono principi base per World Sticker Price, l'ecosostenibilità e l'eticità del commercio aiutano il produttore, il venditore ed il cliente finale, ma non solo, è la terra a ringraziare e noi tutti ne facciamo parte.
+
     moreinfo: Vuoi più informazioni?<br/>Torna a visitarci, presto saremo <b>On-Line</b>
         
 # Contact
 contact:
-    question: Vuoi essere uno dei primi a iscriverti a<br/><b>World Sticker Price</b>?
+    question: Vuoi far parte del club<br/><b>World Sticker Price</b>?
     placeholder: Scrivi qui la tua email
-    button: Scrivici
-    postaction: Scrivici! Ti contatteremo presto!
+    button: Invia
+    postaction: Ti contatteremo presto!
     number: "{0}Scrivici immediatamente!|{1}Un negozio ha già chiesto di registrarsi!|]2,Inf]%n% negozi hanno già chiesto di registrarsi!"
     response:
         new: La tua richiesta è stata registrata.<br/>Verrai contattato tramite l'indirizzo email %email%. 
