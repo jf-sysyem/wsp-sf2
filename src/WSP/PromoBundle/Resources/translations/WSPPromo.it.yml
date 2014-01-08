@@ -17,7 +17,7 @@ content:
         
 # Contact
 contact:
-    question: Vuoi far parte del club<br/>World Sticker Price?
+    question: Vuoi far parte del club <b>World Sticker Price</b>?
     placeholder: Scrivi qui la tua email
     button: Invia
     postaction: Ti contatteremo presto!

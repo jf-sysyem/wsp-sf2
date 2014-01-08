@@ -86,8 +86,8 @@ span.red {
 .slogan {
     font-family: 'helveticaregular';
     margin-top: 0px;
-    text-align: center;
-    color: #ffe42e !important;
+    text-align: justify;
+    color: #fff !important;
     text-shadow: 2px 2px 3px #000;
 }
 
