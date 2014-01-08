@@ -212,12 +212,12 @@ span.red {
     margin: 0 auto;
 }
 
-h3.bottom {
+.bottom {
     
 }
 
 .hfix {
-    height: 220px;
+    height: 245px;
 }
 
 @media (min-width: 992px) and (max-width: 1200px) {  
@@ -281,7 +281,7 @@ The Most Extra Small Devices Landscape Mode Only
         font-size: 1.8em !important;
     }
     .hfix {
-        height: 330px;
+        height: 385px;
     }
 }
 
