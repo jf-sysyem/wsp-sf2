@@ -212,6 +212,10 @@ span.red {
     margin: 0 auto;
 }
 
+h3.bottom {
+    
+}
+
 .hfix {
     height: 220px;
 }
@@ -275,6 +279,9 @@ The Most Extra Small Devices Landscape Mode Only
     }
     #defaultCountdown span.countdown_amount {
         font-size: 1.8em !important;
+    }
+    .hfix {
+        height: 330px;
     }
 }
 
