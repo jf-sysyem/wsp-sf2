@@ -1,6 +1,8 @@
 {% extends '::base.html.twig' %}
-{% form_theme edit_form '::form_aries_layout.html.twig' %}
-{% block body -%}
+{% if form_layout %}
+    {% form_theme edit_form form_layout %}
+{% endif %}
+{% block content %}
 <div class="page-header">
     <div class="icon">
         <span class="ico-user"></span>

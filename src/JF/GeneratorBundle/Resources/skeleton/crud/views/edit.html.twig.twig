@@ -1,10 +1,12 @@
 {% block extends %}
 {{ "{% extends '::base.html.twig' %}" }}
-{{ "{% form_theme edit_form '::form_aries_layout.html.twig' %}" }}
+{{ "{% if form_layout %}" }}
+{{ "    {% form_theme edit_form form_layout %}" }}
+{{ "{% endif %}" }}
 {% endblock extends %}
 
 {% block body %}
-{{ "{% block body -%}" }}
+{{ "{% block content %}" }}
 <div class="page-header">
     <div class="icon">
         <span class="ico-cog"></span>

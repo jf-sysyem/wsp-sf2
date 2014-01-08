@@ -9,7 +9,7 @@ content:
         2: Il <b>nuovo modo</b> di scegliere
         3: Valorizzazione dei <b>prodotti locali</b> e <b>riduzione dello spreco</b> di risorse
     dettagli:
-        1: Se il tuo lavoro è produrre e/o vendere merci, il nostro è aiutarti a farlo. Offriamo la migliore
+        1: Se il tuo lavoro è produrre e/o vendere merci, il nostro è aiutarti a farlo. Offriamo la migliore visibilità dei prodotti e la migliore possibilità di raggiungere clienti.
         2: La nostra missione è aiutarti ad optare per la scelta migliore, che tu debba fare il più importante investimento della tua vita o semplicemente la spesa per il pranzo, con noi puoi davvero scegliere cosa è meglio per te.
         3: Questi sono principi base per World Sticker Price, l'ecosostenibilità e l'eticità del commercio aiutano il produttore, il venditore ed il cliente finale, ma non solo, è la terra a ringraziare e noi tutti ne facciamo parte.
 
@@ -17,7 +17,7 @@ content:
         
 # Contact
 contact:
-    question: Vuoi far parte del club<br/><b>World Sticker Price</b>?
+    question: Vuoi far parte del club<br/>World Sticker Price?
     placeholder: Scrivi qui la tua email
     button: Invia
     postaction: Ti contatteremo presto!

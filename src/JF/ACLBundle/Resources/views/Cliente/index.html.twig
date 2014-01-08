@@ -1,6 +1,6 @@
 {% extends '::base.html.twig' %}
 
-{% block body -%}
+{% block content %}
 <div class="page-header">
     <div class="icon">
         <span class="ico-sale"></span>
@@ -42,7 +42,7 @@
                             <td>{{ entity.telefono }}</td>
                             <td>{% if entity.scadenzaLicenza %}{{ entity.scadenzaLicenza|date('Y-m-d H:i:s') }}{% endif %}</td>
                             <td>
-                                {% include ":commons:edit.html.twig" with {'route': path('eph_clienti_edit', { 'id': entity.id })} %}
+                                <a href="{{ path('eph_clienti_edit', { 'id': entity.id }) }}">Modifica</a>
                             </td>
                         </tr>
                         {% endfor %}
