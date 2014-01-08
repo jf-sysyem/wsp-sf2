@@ -23,7 +23,7 @@ ContactForm.init();
 crossfade('block', 12000, 1000, 1);
 {% endblock %}
 
-{% block contentcss %}h190{% endblock %}
+{% block contentcss %}hfix{% endblock %}
 
 {% block content %}
 {% for index in range(1, 3, 1) %}
@@ -34,6 +34,7 @@ crossfade('block', 12000, 1000, 1);
     </div>
 </div>
 {% endfor %}
+<h3 class="slogan">{{ ('content.chiusura')|trans({}, "WSPPromo")|raw }}</h3>
 {% endblock %}
 
 {% block postcontent %}
