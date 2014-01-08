@@ -175,7 +175,7 @@ span.red {
 .login .content {
     background: url(../../metronicadmin/img/bg-opacity.png) repeat;
     font-family: 'helveticaregular';
-    width: 467px !important;
+    width: 476px !important;
     text-align: center !important;
 }
 
@@ -267,7 +267,7 @@ The Most Extra Small Devices Landscape Mode Only
         width: 280px !important;
     }
     .login .content {
-        width: 306px !important;
+        width: 316px !important;
     }
     .coming-soon-countdown {
         width: 318px !important;
