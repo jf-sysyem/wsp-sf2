@@ -21,6 +21,7 @@ class InstallController extends Controller {
     public function indexAction() {
         $package = 'wsp.acl';
         $g_utenze = 'negozio';
+        $g_admin = 'wsp';
         $status = 200;
         $message = 'Ok';
         $licenze = array();
@@ -28,6 +29,7 @@ class InstallController extends Controller {
             $this->getEm()->beginTransaction();
             $this->installPackage($package, 'WP ACL', 'WSPACLBundle:Install:package_negozio.txt.twig');
             $this->installGruppo($package, $g_utenze, 'Gestione negozio', 'WSPACLBundle:Install:negozio.txt.twig');
+            $this->installGruppo($package, $g_admin, 'Amministratore negozi', 'WSPACLBundle:Install:admin.txt.twig');
             
             $licenze[] = $this->newLicenza(
                     $package, $g_utenze, 'free', 1, 'Gestione negozio',         //Anagrafica licenza 
@@ -40,6 +42,18 @@ class InstallController extends Controller {
                         ),                                          
                     0, null,                                                    //Prezzo-Prezzo scontato
                     true, true);                                                //Autoinstall-Market
+            
+            $licenze[] = $this->newLicenza(
+                    $package, $g_admin, 'wsp', 1, 'Amministratore',             //Anagrafica licenza 
+                    'WSPACLBundle:Install:admin_wsp.txt.twig',                  //TWIG descrizione
+                    null,                                                       //Durata
+                    array('R_WSP'),                                             //Ruoli abilitati
+                    array(''),                                                  //Widget abilitati
+                    array(                                                      //Parametri di configurazione
+                        'on' => true,                                           //  Abilitazione del package
+                        ),                                          
+                    0, null,                                                    //Prezzo-Prezzo scontato
+                    false, false);                                              //Autoinstall-Market
             
             $this->getEm()->commit();
         } catch (\Exception $e) {

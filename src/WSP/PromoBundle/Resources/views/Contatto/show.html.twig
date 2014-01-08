@@ -1,0 +1,48 @@
+{% set page_title = "Contatto" %}
+
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="page-header">
+    <div class="icon">
+        <span class="ico-cog"></span>
+    </div>
+    <h1>Contatto <small>Dettagli</small></h1>
+</div>
+<div class="row-fluid">
+    <div class="span6">
+        <div class="block">
+            <table class="table">
+                <tbody>                    <tr>
+                        <th>Id</th>
+                        <td>{{ entity.id }}</td>
+                    </tr>                    <tr>
+                        <th>Email</th>
+                        <td>{{ entity.email }}</td>
+                    </tr>                    <tr>
+                        <th>Contattato</th>
+                        <td>{{ entity.contattato|date('Y-m-d H:i:s') }}</td>
+                    </tr>                    <tr>
+                        <th>Risposta</th>
+                        <td>{{ entity.risposta }}</td>
+                    </tr>                    <tr>
+                        <th>Note</th>
+                        <td>{{ entity.note }}</td>
+                    </tr>                    <tr>
+                        <th>Createdat</th>
+                        <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
+                    </tr>                    <tr>
+                        <th>Updatedat</th>
+                        <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<a href="{{ path('contatti') }}">
+    <span class="label label-inverse">Torna indietro</span>
+</a>
+
+{% endblock %}

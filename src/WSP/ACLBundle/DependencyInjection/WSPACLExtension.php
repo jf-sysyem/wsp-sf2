@@ -46,7 +46,7 @@ class WSPACLExtension extends JFACLExtension {
             'show' => array(
                 'in_role' => 'R_NEGOZIANTE'
             ),
-            'order' => 15,
+            'order' => 50,
             'icon' => 'building',
         );
 
@@ -59,6 +59,16 @@ class WSPACLExtension extends JFACLExtension {
             'order' => 10,
         );
 
+        $menu['wsp'] = array(
+            'label' => 'Amministrazione WSP',
+            'submenu' => array(),
+            'show' => array(
+                'in_role' => 'R_WSP'
+            ),
+            'order' => 25,
+            'icon' => 'group',
+        );
+        
         $container->setParameter('jf.menu', $menu);
     }
 

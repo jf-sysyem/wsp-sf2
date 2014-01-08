@@ -40,9 +40,9 @@ class AppKernel extends Kernel {
             new Metronic\AdminBundle\MetronicAdminBundle(),
             new Hours\VideoBundle\HoursVideoBundle(),
             
-            new WSP\PromoBundle\WSPPromoBundle(),
-            new WSP\AdminBundle\WSPAdminBundle(),
             new WSP\ACLBundle\WSPACLBundle(),
+            new WSP\AdminBundle\WSPAdminBundle(),
+            new WSP\PromoBundle\WSPPromoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
