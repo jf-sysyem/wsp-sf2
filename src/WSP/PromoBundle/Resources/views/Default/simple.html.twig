@@ -34,10 +34,8 @@ crossfade('block', 12000, 1000, 1);
     </div>
 </div>
 {% endfor %}
-<div class="testo bottom">
-    <p>{{ ('content.piuinfo')|trans({}, "WSPPromo")|raw }}</p>
-    <h3 class="slogan">{{ ('content.chiusura')|trans({}, "WSPPromo")|raw }}</h3>
-</div>
+<h3 class="slogan bottom">{{ ('content.chiusura')|trans({}, "WSPPromo")|raw }}</h3
+>
 {% endblock %}
 
 {% block postcontent %}

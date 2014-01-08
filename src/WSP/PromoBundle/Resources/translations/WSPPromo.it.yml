@@ -12,14 +12,11 @@ content:
         1: Se il tuo lavoro è produrre e/o vendere merci, il nostro è aiutarti a farlo. Offriamo la migliore visibilità dei prodotti e la migliore possibilità di raggiungere clienti.
         2: La nostra missione è aiutarti ad optare per la scelta migliore, che tu debba fare il più importante investimento della tua vita o semplicemente la spesa per il pranzo, con noi puoi davvero scegliere cosa è meglio per te.
         3: Questi sono principi base per World Sticker Price, l'ecosostenibilità e l'eticità del commercio aiutano il produttore, il venditore ed il cliente finale, ma non solo, è la terra a ringraziare e noi tutti ne facciamo parte.
-    piuinfo: Vuoi più informazioni? Accedi al sito prossimamente,
-    chiusura: Presto saremo pronti!
-
-    moreinfo: Vuoi più informazioni?<br/>Torna a visitarci, presto saremo <b>On-Line</b>
+    chiusura: Vuoi più informazioni? Torna a visitarci <b>Presto saremo pronti!</b>
         
 # Contact
 contact:
-    question: Vuoi far parte del club <b>World Sticker Price</b>?
+    question: Vuoi far parte del club World Sticker Price?
     placeholder: Scrivi qui la tua email
     button: Invia
     postaction: Ti contatteremo presto!
