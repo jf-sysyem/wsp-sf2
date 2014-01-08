@@ -2,6 +2,7 @@
 
 {% block css %}
 <link href="/bundles/metronicadmin/css/pages/coming-soon.css" rel="stylesheet" type="text/css"/>
+<link href="/bundles/ephputility/css/utility.css" rel="stylesheet" type="text/css"/>
 <link href="/bundles/wsppromo/css/custom.css" rel="stylesheet" type="text/css"/>
 {% endblock %}
 
@@ -21,6 +22,19 @@ VerticalJustify.init();
 ComingSoon.init();
 ContactForm.init();
 crossfade('block', 12000, 1000, 1);
+{% endblock %}
+
+{% block precontent %}
+<hgroup class="no-display">
+    <h1>World Sticker Prize</h1>
+    <h2>{{ 'promo.h2'|trans({}, "WSPPromo") }}</h2>
+</hgroup>
+<div class="header navbar navbar-inverse navbar-fixed-top trasparent">
+    <ul class="social-icons margin10">
+        <li><a href="#" data-original-title="Facebook" class="facebook"></a></li>
+        <li><a href="#" data-original-title="Youtube" class="youtube"></a></li>
+    </ul>
+</div>
 {% endblock %}
 
 {% block contentcss %}hfix{% endblock %}
