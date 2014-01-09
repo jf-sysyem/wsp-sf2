@@ -1,0 +1,11 @@
+{% extends "::email.html.twig" %}
+
+{% block title %}{{ subject }}{% endblock title %}
+
+{% block content %}
+<h2 class="h2">{{ subject }}</h2>
+<br />
+<div class="textdark">
+    {{ testo|nl2br }}
+</div>
+{% endblock content %}
