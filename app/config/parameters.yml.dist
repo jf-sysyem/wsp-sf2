@@ -6,13 +6,13 @@ parameters:
     database_user: root
     database_password: Ephraim76
     
-    mailer_transport: gmail
-    mailer_encryption: ssl
+    mailer_transport: smtp
     mailer_auth_mode: login
-    mailer_host: smtp.gmail.com
-    mailer_username: staff@jf-system.com
-    mailer_password: livorno76
-    mailer_user: staff@jf-system.com
+    mailer_host: localhost
+    mailer_username: marketing@wsprice.it
+    mailer_password: pwd 
+    mailer_user: marketing@wsprice.it
+    mailer_port: 25
     
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt

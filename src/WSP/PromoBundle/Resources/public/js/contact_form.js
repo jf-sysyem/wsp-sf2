@@ -30,16 +30,16 @@ var ContactForm = function() {
                 },
                 highlight: function(element) { // hightlight error inputs
                     $(element)
-                            .closest('.form-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
+                            .closest('.input-group').removeClass('has-success').addClass('has-error'); // set error class to the control group
                 },
                 unhighlight: function(element) { // revert the change done by hightlight
                     $(element)
-                            .closest('.form-group').removeClass('has-error'); // set error class to the control group
+                            .closest('.input-group').removeClass('has-error'); // set error class to the control group
                 },
                 success: function(label) {
                     label
                             .addClass('valid') // mark the current input as valid and display OK icon
-                            .closest('.form-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
+                            .closest('.input-group').removeClass('has-error').addClass('has-success'); // set success class to the control group
                 },
                 submitHandler: function(form) {
                     success.show();
