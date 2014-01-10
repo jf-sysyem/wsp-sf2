@@ -9,6 +9,10 @@
 <script type="text/javascript" src="{{ url('bazinga_jstranslation_js') }}"></script>
 {% endblock %}
 
+{% block ready_js %}
+Translator.locale = 'it'
+{% endblock %}
+
 {% block content %}
 <div class="row">
     <div class="col-md-6">

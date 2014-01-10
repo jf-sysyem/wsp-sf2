@@ -36,6 +36,10 @@ var ContactForm = function() {
                     $(element)
                             .closest('.input-group').removeClass('has-error'); // set error class to the control group
                 },
+                errorPlacement: function(error, element) {
+                    error.insertAfter($(element)
+                            .closest('.input-group'));
+                },
                 success: function(label) {
                     label
                             .addClass('valid') // mark the current input as valid and display OK icon

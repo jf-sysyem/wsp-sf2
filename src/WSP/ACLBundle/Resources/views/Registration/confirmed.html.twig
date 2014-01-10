@@ -11,6 +11,10 @@
 <script type="text/javascript" src="{{ url('bazinga_jstranslation_js', { 'domain': 'WSPACL' }) }}"></script>
 {% endblock %}
 
+{% block ready_js %}
+Translator.locale = 'it'
+{% endblock %}
+
 {% block content %}
     <p>{{ 'registration.confirmed'|trans({'%username%': user.username}, 'FOSUserBundle') }}</p>
     <button type="button" class="btn yellow" onclick="window.location='{{ path('negozio_step_1') }}';">{{ 'register.continue'|trans({}, 'WSPACL') }}</button>

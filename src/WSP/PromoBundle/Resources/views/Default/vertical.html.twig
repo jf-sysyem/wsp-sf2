@@ -16,11 +16,13 @@
 <script src="/bundles/wsppromo/js/contact_form.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ url('bazinga_jstranslation_js', { 'domain': 'WSPPromo' }) }}"></script>
 {% endblock %}
+
 {% block ready_js %}
 VerticalBar.init();
 VerticalJustify.init();
 ComingSoon.init();
 ContactForm.init();
+Translator.locale = 'it'
 {% endblock %}
 
 {% block precontent %}
