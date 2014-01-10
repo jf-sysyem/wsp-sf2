@@ -10,24 +10,19 @@
 <script src="/bundles/wspadmin/js/soft.js" type="text/javascript"></script>
 <script src="/bundles/metronicadmin/plugins/jquery-validation/src/jquery.validate.min.js" type="text/javascript"></script>
 <script src="/bundles/metronicadmin/plugins/jquery-validation/src/additional-methods.min.js" type="text/javascript"></script>
-{#
-#}
 <script src="/bundles/metronicadmin/plugins/countdown/jquery.countdown.js" type="text/javascript"></script>
 <script src="/bundles/wsppromo/js/coming-soon.js" type="text/javascript"></script>
 <script src="/bundles/wsppromo/js/vertical_justify.js" type="text/javascript"></script>
 <script src="/bundles/wsppromo/js/contact_form.js" type="text/javascript"></script>
 <script src="/bundles/ephputility/js/functions.js" type="text/javascript"></script>
 <script type="text/javascript" src="{{ url('bazinga_jstranslation_js', { 'domain_name': 'WSPPromo' }) }}"></script>
-{#
-#}
 {% endblock %}
+
 {% block ready_js %}
 ComingSoon.init();
 VerticalJustify.init();
 ContactForm.init();
 crossfade('block', 12000, 1000, 1);
-{#
-#}
 {% endblock %}
 
 {% block precontent %}
