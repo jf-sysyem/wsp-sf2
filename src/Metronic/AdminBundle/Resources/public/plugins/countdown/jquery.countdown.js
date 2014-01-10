@@ -15,6 +15,9 @@
     if (typeof window.performance === 'undefined') {
         window.performance = {};
     }
+    if (!window.performance.timing.navigationStart) {
+        performance.timing = {'navigationStart': Date.now()};
+    }
     if (!window.performance.now) {
         var nowOffset = Date.now();
         if (performance.timing && performance.timing.navigationStart) {
