@@ -24,6 +24,7 @@ class MetronicAdminExtension extends Extension {
         $container->setParameter('header', array(
             'logo'          => $config['logo'],
             'logo_big'      => $config['logo_big'],
+            'favicon'       => $config['favicon'],
             'notification'  => $config['notification'],
             'inbox'         => $config['inbox'],
             'todo'          => $config['todo'],

@@ -33,10 +33,10 @@ class ContattoController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        $pagination = $this->createPagination($this->getRepository('WSPPromoBundle:Contatto')->nuovi(), 20);
+        $pagination = $this->createPagination($this->getRepository('WSPPromoBundle:Contatto')->nuovi(), 20, 'pconctact');
         $entity = new Messaggio();
         $form = $this->createCreateFormMessaggio($entity);
-        $messaggi = $this->createPagination($this->getRepository('WSPPromoBundle:Messaggio')->createQueryBuilder('m')->orderBy('m.createdAt', 'DESC'), 20);
+        $messaggi = $this->createPagination($this->getRepository('WSPPromoBundle:Messaggio')->createQueryBuilder('m')->orderBy('m.createdAt', 'DESC'), 20, 'pmail');
 
         return array(
             'pagination' => $pagination,
@@ -49,7 +49,7 @@ class ContattoController extends Controller {
     /**
      * Finds and displays a Contatto entity.
      *
-     * @Route("/{id}", name="contatti_show", options={"ACL": {"in_role": "R_WSP"}})
+     * @Route("-{id}", name="contatti_show", options={"ACL": {"in_role": "R_WSP"}})
      * @Method("GET")
      * #ParamConverter("id", class="WSPPromoBundle:Contatto")
      * @Template()
@@ -107,6 +107,7 @@ class ContattoController extends Controller {
                         ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())), 'text/html');
                 $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
                 $this->get('mailer')->send($message);
+                $entity->addDestinatari($contatto);
             }
             $this->persist($entity);
         }

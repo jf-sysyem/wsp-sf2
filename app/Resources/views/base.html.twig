@@ -1,2 +1,7 @@
 {% set nocostumizerstyle = false %}
 {% extends "MetronicAdminBundle::base.html.twig" %}
+{% block basecss %}
+    {% include "MetronicAdminBundle::layout/stylesheets.html.twig" %}
+    <link href="/bundles/ephputility/css/utility.css" rel="stylesheet" type="text/css"/>
+    <link href="/bundles/wspadmin/css/custom.css" rel="stylesheet" type="text/css"/>
+{% endblock %}

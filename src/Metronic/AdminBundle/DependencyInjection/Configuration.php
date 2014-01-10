@@ -24,6 +24,7 @@ class Configuration implements ConfigurationInterface
                 ->children()
                     ->scalarNode('logo_big')->example('/bundles/metronicadmin/img/logo_big.png')->cannotBeEmpty()->end()
                     ->scalarNode('logo')->example('/bundles/metronicadmin/img/logo.png')->cannotBeEmpty()->end()
+                    ->scalarNode('favicon')->example('/bundles/metronicadmin/img/favicon.png')->cannotBeEmpty()->end()
                     ->scalarNode('notification')->defaultValue(true)->cannotBeEmpty()->end()
                     ->scalarNode('inbox')->defaultValue(true)->cannotBeEmpty()->end()
                     ->scalarNode('todo')->defaultValue(true)->cannotBeEmpty()->end()

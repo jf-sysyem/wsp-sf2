@@ -48,3 +48,12 @@ h1 {
     color: #ffe42e;
     text-shadow: 2px 2px 3px #000;
 }
+
+.navbar-brand {
+    padding: 0px;
+    width: 170px;
+}
+
+.sidebar-toggler {
+    z-index: 999;
+}

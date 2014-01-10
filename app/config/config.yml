@@ -22,7 +22,8 @@ framework:
     http_method_override: true
 
 metronic_admin:
-    logo: /bundles/wspadmin/images/logo_favicon.png        
+    favicon: /bundles/wspadmin/images/logo_favicon.png        
+    logo: /bundles/wspadmin/images/logo_small.png        
     logo_big: /bundles/wspadmin/images/logo_big.png        
 
 # Twig Configuration

@@ -40,18 +40,29 @@ class Messaggio {
     private $body;
 
     /**
-     * @var array
-     *
-     * @ORM\Column(name="destinatari", type="array")
+     * @ORM\ManyToMany(targetEntity="Contatto")
+     * @ORM\JoinTable(name="promo_destinatari",
+     *      joinColumns={@ORM\JoinColumn(name="messaggio_id", referencedColumnName="id")},
+     *      inverseJoinColumns={@ORM\JoinColumn(name="contatto_id", referencedColumnName="id")}
+     *      )
      */
     private $destinatari;
-
+    
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->destinatari = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId() {
+    public function getId()
+    {
         return $this->id;
     }
 
@@ -61,9 +72,10 @@ class Messaggio {
      * @param string $subject
      * @return Messaggio
      */
-    public function setSubject($subject) {
+    public function setSubject($subject)
+    {
         $this->subject = $subject;
-
+    
         return $this;
     }
 
@@ -72,7 +84,8 @@ class Messaggio {
      *
      * @return string 
      */
-    public function getSubject() {
+    public function getSubject()
+    {
         return $this->subject;
     }
 
@@ -82,9 +95,10 @@ class Messaggio {
      * @param string $body
      * @return Messaggio
      */
-    public function setBody($body) {
+    public function setBody($body)
+    {
         $this->body = $body;
-
+    
         return $this;
     }
 
@@ -93,29 +107,41 @@ class Messaggio {
      *
      * @return string 
      */
-    public function getBody() {
+    public function getBody()
+    {
         return $this->body;
     }
 
     /**
-     * Set destinatari
+     * Add destinatari
      *
-     * @param array $destinatari
+     * @param \WSP\PromoBundle\Entity\Contatto $destinatari
      * @return Messaggio
      */
-    public function setDestinatari($destinatari) {
-        $this->destinatari = $destinatari;
-
+    public function addDestinatari(\WSP\PromoBundle\Entity\Contatto $destinatari)
+    {
+        $this->destinatari[] = $destinatari;
+    
         return $this;
+    }
+
+    /**
+     * Remove destinatari
+     *
+     * @param \WSP\PromoBundle\Entity\Contatto $destinatari
+     */
+    public function removeDestinatari(\WSP\PromoBundle\Entity\Contatto $destinatari)
+    {
+        $this->destinatari->removeElement($destinatari);
     }
 
     /**
      * Get destinatari
      *
-     * @return array 
+     * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getDestinatari() {
+    public function getDestinatari()
+    {
         return $this->destinatari;
     }
-
 }

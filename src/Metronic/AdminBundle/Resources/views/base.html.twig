@@ -12,13 +12,17 @@
 	<meta content="{% block author %}{% endblock author %}" name="author" />
 	<meta name="MobileOptimized" content="320">
         
-        {% include "MetronicAdminBundle::layout/stylesheets.html.twig" %}
+        {% block basecss %}
+            {% include "MetronicAdminBundle::layout/stylesheets.html.twig" %}
+        {% endblock %}
         {% block css %}{% endblock %}
         <script type="text/css">
             {% block inline_css %}{% endblock %}
         </script>
         
-        <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" />
+        {% block favicon %}
+            {% render(controller("MetronicAdminBundle:Render:favicon")) %}
+        {% endblock %}
     </head>
     <body class="page-header-fixed">
         {% render(controller("MetronicAdminBundle:Render:header")) %}

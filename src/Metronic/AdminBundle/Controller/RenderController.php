@@ -27,4 +27,12 @@ class RenderController extends Controller {
         return $this->container->getParameter('header');
     }
     
+    /**
+     * @Route("/__favicon")
+     * @Template("MetronicAdminBundle::layout/favicon.html.twig")
+     */
+    public function faviconAction() {
+        return $this->container->getParameter('header');
+    }
+    
 }
