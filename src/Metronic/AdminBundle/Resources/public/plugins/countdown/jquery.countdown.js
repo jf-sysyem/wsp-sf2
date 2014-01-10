@@ -55,7 +55,7 @@ function Countdown() {
 	this._serverSyncs = [];
 	// Shared timer for all countdowns
 	function timerCallBack(timestamp) {
-		var drawStart = (timestamp < 1e12 ? // New HTML5 high resolution timer
+		var drawStart = (timestamp < 1e12 && window.performance ? // New HTML5 high resolution timer
 			(drawStart = performance.now ?
 			(performance.now() + performance.timing.navigationStart) : Date.now()) :
 			// Integer milliseconds since unix epoch
