@@ -16,12 +16,18 @@ var ContactForm = function() {
                     contact: {
                         required: true,
                         email: true
+                    },
+                    privacy: {
+                        required: true
                     }
                 },
                 messages: {// custom messages for radio buttons and checkboxes
                     'contact': {
                         required: Translator.trans('contact.error.contact.required', {}, 'WSPPromo'),
                         email: Translator.trans('contact.error.contact.email', {}, 'WSPPromo')
+                    },
+                    'privacy': {
+                        required: Translator.trans('contact.error.privacy.required', {}, 'WSPPromo')
                     }
                 },
                 invalidHandler: function(event, validator) { //display error alert on form submit   

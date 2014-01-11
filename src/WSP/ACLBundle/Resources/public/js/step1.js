@@ -27,10 +27,10 @@ var Step = function() {
                     location: pos,
                     callback: function(results, status) {
                         map.setCenter(pos.lat(), pos.lng());
-                        var indirizzo = '';
-                        var localita = '';
-                        var cap = '';
                         if (status == 'OK') {
+                            var indirizzo = '';
+                            var localita = '';
+                            var cap = '';
                             $.each(results[0].address_components, function(index, element) {
                                 if (element.types[0] == 'street_number') {
                                     indirizzo += ', ' + element.long_name;
@@ -78,10 +78,10 @@ var Step = function() {
                 GMaps.geocode({
                     location: pos,
                     callback: function(results, status) {
-                        var indirizzo = '';
-                        var localita = '';
-                        var cap = '';
                         if (status == 'OK') {
+                            var indirizzo = '';
+                            var localita = '';
+                            var cap = '';
                             $.each(results[0].address_components, function(index, element) {
                                 if (element.types[0] == 'street_number') {
                                     indirizzo += ', ' + element.long_name;
@@ -125,6 +125,13 @@ var Step = function() {
                     address: text,
                     callback: function(results, status) {
                         if (status == 'OK') {
+                            var cap = '';
+                            $.each(results[0].address_components, function(index, element) {
+                                if (element.types[0] == 'postal_code') {
+                                    cap = element.long_name;
+                                }
+                            });
+                            $('#wsp_aclbundle_negozio_cap').val(cap);
                             var latlng = results[0].geometry.location;
                             var pos = new google.maps.LatLng(latlng.lat(), latlng.lng());
                             marker.setPosition(pos);
@@ -238,6 +245,14 @@ var Step = function() {
                     $checkbox.attr('checked', true).attr('readonly', true).closest('span').addClass('checked');
                 }
             });
+        });
+
+        $('.form-control input').change(function() {
+            var $checkbox = $(this);
+            var $select = $('#wsp_aclbundle_negozio_categoria');
+            if ($checkbox.val() === $select.val()) {
+                $checkbox.attr('checked', true).attr('readonly', true).closest('span').addClass('checked');
+            }
         });
 
     };

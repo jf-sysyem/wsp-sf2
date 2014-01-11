@@ -30,6 +30,8 @@ contact:
         contact:
             required: Scrivere la propria email
             email: L'email inserita non è valida
+        privacy:
+            required: Accetta il trattamento dei dati personali
 # Pagine
 page:
     about:

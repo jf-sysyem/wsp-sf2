@@ -9,6 +9,10 @@
     font-style: normal;
 }
 
+#uniform-contact_privacy {
+    margin-top: -15px !important;
+}
+
 .vertical-bar {
     font-family: 'helveticaregular';
 }

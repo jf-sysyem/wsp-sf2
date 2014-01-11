@@ -64,6 +64,13 @@ crossfade('block', 12000, 1000, 1);
                         <button class="btn yellow" id="contact_btn" type="subimt"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-black"></i></button>
                     </span>
             </div>
+            <div class="input-group input-large">
+                <label class="checkbox-inline margin-top-10" for="contact_privacy">
+                    <input id="contact_privacy" type="checkbox" name="privacy">
+                    <a href="http://www.iubenda.com/privacy-policy/238865" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
+                    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "http://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                </label>
+            </div>
     </form> {{ 'contact.postaction'|trans({}, "WSPPromo")|raw }}
     {#{ 'contact.number'|transchoice(richieste, {'%n%': richieste}, "WSPPromo")|raw }#}
 </div>
