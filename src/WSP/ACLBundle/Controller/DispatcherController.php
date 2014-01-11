@@ -28,7 +28,7 @@ class DispatcherController extends Controller {
         if(!$negozio->getEmailNegozio()) {
             return $this->redirect($this->generateUrl('negozio_step_2'));
         }
-        if(!$user->getNome()) {
+        if(!$user->getFirstname()) {
             return $this->redirect($this->generateUrl('negozio_step_3'));
         }
         if($user->getCliente()->getPartitaIva() == '') {
