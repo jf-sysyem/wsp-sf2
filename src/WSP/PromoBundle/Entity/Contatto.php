@@ -35,9 +35,9 @@ class Contatto {
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="contattato", type="datetime", nullable=true)
+     * @ORM\Column(name="solleciti", type="array", nullable=true)
      */
-    private $contattato;
+    private $solleciti;
 
     /**
      * @var string
@@ -60,6 +60,7 @@ class Contatto {
 
     public function __construct() {
         $this->messaggi = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->solleciti = array();
     }
     
     /**
@@ -95,11 +96,23 @@ class Contatto {
     /**
      * Set contattato
      *
-     * @param \DateTime $contattato
+     * @param \DateTime $sollecito
      * @return Contatti
      */
-    public function setContattato($contattato) {
-        $this->contattato = $contattato;
+    public function addSollecito($sollecito) {
+        $this->solleciti[] = $sollecito;
+
+        return $this;
+    }
+
+    /**
+     * Set contattato
+     *
+     * @param array $solleciti
+     * @return Contatti
+     */
+    public function setSolleciti($solleciti) {
+        $this->solleciti = $solleciti;
 
         return $this;
     }
@@ -107,10 +120,10 @@ class Contatto {
     /**
      * Get contattato
      *
-     * @return \DateTime 
+     * @return array 
      */
-    public function getContattato() {
-        return $this->contattato;
+    public function getSolleciti() {
+        return $this->solleciti;
     }
 
     /**

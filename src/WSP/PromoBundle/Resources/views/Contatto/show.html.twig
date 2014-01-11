@@ -41,10 +41,18 @@
                                 <th>Data contatto</th>
                                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
                             </tr>
-                            <tr>                            
-                                <th>Contattato</th>
-                                <td>{% if entity.contattato %}{{ entity.contattato|date('Y-m-d H:i:s') }}{% endif %}</td>
-                            </tr>
+                            {% if entity.solleciti|length > 0 %}
+                                <tr>                            
+                                    <th>Solleciti</th>
+                                    <td>
+                                        <ol>
+                                            {% for sollecito in entity.solleciti %}
+                                                <li>{{ sollecito|date('Y-m-d H:i:s') }}</li>
+                                            {% endfor %}
+                                        </ol>
+                                    </td>
+                                </tr>
+                            {% endif %}
                         </tbody>
                     </table>
                 </div>

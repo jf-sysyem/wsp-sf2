@@ -76,14 +76,15 @@ class DefaultController extends Controller {
             $out['msg'] = 'new';
             $contatto = new Contatto();
             $contatto->setEmail($email);
-            $this->persist($contatto);
         } else {
             if($contatto->getContattato()) {
                 $out['msg'] = 'contact';
             } else {
                 $out['msg'] = 'already';
             }
+            $contatto->addSollecito(new \DateTime());
         }
+        $this->persist($contatto);
         $out['contatto'] = $contatto;
         return $out;
     }
