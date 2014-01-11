@@ -146,6 +146,7 @@ var Login = function() {
                     required: Translator.trans('register.error.password.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[plainPassword][second]": {
+                    required: Translator.trans('register.error.password_confirmation.equalTo', {}, 'WSPACL'),
                     equalTo: Translator.trans('register.error.password_confirmation.equalTo', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[agree]": {
@@ -165,9 +166,7 @@ var Login = function() {
             },
             errorPlacement: function(error, element) {
                 if (element.attr("name") == "fos_user_registration_form[agree]") { // insert checkbox errors after the container                  
-                    error.insertAfter($('#register_tnc_error'));
-                } else if (element.closest('.input-icon').size() === 1) {
-                    error.insertAfter(element.closest('.input-icon'));
+                    error.insertAfter($('#fos_user_registration_form_agree').closest('div'));
                 } else {
                     error.insertAfter(element);
                 }
