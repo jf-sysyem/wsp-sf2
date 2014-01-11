@@ -33,7 +33,7 @@ class ContattoController extends Controller {
      * @Template()
      */
     public function indexAction() {
-        $pagination = $this->createPagination($this->getRepository('WSPPromoBundle:Contatto')->createQueryBuilder('c')->orderBy('m.createdAt', 'DESC'), 10, 'pconctact');
+        $pagination = $this->createPagination($this->getRepository('WSPPromoBundle:Contatto')->createQueryBuilder('c')->orderBy('c.createdAt', 'DESC'), 10, 'pconctact');
         $entity = new Messaggio();
         $form = $this->createCreateFormMessaggio($entity);
         $messaggi = $this->createPagination($this->getRepository('WSPPromoBundle:Messaggio')->createQueryBuilder('m')->orderBy('m.createdAt', 'DESC'), 10, 'pmail');
