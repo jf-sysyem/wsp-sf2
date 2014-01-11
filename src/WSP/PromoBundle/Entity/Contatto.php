@@ -54,7 +54,7 @@ class Contatto {
     private $note;
 
     /**
-     * @ManyToMany(targetEntity="Messaggi", mappedBy="destinatari")
+     * @ORM\ManyToMany(targetEntity="Messaggio", mappedBy="destinatari")
      */
     private $messaggi;
 
