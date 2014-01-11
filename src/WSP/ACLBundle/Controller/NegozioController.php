@@ -12,6 +12,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use WSP\ACLBundle\Entity\Negozio;
 use JF\ACLBundle\Entity\Gestore;
 use JF\ACLBundle\Entity\Cliente;
+use JF\ACLBundle\Entity\Licenza;
 use WSP\ACLBundle\Form\NegozioType;
 use WSP\ACLBundle\Form\NegozioStep1Type;
 use WSP\ACLBundle\Form\NegozioStep2Type;
