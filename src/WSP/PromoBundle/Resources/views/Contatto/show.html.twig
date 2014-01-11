@@ -83,7 +83,7 @@
         <!-- BEGIN SAMPLE TABLE PORTLET-->
         <div class="portlet box green">
             <div class="portlet-title">
-                <div class="caption"><i class="fa fa-envelope"></i>Email inviate</div>
+                <div class="caption"><i class="fa fa-envelope"></i>Email ricevute</div>
                 <div class="tools">
                     <a href="javascript:;" class="collapse"></a>
 {#
@@ -126,39 +126,5 @@
 <a href="{{ path('contatti') }}">
     <span class="label label-inverse">Torna indietro</span>
 </a>
-
-{#
-<div class="row-fluid">
-    <div class="span6">
-        <div class="block">
-            <table class="table">
-                <tbody>                    <tr>
-                        <th>Id</th>
-                        <td></td>
-                    </tr>                    <tr>
-                        <th>Email</th>
-                        <td>{{ entity.email }}</td>
-                    </tr>                    <tr>
-                        <th>Contattato</th>
-                        <td>{{ entity.contattato|date('Y-m-d H:i:s') }}</td>
-                    </tr>                    <tr>
-                        <th>Risposta</th>
-                        <td>{{ entity.risposta }}</td>
-                    </tr>                    <tr>
-                        <th>Note</th>
-                        <td></td>
-                    </tr>                    <tr>
-                        <th>Createdat</th>
-                        <td>{{ entity.createdAt|date('Y-m-d H:i:s') }}</td>
-                    </tr>                    <tr>
-                        <th>Updatedat</th>
-                        <td>{{ entity.updatedAt|date('Y-m-d H:i:s') }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
-#}
 
 {% endblock %}
