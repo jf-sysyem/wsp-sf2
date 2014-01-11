@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="col-md-8 profile-info">
                     <h1>{{ negozio.nome }}</h1>
-                    <p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'negozio.descrizione.insert' }}</a>{% endif %}</p>
+                    <p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'descrizione.insert'|trans({}, 'WSPNegozio') }}</a>{% endif %}</p>
                     {% if negozio.sito %}
                     <p><a href="{{ negozio.sito }}" target="_blank">{{ negozio.sito }}</a></p>
                     {% endif %}

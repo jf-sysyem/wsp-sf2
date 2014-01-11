@@ -12,3 +12,6 @@ azioni:
     logo:
         titolo: Inserisci il tuo logo
         descrizione: Inserisci il tuo logo o una foto del tuo negozio
+        
+descrizione:
+    insert: Clicca qui per inserire la descrizione del tuo negozio

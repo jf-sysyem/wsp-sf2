@@ -108,7 +108,7 @@ var Login = function() {
         });
 
     };
-    
+
     var handleRegister = function() {
 
         $('.register-form').validate({
@@ -135,6 +135,19 @@ var Login = function() {
                 }
             },
             messages: {// custom messages for radio buttons and checkboxes
+                "fos_user_registration_form[email]": {
+                    email: Translator.trans('login.error.email.email', {}, 'WSPACL'),
+                    required: Translator.trans('login.error.email.required', {}, 'WSPACL')
+                },
+                "fos_user_registration_form[username]": {
+                    required: Translator.trans('login.error.username.required', {}, 'WSPACL')
+                },
+                "fos_user_registration_form[plainPassword][first]": {
+                    required: Translator.trans('login.error.password.required', {}, 'WSPACL')
+                },
+                "fos_user_registration_form[plainPassword][second]": {
+                    required: Translator.trans('login.error.password_confirmation.required', {}, 'WSPACL')
+                },
                 "fos_user_registration_form[agree]": {
                     required: Translator.trans('login.error.agree.required', {}, 'WSPACL')
                 }
@@ -173,6 +186,19 @@ var Login = function() {
             }
         });
 
+        $('#register-submit-btn').click(function(e) {
+            if ($('.register-form').validate().form()) {
+                submit();
+            }
+            return false;
+        });
+
+        function submit() {
+            var form = $('.register-form');
+            $.post(form.attr('action'), form.serialize(), function(response) {
+                $('#reg').html(response);
+            });
+        }
 
         jQuery('#register-btn').click(function() {
             jQuery('.login-form').hide();

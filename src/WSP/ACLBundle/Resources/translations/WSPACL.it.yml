@@ -32,6 +32,15 @@ register:
         codice_invito: "Hai un codice invito? Scrivilo qua sotto per avere un regalo:"
         agree: "Accetto<br/>i <a href='javascript:openTds();' id='tos'>Termini di servizio</a><br/>e il <a href='javascript:openTdp()'>Trattamento dei dati personali</a> per la privacy"
     error:
+        email:
+            email: L'email non è corretta
+            required: L'email è obbligatoria
+        username:
+            required: Scegliere il proprio nome utente
+        password:
+            required: Scegliere la password
+        password_confirmation:
+            required: Scrivere nuovamente la password scelta
         agree:
             required: È necessario accettare i Termini di servizio e il Trattamento dei dati personali
     welcome: Benvenuto %username% su World Sticker Prize   

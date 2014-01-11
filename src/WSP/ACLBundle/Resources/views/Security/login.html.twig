@@ -75,5 +75,7 @@ Login.init();
 </form>
 <!-- END LOGIN FORM -->   
 {% render(controller('FOSUserBundle:Resetting:request')) %}
-{% render(controller('FOSUserBundle:Registration:register')) %}
+<div id="reg">
+    {% render(controller('FOSUserBundle:Registration:register')) %}
+</div>
 {% endblock content %}
