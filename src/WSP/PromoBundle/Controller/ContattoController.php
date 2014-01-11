@@ -118,6 +118,35 @@ class ContattoController extends Controller {
     /**
      * Deletes a Contatto entity.
      *
+     * @Route("-reinvia-email/{id}", name="reinvia_email", defaults={"format": "json"}, options={"expose": true, "ACL": {"in_role": "R_WSP"}})
+     */
+    public function reinviaEmailAction($id) {
+        $entity = $this->find('WSPPromoBundle:Messaggio', $id);
+        $_ids = $this->executeSql("select c.id from promo_contatti c where c.id not in (select d.contatto_id from promo_destinatari d where d.messaggio_id = :id)", array('id' => $id));
+        $ids = array();
+        foreach ($_ids as $_id) {
+            $ids[] = $_id['id'];
+        }
+        $entities = $this->findBy('WSPPromoBundle:Contatto', array('id' => $ids));
+        foreach ($entities as $contatto) {
+            /* @var $contatto Contatto */
+            $message = \Swift_Message::newInstance()
+                    ->setSubject($entity->getSubject())
+                    ->setTo(trim($contatto->getEmail()))
+                    ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())))
+                    ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())), 'text/html');
+            $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
+            $this->get('mailer')->send($message);
+            $entity->addDestinatari($contatto);
+        }
+        $this->persist($entity);
+
+        return $this->redirect($this->generateUrl('contatti'));
+    }
+
+    /**
+     * Deletes a Contatto entity.
+     *
      * @Route("/{id}", name="contatti_delete", options={"ACL": {"in_role": "R_WSP"}})
      * @Method("DELETE")
      */

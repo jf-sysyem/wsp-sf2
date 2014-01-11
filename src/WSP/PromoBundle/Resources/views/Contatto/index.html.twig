@@ -57,6 +57,7 @@ Translator.locale = 'it'
                                 <th>#</th>
                                 <th>Email</th>
                                 <th>Data contatto</th>
+                                <th>messaggi</th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
                         </thead>
@@ -66,6 +67,7 @@ Translator.locale = 'it'
                                 <td>{{ entity.id }}</td>
                                 <td>{{ entity.email }}</td>
                                 <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{{ entity.messaggi|length }}/{{ messaggi.totalItemCount }}</td>
                                 <td><button class="btn yellow btn-xs" onclick="window.location='{{ path('contatti_show', { 'id': entity.id }) }}';">Apri</button></a></td>
                             </tr>
                     {% endfor %}
@@ -113,7 +115,7 @@ Translator.locale = 'it'
                             </tr>
                             <tr id="body-{{ entity.id }}" class="no-display">                            
                                 <td colspan="3">{{ entity.body|nl2br }}</td>
-                                <td colspan="2" style="text-align: right;"><button class="btn green btn-xs" onclick="$('#body-{{ entity.id }}').toggle();">Invia a nuovi iscritti</button></td>
+                                <td colspan="2" style="text-align: right;">{% if entity.destinatari|length != pagination.totalItemCount %}<button class="btn green btn-xs" onclick="window.location='{{ path('reinvia_email', {'id': entity.id}) }}'">Invia a nuovi iscritti</button>{% endif %}</td>
                             </tr>
                     {% endfor %}
                         </tbody>

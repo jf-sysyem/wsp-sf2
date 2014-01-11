@@ -54,6 +54,15 @@ class Contatto {
     private $note;
 
     /**
+     * @ManyToMany(targetEntity="Messaggi", mappedBy="destinatari")
+     */
+    private $messaggi;
+
+    public function __construct() {
+        $this->messaggi = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
      * Get id
      *
      * @return integer 
@@ -145,5 +154,37 @@ class Contatto {
     public function getRisposta() {
         return $this->risposta;
     }
+    
+    /**
+     * Add messaggi
+     *
+     * @param \WSP\PromoBundle\Entity\Messaggio $messaggi
+     * @return Messaggio
+     */
+    public function addMessaggi(\WSP\PromoBundle\Entity\Messaggio $messaggi)
+    {
+        $this->messaggi[] = $messaggi;
+    
+        return $this;
+    }
 
+    /**
+     * Remove messaggi
+     *
+     * @param \WSP\PromoBundle\Entity\Messaggio $messaggi
+     */
+    public function removeMessaggi(\WSP\PromoBundle\Entity\Messaggio $messaggi)
+    {
+        $this->messaggi->removeElement($messaggi);
+    }
+
+    /**
+     * Get messaggi
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMessaggi()
+    {
+        return $this->messaggi;
+    }
 }

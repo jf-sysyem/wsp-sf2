@@ -70,7 +70,51 @@
         <!-- END SAMPLE TABLE PORTLET-->
     </div>
 </div>
-
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN SAMPLE TABLE PORTLET-->
+        <div class="portlet box green">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-envelope"></i>Email inviate</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+{#
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+#}
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-responsive">
+                    <table class="table table-striped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Subject</th>
+                                <th>Inviata il</th>
+                                <th width="40" class="TAC">Op.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for messaggio in entity.messaggi %}
+                                <tr>                            
+                                    <td>{{ messaggio.id }}</td>
+                                    <td>{{ messaggio.subject }}</td>
+                                    <td>{% if messaggio.createdAt %}{{ messaggio.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                    <td><button class="btn green btn-xs" onclick="$('#body-{{ messaggio.id }}').toggle();">Leggi</button></td>
+                                </tr>
+                                <tr id="body-{{ messaggio.id }}" class="no-display">                            
+                                    <td colspan="4">{{ messaggio.body|nl2br }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <!-- END SAMPLE TABLE PORTLET-->
+    </div>
+</div>
 <a href="{{ path('contatti') }}">
     <span class="label label-inverse">Torna indietro</span>
 </a>
