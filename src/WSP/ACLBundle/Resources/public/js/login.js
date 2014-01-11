@@ -197,6 +197,7 @@ var Login = function() {
             var form = $('.register-form');
             $.post(form.attr('action'), form.serialize(), function(response) {
                 $('#reg').html(response);
+                $('.register-form').show();
             });
         }
 
