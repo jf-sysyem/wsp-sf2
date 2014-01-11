@@ -132,6 +132,7 @@ class ContattoController extends Controller {
             /* @var $contatto Contatto */
             $message = \Swift_Message::newInstance()
                     ->setSubject($entity->getSubject())
+                    ->setFrom('marketing@wsprice.it')
                     ->setTo(trim($contatto->getEmail()))
                     ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())))
                     ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())), 'text/html');
