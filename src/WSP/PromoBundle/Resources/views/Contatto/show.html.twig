@@ -39,7 +39,7 @@
                             </tr>
                             <tr>                            
                                 <th>Data contatto</th>
-                                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if entity.createdAt %}{{ entity.createdAt|date('d/m/Y H:i:s') }}{% endif %}</td>
                             </tr>
                             {% if entity.solleciti|length > 0 %}
                                 <tr>                            
@@ -47,7 +47,7 @@
                                     <td>
                                         <ol>
                                             {% for sollecito in entity.solleciti %}
-                                                <li>{{ sollecito|date('Y-m-d H:i:s') }}</li>
+                                                <li>{{ sollecito|date('d/m/Y H:i:s') }}</li>
                                             {% endfor %}
                                         </ol>
                                     </td>

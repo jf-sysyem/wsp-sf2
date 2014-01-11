@@ -67,7 +67,7 @@ Translator.locale = 'it'
                                 <td>{{ entity.id }}</td>
                                 <td>{{ entity.email }}</td>
                                 <td>
-                                    {% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}
+                                    {% if entity.createdAt %}{{ entity.createdAt|date('d/m/Y') }}{% endif %}
                                     {% if entity.solleciti|length > 0 %}({{ entity.solleciti|length }}){% endif %}
                                 </td>
                                 <td>{{ entity.messaggi|length }}/{{ messaggi.totalItemCount }}</td>
@@ -112,7 +112,7 @@ Translator.locale = 'it'
                             <tr>                            
                                 <td>{{ entity.id }}</td>
                                 <td>{{ entity.subject }}</td>
-                                <td>{% if entity.createdAt %}{{ entity.createdAt|date('Y-m-d H:i:s') }}{% endif %}</td>
+                                <td>{% if entity.createdAt %}{{ entity.createdAt|date('d/m/Y H:i:s') }}{% endif %}</td>
                                 <td>{{ entity.destinatari|length }}/{{ pagination.totalItemCount }}</td>
                                 <td><button class="btn green btn-xs" onclick="$('#body-{{ entity.id }}').toggle();">Leggi</button></td>
                             </tr>
