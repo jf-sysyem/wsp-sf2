@@ -1,8 +1,21 @@
 {% use "form_div_layout.html.twig" %}
 
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+    <span for="{{id}}" class="help-block">
+        {% for error in errors %}
+            {{ error.message|trans({}, translation_domain)|raw }}<br/>
+        {% endfor %}
+    </span>
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}
+
+
 {% block form_row %}
 {% spaceless %}
-    <div class="form-group" {% if errors|length > 0 %}error{% endif %}>
+    <div class="form-group" {% if errors|length > 0 %}has-error{% endif %}>
         {{ form_label(form) }}
         <div class="input-icon">
             {% if attr.icon is defined %}

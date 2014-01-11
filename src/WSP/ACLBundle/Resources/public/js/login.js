@@ -180,7 +180,7 @@ var Login = function() {
         $('.register-form input').keypress(function(e) {
             if (e.which == 13) {
                 if ($('.register-form').validate().form()) {
-                    $('.register-form').submit();
+                    submit();
                 }
                 return false;
             }
