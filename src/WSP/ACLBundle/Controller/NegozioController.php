@@ -58,7 +58,15 @@ class NegozioController extends Controller {
             $cliente = new \JF\ACLBundle\Entity\Cliente();
             $cliente->setEmptyData(25)->setReferente($user);
             $this->persist($cliente);
-            
+
+            foreach($this->findBy('JFCoreBundle:Licenza', array('autoinstall' => true)) as $licenza) {
+                $_licenza = new Licenza();
+                $_licenza->setLicenza($licenza);
+                $_licenza->setCliente($cliente);
+                $_licenza->setPagamento(new \DateTime());
+                $this->persist($_licenza);
+            }
+
             // Controllo che abbia il ruolo di negoziante per l'attivazione automatica dei servizi per i negozianti
             if(!$user->hasRole('R_NEGOZIANTE')) {
                 $roles = $user->getRoles();

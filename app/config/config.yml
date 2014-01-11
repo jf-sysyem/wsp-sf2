@@ -156,4 +156,4 @@ knp_paginator:
         pagination: MetronicAdminBundle::pagination/sliding.html.twig     
         
 jf_core:
-    default_home_route: negozio
+    default_home_route: wsp
