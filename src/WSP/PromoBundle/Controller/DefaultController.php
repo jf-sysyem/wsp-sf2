@@ -77,11 +77,7 @@ class DefaultController extends Controller {
             $contatto = new Contatto();
             $contatto->setEmail($email);
         } else {
-            if($contatto->getContattato()) {
-                $out['msg'] = 'contact';
-            } else {
-                $out['msg'] = 'already';
-            }
+            $out['msg'] = 'already';
             $contatto->addSollecito(new \DateTime());
         }
         $this->persist($contatto);
