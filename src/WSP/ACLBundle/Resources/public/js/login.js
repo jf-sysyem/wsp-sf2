@@ -136,20 +136,20 @@ var Login = function() {
             },
             messages: {// custom messages for radio buttons and checkboxes
                 "fos_user_registration_form[email]": {
-                    email: Translator.trans('login.error.email.email', {}, 'WSPACL'),
-                    required: Translator.trans('login.error.email.required', {}, 'WSPACL')
+                    email: Translator.trans('register.error.email.email', {}, 'WSPACL'),
+                    required: Translator.trans('register.error.email.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[username]": {
-                    required: Translator.trans('login.error.username.required', {}, 'WSPACL')
+                    required: Translator.trans('register.error.username.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[plainPassword][first]": {
-                    required: Translator.trans('login.error.password.required', {}, 'WSPACL')
+                    required: Translator.trans('register.error.password.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[plainPassword][second]": {
-                    required: Translator.trans('login.error.password_confirmation.required', {}, 'WSPACL')
+                    required: Translator.trans('register.error.password_confirmation.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[agree]": {
-                    required: Translator.trans('login.error.agree.required', {}, 'WSPACL')
+                    required: Translator.trans('register.error.agree.required', {}, 'WSPACL')
                 }
             },
             invalidHandler: function(event, validator) { //display error alert on form submit   
