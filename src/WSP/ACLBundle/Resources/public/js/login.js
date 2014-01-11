@@ -146,7 +146,7 @@ var Login = function() {
                     required: Translator.trans('register.error.password.required', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[plainPassword][second]": {
-                    required: Translator.trans('register.error.password_confirmation.required', {}, 'WSPACL')
+                    equalTo: Translator.trans('register.error.password_confirmation.equalTo', {}, 'WSPACL')
                 },
                 "fos_user_registration_form[agree]": {
                     required: Translator.trans('register.error.agree.required', {}, 'WSPACL')
@@ -198,6 +198,7 @@ var Login = function() {
             $.post(form.attr('action'), form.serialize(), function(response) {
                 $('#reg').html(response);
                 $('.register-form').show();
+                handleRegister();
             });
         }
 

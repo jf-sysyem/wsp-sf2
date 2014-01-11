@@ -40,7 +40,7 @@ register:
         password:
             required: Scegliere la password
         password_confirmation:
-            required: Scrivere nuovamente la password scelta
+            equalTo: Scrivere nuovamente la password scelta
         agree:
             required: È necessario accettare i Termini di servizio e il Trattamento dei dati personali
     welcome: Benvenuto %username% su World Sticker Prize   
