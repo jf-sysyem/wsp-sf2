@@ -32,7 +32,7 @@ twig:
     strict_variables: %kernel.debug%
     globals:
         page_title: World Sticker Price
-        logo: /bundles/wspadmin/images/logo_favicon.png     
+        logo: /bundles/wspadmin/images/logo_small.png     
 
 # Assetic Configuration
 assetic:
