@@ -3,7 +3,7 @@
 <form class="register-form" action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
     <h3>{{ 'register.title'|trans({}, 'WSPACL') }}</h3>
     <p>{{ 'register.social'|trans({}, 'WSPACL') }}</p>
-    <ul class="social-icons margin-top-20">
+    <ul class="social-icons" style="margin: 0 auto; width: 66px">
         <li><a href="#" data-original-title="Facebook" class="facebook"></a></li>
         <li><a href="#" data-original-title="Twitter" class="twitter"></a></li>
     </ul>
@@ -11,11 +11,11 @@
     {{ form_widget(form) }}
 
     <div class="form-actions">
-        <button id="register-back-btn" type="button" class="btn">
+        <button id="register-back-btn" type="button" class="btn pull-left">
             <i class="m-icon-swapleft"></i> {{ 'commons.back'|trans({}, 'WSPACL') }}
         </button>
         <button type="submit" id="register-submit-btn" class="btn blue pull-right">
-            {{ 'registration.submit'|trans({}, 'FOSUserBundle') }}<i class="m-icon-swapright m-icon-white"></i>
+            {{ 'registration.submit'|trans({}, 'FOSUserBundle') }} <i class="m-icon-swapright m-icon-white"></i>
         </button>            
     </div>
 </form>

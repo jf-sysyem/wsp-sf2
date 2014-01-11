@@ -30,7 +30,7 @@ register:
         password: "Password:"
         password_confirmation: "Verifica:"
         codice_invito: "Hai un codice invito? Scrivilo qua sotto per avere un regalo:"
-        agree: "Accetto i <a href='javascript:openTds();' id='tos'>Termini di servizio</a> e il <a href='javascript:openTdp()'>Trattamento dei dati personali</a> per la privacy"
+        agree: "Accetto<br/>i <a href='javascript:openTds();' id='tos'>Termini di servizio</a><br/>e il <a href='javascript:openTdp()'>Trattamento dei dati personali</a> per la privacy"
     error:
         agree:
             required: È necessario accettare i Termini di servizio e il Trattamento dei dati personali
