@@ -57,7 +57,7 @@ Translator.locale = 'it'
                                 <th>#</th>
                                 <th>Email</th>
                                 <th class="hidden-xs">Data contatto <i>(solleciti)</i></th>
-                                <th># mess<span class="hidden-xs">aggi</span></th>
+                                <th># <span class="hidden-xs">messaggi</span><span class="visible-xs">mex</span></th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
                         </thead>
@@ -104,7 +104,7 @@ Translator.locale = 'it'
                                 <th class="hidden-xs">Subject</th>
                                 <th class="visible-xs">Subject</th>
                                 <th class="hidden-xs">Inviata il</th>
-                                <th># cont<span class="hidden-xs">atti</span></th>
+                                <th># <span class="hidden-xs">contatti</span><span class="visible-xs">cont</span></th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
                         </thead>
@@ -113,7 +113,7 @@ Translator.locale = 'it'
                             <tr>                            
                                 <td>{{ entity.id }}</td>
                                 <td class="hidden-xs">{{ entity.subject }}</td>
-                                <td class="visible-xs">{{ entity.subject|truncate(25) }}</td>
+                                <td class="visible-xs" title="{{ entity.subject|replace({'"': ''}) }}">{{ entity.subject|truncate(25) }}</td>
                                 <td class="hidden-xs">{% if entity.createdAt %}{{ entity.createdAt|date('d/m/Y H:i:s') }}{% endif %}</td>
                                 <td>{{ entity.destinatari|length }}/{{ pagination.totalItemCount }}</td>
                                 <td><button class="btn green btn-xs" onclick="$('#body-{{ entity.id }}').toggle();">Leggi</button></td>
