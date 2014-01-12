@@ -56,8 +56,8 @@ Translator.locale = 'it'
                             <tr>
                                 <th>#</th>
                                 <th>Email</th>
-                                <th class="hidden-xs">Data contatto <i>(solleciti)</i></th>
-                                <th># <span class="hidden-xs">messaggi</span><span class="visible-xs">mex</span></th>
+                                <th class="hidden-xs">Data contatto <i class="hidden-md">(solleciti)</i></th>
+                                <th><span class="hidden-xs hidden-md"># messaggi</span><span class="visible-xs visible-md"># mex</span></th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
                         </thead>
@@ -68,7 +68,7 @@ Translator.locale = 'it'
                                 <td>{{ entity.email }}</td>
                                 <td class="hidden-xs">
                                     {% if entity.createdAt %}{{ entity.createdAt|date('d/m/Y') }}{% endif %}
-                                    {% if entity.solleciti|length > 0 %}({{ entity.solleciti|length }}){% endif %}
+                                    {% if entity.solleciti|length > 0 %}<i class="hidden-md">({{ entity.solleciti|length }})</i>{% endif %}
                                 </td>
                                 <td>{{ entity.messaggi|length }}/{{ messaggi.totalItemCount }}</td>
                                 <td><button class="btn yellow btn-xs" onclick="window.location='{{ path('contatti_show', { 'id': entity.id }) }}';">Apri</button></a></td>
