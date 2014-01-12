@@ -56,7 +56,7 @@ Translator.locale = 'it'
                             <tr>
                                 <th>#</th>
                                 <th>Email</th>
-                                <th class="hidden-xs">Data <i class="hidden-md">(solleciti)</i><i class="visible-md">(soll)</i></th>
+                                <th class="hidden-xs"><i class="hidden-md">Data (solleciti)</i><i class="visible-md">Data (soll)</i></th>
                                 <th><span class="hidden-xs hidden-md"># messaggi</span><span class="visible-xs visible-md"># mex</span></th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
@@ -67,8 +67,10 @@ Translator.locale = 'it'
                                 <td>{{ entity.id }}</td>
                                 <td>{{ entity.email }}</td>
                                 <td class="hidden-xs">
-                                    {% if entity.createdAt %}<span class="hidden-md">{{ entity.createdAt|date('d/m/Y') }}</span><span class="visible-md">{{ entity.createdAt|date('d/m/y') }}</span>{% endif %}
-                                    {% if entity.solleciti|length > 0 %}<i>({{ entity.solleciti|length }})</i>{% endif %}
+                                    {% if entity.createdAt %}
+                                        <span class="hidden-md">{{ entity.createdAt|date('d/m/Y') }} {% if entity.solleciti|length > 0 %}<i>({{ entity.solleciti|length }})</i>{% endif %}</span>
+                                        <span class="visible-md">{{ entity.createdAt|date('d/m/y') }} {% if entity.solleciti|length > 0 %}<i>({{ entity.solleciti|length }})</i>{% endif %}</span>
+                                    {% endif %}
                                 </td>
                                 <td>{{ entity.messaggi|length }}/{{ messaggi.totalItemCount }}</td>
                                 <td><button class="btn yellow btn-xs" onclick="window.location='{{ path('contatti_show', { 'id': entity.id }) }}';">Apri</button></a></td>
@@ -104,7 +106,7 @@ Translator.locale = 'it'
                                 <th class="hidden-xs">Subject</th>
                                 <th class="visible-xs">Subject</th>
                                 <th class="hidden-xs">Inviata il</th>
-                                <th># <span class="hidden-xs">contatti</span><span class="visible-xs">cont</span></th>
+                                <th><span class="hidden-xs"># contatti</span><span class="visible-xs"># cont</span></th>
                                 <th width="40" class="TAC">Op.</th>
                             </tr>
                         </thead>
