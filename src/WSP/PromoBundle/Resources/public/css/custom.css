@@ -176,6 +176,10 @@ span.red {
     margin: 1px 0px 1px 2px !important; 
 }
 
+.login .copyright {
+    font-size: 0.75em;
+}
+
 .login .content {
     background: url(../../metronicadmin/img/bg-opacity.png) repeat;
     font-family: 'helveticaregular';

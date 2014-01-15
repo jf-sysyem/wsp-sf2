@@ -22,7 +22,7 @@ parameters:
     altezza_minima_immagine: 200
 
     # SOCIAL NETWORK
-    facebook.app_id: 502928559799016
-    facebook.app_secret: 1378c3ebb45f5f9b63cdf992b6065eec
+    facebook.app_id: 1438737219689685
+    facebook.app_secret: 1ae02923ee5fa8896735b22db8cdb57b
     twitter.app_id: ert6gEM1Go8YBwTbeeR8g
     twitter.app_secret: s3Qj0GkHmGdYJcV9SRYd0faxkNGKaxpmew5DrAT5dP0

@@ -26,6 +26,16 @@ ContactForm.init();
 crossfade('block', 12000, 1000, 1);
 {% endblock %}
 
+{% block inline_js %}
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41259901-6', 'wsprice.it');
+  ga('send', 'pageview');
+{% endblock %}
+
 {% block precontent %}
 <hgroup class="no-display">
     <h1>World Sticker Prize</h1>
@@ -33,8 +43,8 @@ crossfade('block', 12000, 1000, 1);
 </hgroup>
 <div class="header navbar navbar-inverse navbar-fixed-top trasparent">
     <ul class="social-icons margin10">
-        <li><a href="#" data-original-title="Facebook" class="facebook"></a></li>
-        <li><a href="#" data-original-title="Youtube" class="youtube"></a></li>
+        <li><a href="https://www.facebook.com/wsprice.it?ref=hl" data-original-title="Facebook" class="facebook"></a></li>
+        <li><a href="javascript:alert('Il video di presentazione sarà presto online!')" data-original-title="Youtube" class="youtube"></a></li>
     </ul>
 </div>
 {% endblock %}
@@ -67,8 +77,7 @@ crossfade('block', 12000, 1000, 1);
             <div class="input-group input-large">
                 <label class="checkbox-inline margin-top-10" for="contact_privacy">
                     <input id="contact_privacy" type="checkbox" name="privacy">
-                    <a href="http://www.iubenda.com/privacy-policy/238865" class="iubenda-white iubenda-embed" title="Privacy Policy">Privacy Policy</a>
-                    <script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "http://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
+                    <a href="http://www.iubenda.com/privacy-policy/169317" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "http://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
                 </label>
             </div>
     </form> {{ 'contact.postaction'|trans({}, "WSPPromo")|raw }}
