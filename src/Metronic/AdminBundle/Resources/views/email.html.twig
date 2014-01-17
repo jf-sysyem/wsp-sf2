@@ -196,10 +196,12 @@
                         <table border="0" cellpadding="0" cellspacing="0" width="600px" style="height:100%;">
                             <tr>
                                 <td align="right" valign="middle" class="textwhite" style="font-size:12px;padding:20px;">
-                                    {% if unsibscribe is defined %} 
-                                    If you do not wish to receive this newsletter, you can <a href="#" class="fontwhite">click here to unsubscribe</a>.  
-                                    <br /><br />
-                                    {% endif %}
+                                    {% block unsubscribe %}
+                                        {% if unsibscribe is defined %} 
+                                        If you do not wish to receive this newsletter, you can <a href="#" class="fontwhite">click here to unsubscribe</a>.  
+                                        <br /><br />
+                                        {% endif %}
+                                    {% endblock unsubscribe %}
                                     &copy; 2013 {{ page_title }}.
                                 </td>
                             </tr>

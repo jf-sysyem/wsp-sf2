@@ -6,9 +6,16 @@
 <h2 class="h2">{{ messaggio.subject }}</h2>
 <br />
 <div class="textdark">
-    {{ messaggio.body|nl2br }}
     {% if messaggio.foto %}
-    <br/><img src="{{ url('home') }}{{ messaggio.foto.urls.url }}" alt="World Sticker Price" title="World Sticker Price"/>
+    <img src="{{ url('home') }}{{ messaggio.foto.urls.url }}" alt="World Sticker Price" title="World Sticker Price"/><br/><br/>
     {% endif %}
+    {{ messaggio.body|nl2br }}
 </div>
 {% endblock content %}
+
+{% block unsubscribe %}
+Questa mail ti è stata inviata perché ti sei registrato su <a href="{{ url('home') }}">World Sticker Price</a> e ci hai autorizzati ad inviarti 
+le nostre comunicazioni in formato elettronico. Se non vuoi più riceverla, mandaci una mail a <a href="mailto:staff@wsprice.it">staff@wsprice.it</a><br/>
+ATTENZIONE: non rispondete a questa email, l'indirizzo è utilizzato solo per gli invii e non prevede possibilità di ricezione.<br/> 
+Copyright © 2014 World Sticker Price
+{% endblock unsubscribe %}
