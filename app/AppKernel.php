@@ -36,6 +36,7 @@ class AppKernel extends Kernel {
             new JF\GeneratorBundle\JFGeneratorBundle(),
             new JF\CoreBundle\JFCoreBundle(),
             new JF\ACLBundle\JFACLBundle(),
+            new JF\DragDropBundle\JFDragDropBundle(),
             
             new Metronic\AdminBundle\MetronicAdminBundle(),
             new Hours\VideoBundle\HoursVideoBundle(),

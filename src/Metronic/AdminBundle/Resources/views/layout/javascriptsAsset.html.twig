@@ -1,0 +1,20 @@
+{% javascripts  
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-1.10.2.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-migrate-1.2.1.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-ui/jquery-ui-1.10.3.custom.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/bootstrap/js/bootstrap.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-slimscroll/jquery.slimscroll.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery.blockui.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery.cookie.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/uniform/jquery.uniform.min.js'
+    '@MetronicAdminBundle/Resources/public/scripts/app.js'
+    '@FOSJsRoutingBundle/Resources/public/js/router.js'
+    '@BazingaJsTranslationBundle/Resources/public/js/translator.min.js'
+%}
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}  
+<script type="text/javascript" src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+<script type="text/javascript" src="{{ url('bazinga_jstranslation_js') }}"></script>
+
+

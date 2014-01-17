@@ -95,6 +95,8 @@ class ContattoController extends Controller {
         $form = $this->createCreateFormMessaggio($entity);
         $form->handleRequest($this->getRequest());
 
+        $entity->setFoto($this->find('JFDragDropBundle:File', $entity->getFoto()));
+        
         if ($form->isValid()) {
             $entities = $this->findAll('WSPPromoBundle:Contatto');
             foreach ($entities as $contatto) {
@@ -103,8 +105,8 @@ class ContattoController extends Controller {
                         ->setSubject($entity->getSubject())
                         ->setFrom('marketing@wsprice.it')
                         ->setTo(trim($contatto->getEmail()))
-                        ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())))
-                        ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('subject' => $entity->getSubject(), 'testo' => $entity->getBody())), 'text/html');
+                        ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('messaggio' => $entity)))
+                        ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('messaggio' => $entity)), 'text/html');
                 $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
                 $this->get('mailer')->send($message);
                 $entity->addDestinatari($contatto);

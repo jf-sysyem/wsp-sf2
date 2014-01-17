@@ -1,11 +1,14 @@
 {% extends "::email.html.twig" %}
 
-{% block title %}{{ subject }}{% endblock title %}
+{% block title %}{{ messaggio.subject }}{% endblock title %}
 
 {% block content %}
-<h2 class="h2">{{ subject }}</h2>
+<h2 class="h2">{{ messaggio.subject }}</h2>
 <br />
 <div class="textdark">
-    {{ testo|nl2br }}
+    {{ messaggio.body|nl2br }}
+    {% if messaggio.foto %}
+        <img src="{{ url('home') }}{{ messaggio.foto.urls.url }}" alt="World Sticker Price" title="World Sticker Price"/>
+    {% endif %}
 </div>
 {% endblock content %}

@@ -1,0 +1,21 @@
+form_upload_foto:
+  label_button: Carica immagine
+  label_button_change: Cambia immagine
+  save: Salva immagine
+  load: Carica immagine
+  success: Immagine caricate con successo
+  error:
+     minima_risoluzione: La tua Immagine è troppo piccola. Le dimensioni minime sono %larghezza_minima_immagine%x%altezza_minima_immagine% px
+     tipo_file_accettati: Formato non supportato
+     massima_dimensione: La tua Immagine è troppo grande. La dimensione massima è %dimensione% Mb
+     massimo_numero_files: Stai sorpassando il limite delle foto che puoi caricare     
+
+form_gestione_foto:
+   form:
+     fotoPrivata: Foto privata
+     fotoProfilo: Crea la foto profilo
+     titolo: Titolo
+     descrizione: Descrizione
+     crop: Ritaglia la foto
+   eliminaFoto: Vuoi veramente eliminare questa foto?
+   eliminaFotoProfilo: Salva prima un'altra foto profilo, grazie

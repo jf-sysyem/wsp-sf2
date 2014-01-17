@@ -29,6 +29,7 @@ class MessaggioType extends AbstractType
                     'placeholder' => "Scrivi il testo dell'email"
                     )
                 ))
+            ->add('foto', 'hidden')
         ;
     }
     

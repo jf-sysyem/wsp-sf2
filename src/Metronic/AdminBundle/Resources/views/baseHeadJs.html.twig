@@ -24,6 +24,22 @@
             {% block inline_css %}{% endblock %}
         </style>
         
+        {% block basejs %}
+            {% if compress is defined and compress %}
+                {% include "MetronicAdminBundle::layout/javascriptsAsset.html.twig" %}
+            {% else %}
+                {% include "MetronicAdminBundle::layout/javascripts.html.twig" %}
+            {% endif %}
+        {% endblock %}
+        {% block js %}{% endblock %}
+        <script>
+            {% block inline_js %}{% endblock %}
+            jQuery(document).ready(function() {
+                App.init(); // initlayout and core plugins
+                {% block ready_js %}{% endblock %}
+            });
+        </script>
+
         {% block favicon %}
             {% render(controller("MetronicAdminBundle:Render:favicon")) %}
         {% endblock %}
@@ -48,21 +64,6 @@
         </div>
         <!-- END CONTAINER -->
         {% include "MetronicAdminBundle::layout/footer.html.twig" %}
-        {% block basejs %}
-            {% if compress is defined and compress %}
-                {% include "MetronicAdminBundle::layout/javascriptsAsset.html.twig" %}
-            {% else %}
-                {% include "MetronicAdminBundle::layout/javascripts.html.twig" %}
-            {% endif %}
-        {% endblock %}
-        {% block js %}{% endblock %}
-        <script>
-            {% block inline_js %}{% endblock %}
-            jQuery(document).ready(function() {
-                App.init(); // initlayout and core plugins
-                {% block ready_js %}{% endblock %}
-            });
-        </script>
     </body>
     <!-- END BODY -->
 </html>       

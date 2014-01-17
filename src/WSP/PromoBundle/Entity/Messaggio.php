@@ -47,6 +47,14 @@ class Messaggio {
      *      )
      */
     private $destinatari;
+
+    /**
+     * @var \JF\DragDropBundle\Entity\File
+     * 
+     * @ORM\OneToOne(targetEntity="JF\DragDropBundle\Entity\File")
+     * @ORM\JoinColumn(name="foto_id", referencedColumnName="id", nullable=true)
+     */
+    private $foto;
     
     /**
      * Constructor
@@ -143,5 +151,28 @@ class Messaggio {
     public function getDestinatari()
     {
         return $this->destinatari;
+    }
+    
+    /**
+     * Set foto
+     *
+     * @param \JF\DragDropBundle\Entity\File $foto
+     * @return Messaggio
+     */
+    public function setFoto($foto = null)
+    {
+        $this->foto = $foto;
+    
+        return $this;
+    }
+
+    /**
+     * Get foto
+     *
+     * @return \JF\DragDropBundle\Entity\File 
+     */
+    public function getFoto()
+    {
+        return $this->foto;
     }
 }
