@@ -8,7 +8,7 @@
 <div class="textdark">
     {{ messaggio.body|nl2br }}
     {% if messaggio.foto %}
-        <img src="{{ url('home') }}{{ messaggio.foto.urls.url }}" alt="World Sticker Price" title="World Sticker Price"/>
+    <br/><img src="{{ url('home') }}{{ messaggio.foto.urls.url }}" alt="World Sticker Price" title="World Sticker Price"/>
     {% endif %}
 </div>
 {% endblock content %}
