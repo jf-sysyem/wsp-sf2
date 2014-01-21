@@ -95,7 +95,9 @@ class ContattoController extends Controller {
         $form = $this->createCreateFormMessaggio($entity);
         $form->handleRequest($this->getRequest());
 
-        $entity->setFoto($this->find('JFDragDropBundle:File', $entity->getFoto()));
+        if($entity->getFoto()) {
+            $entity->setFoto($this->find('JFDragDropBundle:File', $entity->getFoto()));
+        }
         
         if ($form->isValid()) {
             $entities = $this->findAll('WSPPromoBundle:Contatto');
