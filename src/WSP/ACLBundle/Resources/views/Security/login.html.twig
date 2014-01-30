@@ -71,7 +71,7 @@ Login.init();
             {{ 'forget.answer.end'|trans({}, 'WSPACL') }} 
         </p>
     </div>
-    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+    <input type="hidden" id="csrf_token" name="_csrf_token" value="{{ csrf_token }}" />
 </form>
 <!-- END LOGIN FORM -->   
 {% render(controller('FOSUserBundle:Resetting:request')) %}
