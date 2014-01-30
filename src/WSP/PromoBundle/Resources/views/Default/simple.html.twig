@@ -36,16 +36,12 @@ crossfade('block', 12000, 1000, 1);
   ga('send', 'pageview');
 {% endblock %}
 
-{% block precontent %}
+{% block _precontent %}
 <hgroup class="no-display">
     <h1>World Sticker Prize</h1>
     <h2>{{ 'promo.h2'|trans({}, "WSPPromo") }}</h2>
 </hgroup>
 <div class="header navbar navbar-inverse navbar-fixed-top trasparent">
-    <ul class="social-icons margin10">
-        <li><a target="_blank" href="https://www.facebook.com/wsprice.it?ref=hl" data-original-title="Facebook" class="social-icon-color facebook"></a></li>
-        <li><a target="_blank" href="http://www.youtube.com/watch?v=ZQ1ZaP9CTBg" data-original-title="Youtube" class="social-icon-color youtube"></a></li>
-    </ul>
 </div>
 {% endblock %}
 
@@ -66,6 +62,10 @@ crossfade('block', 12000, 1000, 1);
 
 {% block postcontent %}
 <div class="content grassetto padding10" id="contact" style="margin-top: 10px;">
+    <ul class="social-icons" style="margin: 0 auto; width: 70px;">
+        <li><a target="_blank" href="https://www.facebook.com/wsprice.it?ref=hl" data-original-title="Facebook" class="social-icon-color facebook"></a></li>
+        <li><a target="_blank" href="http://www.youtube.com/watch?v=ZQ1ZaP9CTBg" data-original-title="Youtube" class="social-icon-color youtube"></a></li>
+    </ul>
     {{ 'contact.question'|trans({}, "WSPPromo")|raw }}<br/>
     <form class="form-inline" onsubmit="return false;">
             <div class="input-group input-large">
