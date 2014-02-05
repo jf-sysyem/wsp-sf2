@@ -28,21 +28,19 @@ crossfade('block', 12000, 1000, 1);
 
 {% block inline_js %}
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-41259901-6', 'wsprice.it');
-  ga('send', 'pageview');
+ga('create', 'UA-41259901-6', 'wsprice.it');
+ga('send', 'pageview');
 {% endblock %}
 
-{% block _precontent %}
+{% block precontent %}
 <hgroup class="no-display">
     <h1>World Sticker Prize</h1>
     <h2>{{ 'promo.h2'|trans({}, "WSPPromo") }}</h2>
 </hgroup>
-<div class="header navbar navbar-inverse navbar-fixed-top trasparent">
-</div>
 {% endblock %}
 
 {% block contentcss %}hfix{% endblock %}
@@ -62,25 +60,40 @@ crossfade('block', 12000, 1000, 1);
 
 {% block postcontent %}
 <div class="content grassetto padding10" id="contact" style="margin-top: 10px;">
-    <ul class="social-icons" style="margin: 0 auto; width: 70px;">
-        <li><a target="_blank" href="https://www.facebook.com/wsprice.it?ref=hl" data-original-title="Facebook" class="social-icon-color facebook"></a></li>
-        <li><a target="_blank" href="http://www.youtube.com/watch?v=ZQ1ZaP9CTBg" data-original-title="Youtube" class="social-icon-color youtube"></a></li>
-    </ul>
     {{ 'contact.question'|trans({}, "WSPPromo")|raw }}<br/>
     <form class="form-inline" onsubmit="return false;">
-            <div class="input-group input-large">
-                    <input id="contact_email" type="email" class="form-control" name="contact" placeholder="{{ 'contact.placeholder'|trans({}, "WSPPromo") }}">
-                    <span class="input-group-btn">
-                        <button class="btn yellow" id="contact_btn" type="subimt"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-black"></i></button>
-                    </span>
-            </div>
-            <div class="input-group input-large">
-                <label class="checkbox-inline margin-top-10" for="contact_privacy">
-                    <input id="contact_privacy" type="checkbox" name="privacy">
-                    <a href="http://www.iubenda.com/privacy-policy/169317" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function (w,d) {var loader = function () {var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0]; s.src = "http://cdn.iubenda.com/iubenda.js"; tag.parentNode.insertBefore(s,tag);}; if(w.addEventListener){w.addEventListener("load", loader, false);}else if(w.attachEvent){w.attachEvent("onload", loader);}else{w.onload = loader;}})(window, document);</script>
-                </label>
-            </div>
+        <div class="input-group input-large">
+            <input id="contact_email" type="email" class="form-control" name="contact" placeholder="{{ 'contact.placeholder'|trans({}, "WSPPromo") }}">
+            <span class="input-group-btn">
+                <button class="btn yellow" id="contact_btn" type="subimt"><span>{{ 'contact.button'|trans({}, "WSPPromo")|raw }}</span> <i class="m-icon-swapright m-icon-black"></i></button>
+            </span>
+        </div>
+        <div class="input-group input-large">
+            <label class="checkbox-inline margin-top-10" for="contact_privacy">
+                <input id="contact_privacy" type="checkbox" name="privacy">
+                <a href="http://www.iubenda.com/privacy-policy/169317" class="iubenda-white no-brand iubenda-embed" title="Privacy Policy">Privacy Policy</a><script type="text/javascript">(function(w, d) {
+                        var loader = function() {
+                            var s = d.createElement("script"), tag = d.getElementsByTagName("script")[0];
+                            s.src = "http://cdn.iubenda.com/iubenda.js";
+                            tag.parentNode.insertBefore(s, tag);
+                        };
+                        if (w.addEventListener) {
+                            w.addEventListener("load", loader, false);
+                        } else if (w.attachEvent) {
+                            w.attachEvent("onload", loader);
+                        } else {
+                            w.onload = loader;
+                        }
+                    })(window, document);</script>
+            </label>
+        </div>
     </form> {{ 'contact.postaction'|trans({}, "WSPPromo")|raw }}
+    <div class="clearfix">
+        <ul class="social-icons" style="float: right; width: 70px;">
+            <li style="text-indent: 0px; margin: 0 3px;"><a target="_blank" href="https://www.facebook.com/wsprice.it?ref=hl"><img src="{{ asset('bundles/wspadmin/images/social/facebook.png') }}" alt="Facebook" /></a></li>
+            <li style="text-indent: 0px; margin: 0 3px;"><a target="_blank" href="http://www.youtube.com/watch?v=ZQ1ZaP9CTBg"><img src="{{ asset('bundles/wspadmin/images/social/youtube.png') }}" alt="Youtube" /></a></li>
+        </ul>
+    </div>
     {#{ 'contact.number'|transchoice(richieste, {'%n%': richieste}, "WSPPromo")|raw }#}
 </div>
 <div class="coming-soon-countdown no-padding" style="margin-top: 0px;">
