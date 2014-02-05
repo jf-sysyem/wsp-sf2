@@ -8,11 +8,11 @@ parameters:
     
     mailer_transport: smtp
     mailer_auth_mode: login
-    mailer_host: localhost
-    mailer_username: marketing@wsprice.it
+    mailer_host: smtp.wsprice.it
+    mailer_username: newsletter@wsprice.it
     mailer_password: pwd 
     mailer_user: marketing@wsprice.it
-    mailer_port: 25
+    mailer_port: 587
     
     locale: it
     secret: ThisTokenIsNotSoSecretChangeIt
