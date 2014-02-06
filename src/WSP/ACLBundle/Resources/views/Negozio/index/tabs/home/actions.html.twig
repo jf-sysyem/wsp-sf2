@@ -1,6 +1,6 @@
 <div class="portlet sale-summary">
     <div class="portlet-title">
-        <div class="caption">{{ 'azioni.titolo'|trans({}, 'WSPNegozio') }}</div>
+        <div class="caption">{{ 'home.azioni.titolo'|trans({}, 'WSPNegozio') }}</div>
         <div class="tools">
             <a class="reload" href="javascript:;"></a>
         </div>
@@ -9,28 +9,28 @@
         <ul class="list-unstyled">
             {% if not negozio.logo %}
                 <li>
-                    <span class="sale-info">{{ 'azioni.logo.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
-                    <span class="sale-num" title="{{ 'azioni.logo.descrizione'|trans({}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
+                    <span class="sale-info">{{ 'home.azioni.logo.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
+                    <span class="sale-num" title="{{ 'home.azioni.logo.descrizione'|trans({}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
                         <i class="fa fa-info-circle"></i>
                     </span>
                 </li>
             {% endif %}
-            <li>
-                <span class="sale-info">TODAY SOLD <i class="fa fa-img-up"></i></span> 
-                <span class="sale-num">23</span>
-            </li>
-            <li>
-                <span class="sale-info">WEEKLY SALES <i class="fa fa-img-down"></i></span> 
-                <span class="sale-num">87</span>
-            </li>
-            <li>
-                <span class="sale-info">TOTAL SOLD</span> 
-                <span class="sale-num">2377</span>
-            </li>
-            <li>
-                <span class="sale-info">EARNS</span> 
-                <span class="sale-num">$37.990</span>
-            </li>
+            {% set minLenDescrizione = 50 %}
+            {% if not negozio.descrizione %}
+                <li>
+                    <span class="sale-info">{{ 'home.azioni.descrizione.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
+                    <span class="sale-num" title="{{ 'home.azioni.descrizione.descrizione'|trans({}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
+                        <i class="fa fa-info-circle"></i>
+                    </span>
+                </li>
+            {% elseif negozio.descrizione|length < minLenDescrizione %}
+                <li>
+                    <span class="sale-info">{{ 'home.azioni.descrizionebreve.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
+                    <span class="sale-num" title="{{ 'home.azioni.descrizionebreve.descrizione'|trans({'%n%': minLenDescrizione}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
+                        <i class="fa fa-info-circle"></i>
+                    </span>
+                </li>
+            {% endif %}
         </ul>
     </div>
 </div>

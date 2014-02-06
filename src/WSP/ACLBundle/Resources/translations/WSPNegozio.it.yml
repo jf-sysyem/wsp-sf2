@@ -6,12 +6,33 @@ tab:
     fatture:    Fatture
     profilo:    Il tuo profilo
 
-# Azioni
-azioni:
-    titolo: Azioni
-    logo:
-        titolo: Inserisci il tuo logo
-        descrizione: Inserisci il tuo logo o una foto del tuo negozio
         
 descrizione:
     insert: Clicca qui per inserire la descrizione del tuo negozio
+    
+commons:
+    edit: Modifica
+
+home:
+    edit:
+        home: Modifica dati azienda
+        contacts: Modifica contatti
+    contacts: 
+        title: Contatti
+        tel: Telefono
+        cell: Cellulare
+        fax: Fax
+        email: Email
+        site: Sito
+    # Azioni
+    azioni:
+        titolo: Azioni
+        logo:
+            titolo: Inserisci il tuo logo
+            descrizione: Inserisci il tuo logo o una foto del tuo negozio
+        descrizione:
+            titolo: Scrivi la descrizione
+            descrizione: Scrivi la descrizione del tuo negozio
+        descrizionebreve:
+            titolo: Completa la descrizione
+            descrizione: Completa la descrizione del tuo negozio. Usa almeno %n% caratteri.

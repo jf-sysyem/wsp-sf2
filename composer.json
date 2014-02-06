@@ -35,7 +35,7 @@
         "knplabs/knp-paginator-bundle": "dev-master",
         "punkave/symfony2-file-uploader-bundle": "1.0.*@dev",
         "stof/doctrine-extensions-bundle": "dev-master",
-        "willdurand/expose-translation-bundle": "dev-master"
+        "willdurand/js-translation-bundle": "dev-master"
 
     },
     "scripts": {

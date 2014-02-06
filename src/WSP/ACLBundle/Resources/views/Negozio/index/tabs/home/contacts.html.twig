@@ -1,0 +1,16 @@
+<h2>{{ 'home.contacts.title'|trans({}, 'WSPNegozio') }}</h2>
+{% if negozio.telefono %}
+    <p>{{ 'home.contacts.tel'|trans({}, 'WSPNegozio') }}: {{ negozio.telefono }}</p>
+{% endif %}
+{% if negozio.cellulare %}
+    <p>{{ 'home.contacts.cell'|trans({}, 'WSPNegozio') }}: {{ negozio.cellulare }}</p>
+{% endif %}
+{% if negozio.fax %}
+    <p>{{ 'home.contacts.fax'|trans({}, 'WSPNegozio') }}: {{ negozio.fax }}</p>
+{% endif %}
+{% if negozio.emailNegozio %}
+    <p>{{ 'home.contacts.email'|trans({}, 'WSPNegozio') }}: {{ negozio.emailNegozio }}</p>
+{% endif %}
+{% if negozio.sito %}
+    <p>{{ 'home.contacts.site'|trans({}, 'WSPNegozio') }}: <a href="{{ negozio.sito }}" target="_blank">{{ negozio.sito }}</a></p>
+{% endif %}

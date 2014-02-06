@@ -136,19 +136,23 @@ class ContattoController extends Controller {
             $ids[] = $_id['id'];
         }
         $entities = $this->findBy('WSPPromoBundle:Contatto', array('id' => $ids));
-        foreach ($entities as $contatto) {
-            /* @var $contatto Contatto */
-            $message = \Swift_Message::newInstance()
-                    ->setSubject($entity->getSubject())
-                    ->setFrom('marketing@wsprice.it')
-                    ->setTo(trim($contatto->getEmail()))
-                    ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('messaggio' => $entity)))
-                    ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('messaggio' => $entity)), 'text/html');
-            $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
-            $this->get('mailer')->send($message);
-            $entity->addDestinatari($contatto);
+        try {
+            foreach ($entities as $contatto) {
+                /* @var $contatto Contatto */
+                $message = \Swift_Message::newInstance()
+                        ->setSubject($entity->getSubject())
+                        ->setFrom('marketing@wsprice.it')
+                        ->setTo(trim($contatto->getEmail()))
+                        ->setBody($this->renderView("WSPPromoBundle:Contatto:email.txt.twig", array('messaggio' => $entity)))
+                        ->addPart($this->renderView("WSPPromoBundle:Contatto:email.html.twig", array('messaggio' => $entity)), 'text/html');
+                $message->getHeaders()->addTextHeader('X-Mailer', 'PHP v' . phpversion());
+                $this->get('mailer')->send($message);
+                $entity->addDestinatari($contatto);
+            }
+            $this->persist($entity);
+        } catch (\Exception $ex) {
+            throw $ex;
         }
-        $this->persist($entity);
 
         return $this->redirect($this->generateUrl('contatti'));
     }

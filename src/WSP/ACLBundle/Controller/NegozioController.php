@@ -16,6 +16,7 @@ use JF\ACLBundle\Entity\Licenza;
 use WSP\ACLBundle\Form\NegozioType;
 use WSP\ACLBundle\Form\NegozioStep1Type;
 use WSP\ACLBundle\Form\NegozioStep2Type;
+use WSP\ACLBundle\Form\NegozioContattiType;
 use WSP\ACLBundle\Form\GestoreType;
 use WSP\ACLBundle\Form\ClienteType;
 
@@ -43,6 +44,60 @@ class NegozioController extends Controller {
         );
     }
 
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/contatti", name="negozio_form_contatti", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("GET")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/form/contacts.html.twig")
+     */
+    public function formContattiAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormContatti($negozio);
+        
+        return array(
+            'negozio' => $negozio,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/contatti", name="negozio_save_contatti", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("POST")
+     * @Template()
+     */
+    public function saveContattiAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        return array(
+            'negozio' => $negozio,
+        );
+    }
+
+    /**
+     * Creates a form to create a Negozio entity.
+     *
+     * @param Negozio $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createFormContatti(Negozio $entity) {
+        $form = $this->createForm(new NegozioContattiType(), $entity, array(
+            'action' => $this->generateUrl('negozio_save_contatti'),
+            'method' => 'POST',
+            'attr' => array(
+                'class' => 'step-form',
+            ),
+        ));
+
+        $form->add('submit', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next')));
+
+        return $form;
+    }
+    
     /**
      * Displays a form to create a new Negozio entity.
      *

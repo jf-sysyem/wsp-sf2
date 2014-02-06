@@ -3,22 +3,23 @@
         <div class="col-md-3">
             <ul class="list-unstyled profile-nav">
                 <li><img src="{{ asset(negozio.avatar) }}" class="img-responsive" alt="" /> 
-                    <a href="#" class="profile-edit">edit</a>
+                    <a href="#" class="profile-edit">{{ 'commons.edit'|trans({}, 'WSPNegozio') }}</a>
                 </li>
-                <li><a href="#">Projects</a></li>
+                <li><a href="#">{{ 'home.edit.home'|trans({}, 'WSPNegozio') }}</a></li>
+                <li><a href="#">{{ 'home.edit.contacts'|trans({}, 'WSPNegozio') }}</a></li>
+{#
                 <li><a href="#">Messages <span>3</span></a></li>
                 <li><a href="#">Friends</a></li>
                 <li><a href="#">Settings</a></li>
+#}
             </ul>
         </div>
         <div class="col-md-9">
             <div class="row">
                 <div class="col-md-8 profile-info">
-                    <h1>{{ negozio.nome }}</h1>
-                    <p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'descrizione.insert'|trans({}, 'WSPNegozio') }}</a>{% endif %}</p>
-                    {% if negozio.sito %}
-                    <p><a href="{{ negozio.sito }}" target="_blank">{{ negozio.sito }}</a></p>
-                    {% endif %}
+                    <div class="row">
+                        <h2>{{ negozio.nome }}</h2>
+                        <p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'descrizione.insert'|trans({}, 'WSPNegozio') }}</a>{% endif %}</p>
 {#
                     <ul class="list-inline">
                         <li><i class="fa fa-map-marker"></i> Spain</li>
@@ -28,6 +29,10 @@
                         <li><i class="fa fa-heart"></i> BASE Jumping</li>
                     </ul>
 #}
+                    </div>
+                    <div class="row">
+                        {% include "WSPACLBundle:Negozio:index/tabs/home/contacts.html.twig" %}
+                    </div>
                 </div>
                 <!--end col-md-8-->
                 <div class="col-md-4" id="actions">
@@ -36,6 +41,7 @@
                 <!--end col-md-4-->
             </div>
             <!--end row-->
+            {#
             <div class="tabbable tabbable-custom tabbable-custom-profile">
                 <ul class="nav nav-tabs">
                     <li class="active"><a href="#tab_1_11" data-toggle="tab">Latest Customers</a></li>
@@ -517,6 +523,7 @@
                     <!--tab-pane-->
                 </div>
             </div>
+            #}
         </div>
     </div>
 </div>
