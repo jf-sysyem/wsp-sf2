@@ -16,6 +16,7 @@ use JF\ACLBundle\Entity\Licenza;
 use WSP\ACLBundle\Form\NegozioType;
 use WSP\ACLBundle\Form\NegozioStep1Type;
 use WSP\ACLBundle\Form\NegozioStep2Type;
+use WSP\ACLBundle\Form\NegozioDatiType;
 use WSP\ACLBundle\Form\NegozioContattiType;
 use WSP\ACLBundle\Form\GestoreType;
 use WSP\ACLBundle\Form\ClienteType;
@@ -47,7 +48,66 @@ class NegozioController extends Controller {
     /**
      * Lists all Negozio entities.
      *
-     * @Route("/form/contatti", name="negozio_form_contatti", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Route("/form/dati", name="negozio_form_data", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("GET")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/form/data.html.twig")
+     */
+    public function formDatiAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormDati($negozio);
+        
+        return array(
+            'negozio' => $negozio,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/dati", name="negozio_save_data", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("POST")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/data.html.twig")
+     */
+    public function saveDatiAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormDati($negozio);
+        $form->handleRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $this->persist($negozio);
+            return array(
+                'negozio' => $negozio,
+            );
+        }
+        throw new \Exception($form->getErrorsAsString(), 404);
+    }
+
+    /**
+     * Creates a form to create a Negozio entity.
+     *
+     * @param Negozio $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createFormDati(Negozio $entity) {
+        $form = $this->createForm(new NegozioDatiType(), $entity, array(
+            'action' => $this->generateUrl('negozio_save_data'),
+            'method' => 'POST',
+            'attr' => array(
+                'class' => 'step-form',
+            ),
+        ));
+        $form->add('button', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next', 'form' => 'contacts')));
+        return $form;
+    }
+    
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/contatti", name="negozio_form_contacts", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
      * @Method("GET")
      * @Template("WSPACLBundle:Negozio:index/tabs/home/form/contacts.html.twig")
      */
@@ -65,16 +125,23 @@ class NegozioController extends Controller {
     /**
      * Lists all Negozio entities.
      *
-     * @Route("/form/contatti", name="negozio_save_contatti", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Route("/form/contatti", name="negozio_save_contacts", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
      * @Method("POST")
-     * @Template()
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/contacts.html.twig")
      */
     public function saveContattiAction() {
         $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
 
-        return array(
-            'negozio' => $negozio,
-        );
+        $form = $this->createFormContatti($negozio);
+        $form->handleRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $this->persist($negozio);
+            return array(
+                'negozio' => $negozio,
+            );
+        }
+        throw new \Exception($form->getErrorsAsString(), 404);
     }
 
     /**
@@ -86,15 +153,13 @@ class NegozioController extends Controller {
      */
     private function createFormContatti(Negozio $entity) {
         $form = $this->createForm(new NegozioContattiType(), $entity, array(
-            'action' => $this->generateUrl('negozio_save_contatti'),
+            'action' => $this->generateUrl('negozio_save_contacts'),
             'method' => 'POST',
             'attr' => array(
                 'class' => 'step-form',
             ),
         ));
-
-        $form->add('submit', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next')));
-
+        $form->add('button', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next', 'form' => 'contacts')));
         return $form;
     }
     
