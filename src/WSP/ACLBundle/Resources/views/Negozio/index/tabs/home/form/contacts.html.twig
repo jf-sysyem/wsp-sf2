@@ -1,8 +1,8 @@
 <h2>{{ 'home.contacts.title'|trans({}, 'WSPNegozio') }}</h2>
-{% if negozio.telefono %}
+{% if not negozio.telefono %}
     <p>{{ 'home.contacts.tel'|trans({}, 'WSPNegozio') }}: {{ negozio.telefono }}</p>
 {% endif %}
-{% if negozio.cellulare %}
+{% if not negozio.cellulare %}
     <p>{{ 'home.contacts.cell'|trans({}, 'WSPNegozio') }}: {{ negozio.cellulare }}</p>
 {% endif %}
 {% if negozio.fax %}
