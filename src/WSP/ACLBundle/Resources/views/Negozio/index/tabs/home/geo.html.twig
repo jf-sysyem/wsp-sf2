@@ -1,0 +1,3 @@
+<h2>{{ 'home.geo.title'|trans({}, 'WSPNegozio') }}</h2>
+<p>{{ 'home.geo.address'|trans({}, 'WSPNegozio') }}: {{ negozio.indirizzo }} {{ negozio.cap }} - {{ negozio.localita }}</p>
+<img src="https://maps.googleapis.com/maps/api/staticmap?center={{ negozio.latitudine }},{{ negozio.longitudine }}&zoom=14&size=480x240&markers=color:yellow%7Clabel:{{ negozio.nome|first|upper }}%7C{{ negozio.latitudine }},{{ negozio.longitudine }}&sensor=false" />

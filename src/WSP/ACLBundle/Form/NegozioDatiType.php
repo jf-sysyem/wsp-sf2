@@ -17,9 +17,6 @@ class NegozioDatiType extends AbstractType {
                 ->add('nome', null, array(
                     'label' => 'negozio.form.nome',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'icon' => 'building',
@@ -29,9 +26,6 @@ class NegozioDatiType extends AbstractType {
                 ->add('descrizione', 'textarea', array(
                     'label' => 'negozio.form.descrizione',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'placeholder' => 'negozio.form.descrizione',

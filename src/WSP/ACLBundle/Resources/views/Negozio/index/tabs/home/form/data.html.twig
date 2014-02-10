@@ -1,4 +1,39 @@
-{% form_theme form 'MetronicAdminBundle::form/empty.html.twig' %}
-{{ form_start(form) }}
-{{ form_widget(form) }}
-{{ form_end(form) }}
+{% form_theme form 'MetronicAdminBundle::form/modal.html.twig' %}
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4 class="modal-title">{{ 'home.data.title'|trans({}, 'WSPNegozio') }}</h4>
+        </div>
+        {{ form_start(form) }}
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        {{ form_row(form.nome) }}
+                        {{ form_row(form.descrizione) }}
+                        {{ form_row(form.categoria) }}
+                        {{ form_row(form.categorie) }}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                {{ form_widget(form.close) }}
+                {{ form_widget(form.button) }}
+                {{ form_rest(form) }}
+            </div>
+        {{ form_end(form) }}
+    </div>
+    <!-- /.modal-content -->
+</div>
+
+{% javascripts  
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-validation/src/jquery.validate.min.js'
+    '@MetronicAdminBundle/Resources/public/plugins/jquery-validation/src/additional-methods.min.js'
+    '@WSPACLBundle/Resources/public/js/data.js'
+%}  
+<script type="text/javascript" src="{{ asset_url }}"></script>
+{% endjavascripts %}
+
+<script type="text/javascript">
+    Form.init();
+</script>

@@ -5,8 +5,15 @@
                 <li><img src="{{ asset(negozio.avatar) }}" class="img-responsive" alt="" /> 
                     <a href="#" class="profile-edit">{{ 'commons.edit'|trans({}, 'WSPNegozio') }}</a>
                 </li>
-                <li><a href="javascript:;" class="open-form" form="data">{{ 'home.edit.home'|trans({}, 'WSPNegozio') }}</a></li>
-                <li><a href="javascript:;" class="open-form" form="contacts">{{ 'home.edit.contacts'|trans({}, 'WSPNegozio') }}</a></li>
+                <li>
+                    <a class=" btn default" href="{{ path('negozio_form_data') }}" data-target="#ajax_data" data-toggle="modal">{{ 'home.edit.home'|trans({}, 'WSPNegozio') }}</a>
+                </li>
+                <li>
+                    <a class=" btn default" href="{{ path('negozio_form_contacts') }}" data-target="#ajax_contacts" data-toggle="modal">{{ 'home.edit.contacts'|trans({}, 'WSPNegozio') }}</a>
+                </li>
+                <li>
+                    <a class=" btn default" href="{{ path('negozio_form_geo') }}" data-target="#ajax_geo" data-toggle="modal">{{ 'home.edit.geo'|trans({}, 'WSPNegozio') }}</a>
+                </li>
 {#
                 <li><a href="#">Messages <span>3</span></a></li>
                 <li><a href="#">Friends</a></li>
@@ -22,6 +29,9 @@
                     </div>
                     <div class="row" id="contacts">
                         {% include "WSPACLBundle:Negozio:index/tabs/home/contacts.html.twig" %}
+                    </div>
+                    <div class="row" id="geo">
+                        {% include "WSPACLBundle:Negozio:index/tabs/home/geo.html.twig" %}
                     </div>
                 </div>
                 <!--end col-md-8-->
@@ -516,4 +526,13 @@
             #}
         </div>
     </div>
+</div>
+<div class="modal fade" id="ajax_data" tabindex="-1" role="basic" aria-hidden="true">
+    <img src="{{ asset('/bundles/metronicadmin/img/ajax-modal-loading.gif') }}" alt="" class="loading">
+</div>
+<div class="modal fade" id="ajax_contacts" tabindex="-1" role="basic" aria-hidden="true">
+    <img src="{{ asset('/bundles/metronicadmin/img/ajax-modal-loading.gif') }}" alt="" class="loading">
+</div>
+<div class="modal fade" id="ajax_geo" tabindex="-1" role="basic" aria-hidden="true">
+    <img src="{{ asset('/bundles/metronicadmin/img/ajax-modal-loading.gif') }}" alt="" class="loading">
 </div>

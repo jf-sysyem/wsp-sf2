@@ -15,17 +15,17 @@
                     </span>
                 </li>
             {% endif %}
-            {% set minLenDescrizione = 50 %}
+            {% set minLenDescrizione = 500 %}
             {% if not negozio.descrizione %}
                 <li>
-                    <span class="sale-info">{{ 'home.azioni.descrizione.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
+                    <span class="sale-info"><a href="{{ path('negozio_form_data') }}" data-target="#ajax_data" data-toggle="modal">{{ 'home.azioni.descrizione.titolo'|trans({}, 'WSPNegozio') }}</a> <i class="fa fa-img-up"></i></span> 
                     <span class="sale-num" title="{{ 'home.azioni.descrizione.descrizione'|trans({}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
                         <i class="fa fa-info-circle"></i>
                     </span>
                 </li>
             {% elseif negozio.descrizione|length < minLenDescrizione %}
                 <li>
-                    <span class="sale-info">{{ 'home.azioni.descrizionebreve.titolo'|trans({}, 'WSPNegozio') }} <i class="fa fa-img-up"></i></span> 
+                    <span class="sale-info"><a href="{{ path('negozio_form_data') }}" data-target="#ajax_data" data-toggle="modal">{{ 'home.azioni.descrizionebreve.titolo'|trans({}, 'WSPNegozio') }}</a> <i class="fa fa-img-up"></i></span> 
                     <span class="sale-num" title="{{ 'home.azioni.descrizionebreve.descrizione'|trans({'%n%': minLenDescrizione}, 'WSPNegozio') }}" data-toggle="tooltip" data-placement="left">
                         <i class="fa fa-info-circle"></i>
                     </span>

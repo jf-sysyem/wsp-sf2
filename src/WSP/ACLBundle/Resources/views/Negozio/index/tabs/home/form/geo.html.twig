@@ -9,11 +9,13 @@
             <div class="modal-body">
                 <div class="row">
                     <div class="col-md-12">
-                        {{ form_row(form.telefono) }}
-                        {{ form_row(form.cellulare) }}
-                        {{ form_row(form.fax) }}
-                        {{ form_row(form.emailNegozio) }}
-                        {{ form_row(form.sito) }}
+                        {{ form_row(form.indirizzo) }}
+                        {{ form_row(form.localita) }}
+                        {{ form_row(form.cap) }}
+                        <div class="portlet-body">
+                            <h4>{{ 'negozio.step1.posizione'|trans({}, 'WSPACL') }}</h4>
+                            <div id="gmap" class="gmaps"></div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -30,7 +32,8 @@
 {% javascripts  
     '@MetronicAdminBundle/Resources/public/plugins/jquery-validation/src/jquery.validate.min.js'
     '@MetronicAdminBundle/Resources/public/plugins/jquery-validation/src/additional-methods.min.js'
-    '@WSPACLBundle/Resources/public/js/contacts.js'
+    '@MetronicAdminBundle/Resources/public/plugins/gmaps/gmaps.js'
+    '@WSPACLBundle/Resources/public/js/geo.js'
 %}  
 <script type="text/javascript" src="{{ asset_url }}"></script>
 {% endjavascripts %}

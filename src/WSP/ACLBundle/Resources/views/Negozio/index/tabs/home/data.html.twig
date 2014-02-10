@@ -1,12 +1,12 @@
-<div class="row">
-    <hgroup>
-        <h2 style="margin-top: 0px;">{{ negozio.nome }}</h2>
-        <h5>{{ negozio.categoria.categoria }}</h5>
-    </hgroup>
-    <p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'descrizione.insert'|trans({}, 'WSPNegozio') }}</a>{% endif %}</p>
+<hgroup>
+    <h2 style="margin-top: 0px;">{{ negozio.nome }}</h2>
+    <h5>{{ negozio.categoria.categoria }}</h5>
+</hgroup>
+<p>{% if negozio.descrizione %}{{ negozio.descrizione|nl2br }}{% else %}<a href="javascrit:;">{{ 'descrizione.insert'|trans({}, 'WSPNegozio') }}</a>{% endif %}</p>
+{% if negozio.categorie|length > 1 %}
     <ul class="list-inline">
-                            {% for categoria in negozio.categorie %}
-        <li><i class="fa fa-map-marker"></i> {{ categoria.categoria }}</li>
-                            {% endfor %}
+        {% for categoria in negozio.categorie %}
+            <li><i class="fa fa-map-marker"></i> {{ categoria.categoria }}</li>
+        {% endfor %}
     </ul>
-</div>
+{% endif %}

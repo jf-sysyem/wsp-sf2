@@ -17,9 +17,6 @@ class NegozioContattiType extends AbstractType {
                 ->add('telefono', null, array(
                     'label' => 'negozio.form.telefono',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'icon' => 'phone',
@@ -29,9 +26,6 @@ class NegozioContattiType extends AbstractType {
                 ->add('cellulare', null, array(
                     'label' => 'negozio.form.cellulare',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'icon' => 'mobile',
@@ -41,9 +35,6 @@ class NegozioContattiType extends AbstractType {
                 ->add('fax', null, array(
                     'label' => 'negozio.form.fax',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'icon' => 'phone-square',
@@ -53,21 +44,15 @@ class NegozioContattiType extends AbstractType {
                 ->add('emailNegozio', 'email', array(
                     'label' => 'negozio.form.emailNegozio',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
-                        'icon' => 'email',
+                        'icon' => 'envelope',
                         'placeholder' => 'negozio.form.emailNegozio',
                     ),
                 ))
                 ->add('sito', null, array(
                     'label' => 'negozio.form.sito',
                     'translation_domain' => 'WSPACL',
-                    'label_attr' => array(
-                        'class' => 'control-label visible-ie8 visible-ie9',
-                    ),
                     'attr' => array(
                         'class' => 'form-control placeholder-no-fix',
                         'icon' => 'link',

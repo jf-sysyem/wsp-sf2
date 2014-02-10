@@ -17,6 +17,7 @@ home:
     edit:
         home: Modifica dati azienda
         contacts: Modifica contatti
+        geo: Modifica la tua posizione
     contacts: 
         title: Contatti
         tel: Telefono
@@ -24,6 +25,9 @@ home:
         fax: Fax
         email: Email
         site: Sito
+    geo: 
+        title: Posizione
+        address: Indirizzo
     # Azioni
     azioni:
         titolo: Azioni

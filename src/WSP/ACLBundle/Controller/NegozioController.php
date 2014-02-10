@@ -5,6 +5,7 @@ namespace WSP\ACLBundle\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Ephp\UtilityBundle\Controller\Traits\BaseController;
+use Ephp\GeoBundle\Controller\Traits\BaseGeoController;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -18,6 +19,7 @@ use WSP\ACLBundle\Form\NegozioStep1Type;
 use WSP\ACLBundle\Form\NegozioStep2Type;
 use WSP\ACLBundle\Form\NegozioDatiType;
 use WSP\ACLBundle\Form\NegozioContattiType;
+use WSP\ACLBundle\Form\NegozioGeoType;
 use WSP\ACLBundle\Form\GestoreType;
 use WSP\ACLBundle\Form\ClienteType;
 
@@ -28,7 +30,7 @@ use WSP\ACLBundle\Form\ClienteType;
  */
 class NegozioController extends Controller {
 
-    use BaseController;
+    use BaseController, BaseGeoController;
 
     /**
      * Lists all Negozio entities.
@@ -39,6 +41,7 @@ class NegozioController extends Controller {
      */
     public function indexAction() {
         $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+        /* @var $negozio Negozio */
 
         return array(
             'negozio' => $negozio,
@@ -100,7 +103,8 @@ class NegozioController extends Controller {
                 'class' => 'step-form',
             ),
         ));
-        $form->add('button', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next', 'form' => 'contacts')));
+        $form->add('close', 'button', array('label' => 'negozio.form.close', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn default', 'data-dismiss' => 'modal')));
+        $form->add('button', 'button', array('label' => 'negozio.form.save', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next')));
         return $form;
     }
     
@@ -159,7 +163,68 @@ class NegozioController extends Controller {
                 'class' => 'step-form',
             ),
         ));
+        $form->add('close', 'button', array('label' => 'negozio.form.close', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn default', 'data-dismiss' => 'modal')));
         $form->add('button', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next', 'form' => 'contacts')));
+        return $form;
+    }
+    
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/geo", name="negozio_form_geo", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("GET")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/form/geo.html.twig")
+     */
+    public function formGeoAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormGeo($negozio);
+        
+        return array(
+            'negozio' => $negozio,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/geo", name="negozio_save_geo", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("POST")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/geo.html.twig")
+     */
+    public function saveGeoAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormGeo($negozio);
+        $form->handleRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $this->persist($negozio);
+            return array(
+                'negozio' => $negozio,
+            );
+        }
+        throw new \Exception($form->getErrorsAsString(), 404);
+    }
+
+    /**
+     * Creates a form to create a Negozio entity.
+     *
+     * @param Negozio $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createFormGeo(Negozio $entity) {
+        $form = $this->createForm(new NegozioGeoType(), $entity, array(
+            'action' => $this->generateUrl('negozio_save_geo'),
+            'method' => 'POST',
+            'attr' => array(
+                'class' => 'step-form',
+            ),
+        ));
+        $form->add('close', 'button', array('label' => 'negozio.form.close', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn default', 'data-dismiss' => 'modal')));
+        $form->add('button', 'button', array('label' => 'negozio.form.continua', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next', 'form' => 'geo')));
         return $form;
     }
     
