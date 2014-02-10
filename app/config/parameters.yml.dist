@@ -5,12 +5,11 @@ parameters:
     database_name: swp
     database_user: root
     database_password: Ephraim76
-    
-    mailer_transport: smtp
+
     mailer_auth_mode: login
-    mailer_host: smtp.wsprice.it
-    mailer_username: newsletter@wsprice.it
-    mailer_password: pwd 
+    mailer_transport: smtp
+    mailer_host: mail.wsprice.it
+    mailer_password: pwd
     mailer_user: marketing@wsprice.it
     mailer_port: 587
     
