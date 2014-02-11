@@ -43,8 +43,8 @@ class UploadHandler
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/uploads/',
-            'upload_url' => $this->get_full_url().'/uploads/',
+            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
+            'upload_url' => $this->get_full_url().'/files/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -72,7 +72,7 @@ class UploadHandler
             //     2. Set to 2 to send a X-Sendfile header for lighttpd/Apache
             //     3. Set to 3 to send a X-Accel-Redirect header for nginx
             // If set to 2 or 3, adjust the upload_url option to the base path of
-            // the redirect parameter, e.g. '/uploads/'.
+            // the redirect parameter, e.g. '/files/'.
             'download_via_php' => false,
             // Read files in chunks to avoid memory limits when download_via_php
             // is enabled, set to 0 to disable chunked reading of files:
@@ -153,8 +153,6 @@ class UploadHandler
         if ($error_messages) {
             $this->error_messages = $error_messages + $this->error_messages;
         }
-//        print_r($this->options);
-//        exit;
         if ($initialize) {
             $this->initialize();
         }
