@@ -144,10 +144,6 @@ class UploadHandler
                     //'crop' => true,
                     'max_width' => 80,
                     'max_height' => 80
-                ),
-                'medium' => array(
-                    'max_width' => 320,
-                    'max_height' => 240
                 )
             )
         );
@@ -157,6 +153,8 @@ class UploadHandler
         if ($error_messages) {
             $this->error_messages = $error_messages + $this->error_messages;
         }
+//        print_r($this->options);
+//        exit;
         if ($initialize) {
             $this->initialize();
         }
