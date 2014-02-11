@@ -507,7 +507,7 @@ class UploadHandler
 
     protected function get_file_name($file_path, $name, $size, $type, $error,
             $index, $content_range) {
-        return $this->get_unique_filename(
+        return str_replace(' ', '_', $this->get_unique_filename(
             $file_path,
             $this->trim_file_name($file_path, $name, $size, $type, $error,
                 $index, $content_range),
@@ -516,7 +516,7 @@ class UploadHandler
             $error,
             $index,
             $content_range
-        );
+        ));
     }
 
     protected function handle_form_data($file, $index) {
