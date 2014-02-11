@@ -41,10 +41,11 @@ class UploadHandler
     protected $image_objects = array();
 
     function __construct($options = null, $initialize = true, $error_messages = null) {
+        $dir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : uniqid('wsp', true);
         $this->options = array(
             'script_url' => $this->get_full_url().'/',
-            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/files/',
-            'upload_url' => $this->get_full_url().'/files/',
+            'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/uploads/'.$dir.'/',
+            'upload_url' => $this->get_full_url().'/uploads/'.$dir.'/',
             'user_dirs' => false,
             'mkdir_mode' => 0755,
             'param_name' => 'files',
@@ -122,16 +123,29 @@ class UploadHandler
                 // The empty image version key defines options for the original image:
                 '' => array(
                     // Automatically rotate images based on EXIF meta data:
+                    'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/original/',
+                    'upload_url' => $this->get_full_url().'/original/',
                     'auto_orient' => true
                 ),
                 // Uncomment the following to create medium sized images:
-                /*
+                'large' => array(
+                    'max_width' => 1200,
+                    'max_height' => 1200
+                ),
                 'medium' => array(
-                    'max_width' => 800,
+                    'max_width' => 600,
                     'max_height' => 600
                 ),
-                */
+                'small' => array(
+                    'max_width' => 300,
+                    'max_height' => 300
+                ),
                 'thumbnail' => array(
+                    'crop' => true,
+                    'max_width' => 80,
+                    'max_height' => 80
+                ),
+                'icon' => array(
                     // Uncomment the following to use a defined directory for the thumbnails
                     // instead of a subdirectory based on the version identifier.
                     // Make sure that this directory doesn't allow execution of files if you
@@ -142,8 +156,9 @@ class UploadHandler
                     // Uncomment the following to force the max
                     // dimensions and e.g. create square thumbnails:
                     //'crop' => true,
-                    'max_width' => 80,
-                    'max_height' => 80
+                    'crop' => true,
+                    'max_width' => 32,
+                    'max_height' => 32
                 )
             )
         );
@@ -1117,6 +1132,7 @@ class UploadHandler
                     ));
                 }
             }
+            header('Content-type: application/json');
             $this->body($json);
         }
         return $content;
@@ -1252,6 +1268,8 @@ class UploadHandler
         if (isset($_REQUEST['_method']) && $_REQUEST['_method'] === 'DELETE') {
             return $this->delete($print_response);
         }
+        print_r($_FILES);
+        exit;
         $upload = isset($_FILES[$this->options['param_name']]) ?
             $_FILES[$this->options['param_name']] : null;
         // Parse the Content-Disposition header, if available:
