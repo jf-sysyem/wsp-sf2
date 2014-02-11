@@ -19,6 +19,9 @@ class DispatcherController extends Controller {
      */
     public function indexAction() {
         $user = $this->getUser();
+        if(!$user) {
+            return $this->redirect($this->generateUrl('home'));
+        }
         /* @var $user \JF\ACLBundle\Entity\Gestore */
         if(!$user->getCliente() || $user->getCliente()->getNome() == '') {
             return $this->redirect($this->generateUrl('negozio_step_1'));

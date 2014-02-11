@@ -28,6 +28,10 @@ security:
             pattern:    ^/(promo)?$
             stateless: true            
             anonymous: true
+        drag-drop:
+            pattern:    ^/drag-drop
+            stateless: true            
+            anonymous: true
         main:
             #remember_me:
             #    key: divine_office_hub_17021976

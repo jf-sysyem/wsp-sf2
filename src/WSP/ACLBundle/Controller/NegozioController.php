@@ -18,6 +18,7 @@ use WSP\ACLBundle\Form\NegozioType;
 use WSP\ACLBundle\Form\NegozioStep1Type;
 use WSP\ACLBundle\Form\NegozioStep2Type;
 use WSP\ACLBundle\Form\NegozioDatiType;
+use WSP\ACLBundle\Form\NegozioLogoType;
 use WSP\ACLBundle\Form\NegozioContattiType;
 use WSP\ACLBundle\Form\NegozioGeoType;
 use WSP\ACLBundle\Form\GestoreType;
@@ -104,6 +105,67 @@ class NegozioController extends Controller {
             ),
         ));
         $form->add('close', 'button', array('label' => 'negozio.form.close', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn default', 'data-dismiss' => 'modal')));
+        $form->add('button', 'button', array('label' => 'negozio.form.save', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next')));
+        return $form;
+    }
+    
+
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/logo", name="negozio_form_logo", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("GET")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/form/logo.html.twig")
+     */
+    public function formLogoAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormLogo($negozio);
+        
+        return array(
+            'negozio' => $negozio,
+            'form' => $form->createView(),
+        );
+    }
+
+    /**
+     * Lists all Negozio entities.
+     *
+     * @Route("/form/logo", name="negozio_save_logo", options={"expose": true, "ACL": {"in_role": "R_NEGOZIANTE"}})
+     * @Method("POST")
+     * @Template("WSPACLBundle:Negozio:index/tabs/home/logo.html.twig")
+     */
+    public function saveLogoAction() {
+        $negozio = $this->findOneBy('WSPACLBundle:Negozio', array('cliente' => $this->getUser()->getCliente()->getId()));
+
+        $form = $this->createFormLogo($negozio);
+        $form->handleRequest($this->getRequest());
+
+        if ($form->isValid()) {
+            $this->persist($negozio);
+            return array(
+                'negozio' => $negozio,
+            );
+        }
+        throw new \Exception($form->getErrorsAsString(), 404);
+    }
+
+    /**
+     * Creates a form to create a Negozio entity.
+     *
+     * @param Negozio $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
+    private function createFormLogo(Negozio $entity) {
+        $form = $this->createForm(new NegozioLogoType(), $entity, array(
+            'action' => $this->generateUrl('negozio_save_logo'),
+            'method' => 'POST',
+            'attr' => array(
+                'class' => 'step-form',
+            ),
+        ));
+        $form->add('close', 'button', array('label' => 'negozio.form.close', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn default', 'logo-dismiss' => 'modal')));
         $form->add('button', 'button', array('label' => 'negozio.form.save', 'translation_domain' => 'WSPNegozio', 'attr' => array('class' => 'btn green button-next')));
         return $form;
     }
