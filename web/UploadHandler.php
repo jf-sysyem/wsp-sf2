@@ -267,7 +267,7 @@ class UploadHandler
             .$this->get_query_separator($this->options['script_url'])
             .$this->get_singular_param_name()
             .'='.rawurlencode($file->name)
-            .'&dir='.$this->options['url'];
+            .'&dir='.$this->options['dir'];
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';
