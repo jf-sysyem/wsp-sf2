@@ -43,6 +43,7 @@ class UploadHandler
     function __construct($options = null, $initialize = true, $error_messages = null) {
         $dir = isset($_REQUEST['dir']) ? $_REQUEST['dir'] : uniqid('wsp', true);
         $this->options = array(
+            'dir' => $dir,
             'script_url' => $this->get_full_url().'/',
             'upload_dir' => dirname($this->get_server_var('SCRIPT_FILENAME')).'/uploads/'.$dir.'/',
             'upload_url' => $this->get_full_url().'/uploads/'.$dir.'/',
@@ -265,7 +266,8 @@ class UploadHandler
         $file->deleteUrl = $this->options['script_url']
             .$this->get_query_separator($this->options['script_url'])
             .$this->get_singular_param_name()
-            .'='.rawurlencode($file->name);
+            .'='.rawurlencode($file->name)
+            .'&dir='.$this->options['url'];
         $file->deleteType = $this->options['delete_type'];
         if ($file->deleteType !== 'DELETE') {
             $file->deleteUrl .= '&_method=DELETE';
