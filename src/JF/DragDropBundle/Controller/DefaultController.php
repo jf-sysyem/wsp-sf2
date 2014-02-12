@@ -82,9 +82,10 @@ class DefaultController extends Controller {
                         $file->setUser($user);
                         $file->setSize($value->size);
                         $file->setType($value->type);
+                        $file->setTitolo($_FILES['files']['name'][0]);
                         $urls = array();
                         foreach($value as $k => $v) {
-                            if(strpos('url', $k) !== false) {
+                            if(strpos($k, 'url') !== false) {
                                 $k = str_replace('_url', '', $k);
                                 $urls[$k] = $v;
                             }
