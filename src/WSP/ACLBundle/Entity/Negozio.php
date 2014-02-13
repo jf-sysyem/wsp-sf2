@@ -67,9 +67,10 @@ class Negozio
     private $emailNegozio;
 
     /**
-     * @var string
+     * @var \JF\DragDropBundle\Entity\File
      *
-     * @ORM\Column(name="logo", type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity="JF\DragDropBundle\Entity\File")
+     * @ORM\JoinColumn(name="logo_id", referencedColumnName="id", nullable=true)
      */
     private $logo;
 
@@ -209,7 +210,7 @@ class Negozio
     /**
      * Get logo
      *
-     * @return string 
+     * @return \JF\DragDropBundle\Entity\File 
      */
     public function getLogo()
     {

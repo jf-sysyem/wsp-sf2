@@ -39,9 +39,15 @@ class WSPShopExtension extends Extension implements IExtension {
         $menu = $container->getParameter('jf.menu');
 
         $menu['wsp']['submenu'][] = array(
-            'label' => 'Crediti',
+            'label' => 'Pacchetti Crediti',
             'route' => 'crediti',
             'order' => 10,
+        );
+
+        $menu['wsp']['submenu'][] = array(
+            'label' => 'Periodi di Pubblicazione',
+            'route' => 'pubblicazione',
+            'order' => 20,
         );
 
 

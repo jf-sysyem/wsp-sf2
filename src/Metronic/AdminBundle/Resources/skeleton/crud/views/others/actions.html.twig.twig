@@ -1,0 +1,8 @@
+                {%- for action in record_actions %}
+                    {%- if has_slug %}
+                            <button class="btn yellow btn-xs" onclick="window.location='{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'slug': entity.slug }) }}" }}';">{{ action }}</button></a>
+                    {%- else %}
+                            <button class="btn yellow btn-xs" onclick="window.location='{{ "{{ path('" ~ route_name_prefix ~ "_" ~ action ~ "', { 'id': entity.id }) }}" }}';">{{ action }}</button></a>
+                    {%- endif %}
+                {%- endfor %}
+

@@ -28,6 +28,10 @@ security:
             pattern:    ^/(promo)?$
             stateless: true            
             anonymous: true
+        callback:
+            pattern:    ^/callback
+            stateless: true            
+            anonymous: true
         drag-drop:
             pattern:    ^/drag-drop
             stateless: true            

@@ -6,7 +6,7 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class CreditiType extends AbstractType
+class PubblicazioneType extends AbstractType
 {
         /**
      * @param FormBuilderInterface $builder
@@ -18,22 +18,22 @@ class CreditiType extends AbstractType
             ->add('nome', null, array(
                 'attr' => array(
                     'class' => 'form-control', 
-                    'placeholder' => "Inserisci il nome del pacchetto",
+                    'placeholder' => "Inserisci il nome del pacchetto di pubblicazione",
                     'icon' => 'font'
                     )
                 ))
-            ->add('crediti', null, array(
+            ->add('giorni', null, array(
                 'attr' => array(
                     'class' => 'form-control', 
-                    'placeholder' => "Inserisci il numero di crediti",
-                    'icon' => 'money'
+                    'placeholder' => "Inserisci il numero di giorni di pubblicazione",
+                    'icon' => 'calendar'
                     )
                 ))
             ->add('prezzo', null, array(
                 'attr' => array(
                     'class' => 'form-control', 
-                    'placeholder' => "Inserisci ilprezzo del pacchetto",
-                    'icon' => 'eur'
+                    'placeholder' => "Inserisci il prezzo in crediti",
+                    'icon' => 'money'
                     )
                 ))
             ->add('sconto', null, array(
@@ -59,7 +59,7 @@ class CreditiType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'WSP\ShopBundle\Entity\Crediti'
+            'data_class' => 'WSP\ShopBundle\Entity\Pubblicazione'
         ));
     }
 
@@ -68,6 +68,6 @@ class CreditiType extends AbstractType
      */
     public function getName()
     {
-        return 'wsp_shopbundle_crediti';
+        return 'wsp_shopbundle_pubblicazione';
     }
 }

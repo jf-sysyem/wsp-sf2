@@ -91,6 +91,7 @@ class CreditiController extends Controller {
      */
     public function newAction() {
         $entity = new Crediti();
+        $entity->setVisibile(true);
         $form = $this->createCreateForm($entity);
         $entities = $this->findAll('WSPShopBundle:Crediti');
 
@@ -195,21 +196,4 @@ class CreditiController extends Controller {
 
         return $this->redirect($this->generateUrl('crediti'));
     }
-
-    /**
-     * Creates a form to delete a Crediti entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id) {
-        return $this->createFormBuilder()
-                        ->setAction($this->generateUrl('crediti_delete', array('id' => $id)))
-                        ->setMethod('DELETE')
-                        ->add('submit', 'submit', array('label' => 'Cancella', 'attr' => array('class' => 'btn btn-danger')))
-                        ->getForm()
-        ;
-    }
-
 }

@@ -79,8 +79,7 @@
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Aggiorna', 'attr' => array('class' => 'btn red btn-xs')));
-        $form->add('button', 'button', array('label' => 'Torna indietro', 'attr' => array('class' => 'btn yellow btn-xs', 'onclick' => "window.location='" . $this->generateUrl('{{ route_name_prefix }}') . "';")));
+        $form->add('submit', 'submit', array('label' => 'Update', 'attr' => array('class' => 'btn')));
 
         return $form;
     }

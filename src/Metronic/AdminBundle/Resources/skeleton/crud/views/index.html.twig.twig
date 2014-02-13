@@ -1,0 +1,115 @@
+{% block extends %}
+{{ "{% set page_title = '"~entity~"' %}" }}
+{{ "{% set page_subtitle = ~ %}" }}
+
+{{ "{% extends '::base.html.twig' %}" }}
+{% endblock extends %}
+
+{% block body %}
+{{ "{% block content %}" }}
+<div class="row">
+    <div class="col-md-8">
+        <!-- BEGIN SAMPLE TABLE PORTLET-->
+        <div class="portlet box yellow">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-money"></i>{{ entity }}</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+                </div>
+            </div>
+            <div class="portlet-body">
+{% if 'new' in actions %}
+                <button class="btn yellow btn-xs" onclick="window.location='{{ "{{ path('" ~ route_name_prefix ~ "_new') }}" }}';">Nuovo pacchetto crediti</button></a>
+{% endif %}
+                <div class="table-responsive">
+                    <table class="table table-striped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                            {%- for field, metadata in fields %}
+
+                                <th>{{ field|capitalize }}</th>
+
+                            {%- endfor %}
+
+                                <th width="40">Op.</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        {{ '{% for entity in entities %}' }}
+                            <tr>
+
+                        {%- for field, metadata in fields %}
+                            {%- if loop.first and ('show' in actions) %}
+                                {%- if has_slug %}
+
+                                <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'slug': entity.slug }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                                {%- else %}
+
+                                <td><a href="{{ "{{ path('" ~ route_name_prefix ~ "_show', { 'id': entity.id }) }}" }}">{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</a></td>
+
+                                {%- endif %}
+                            {%- elseif metadata.type in ['array'] %}
+                            {%- elseif metadata.type in ['date', 'datetime'] %}
+
+                                <td>{{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}{{ entity.' ~ field|replace({'_': ''}) ~ '|date(\'Y-m-d H:i:s\') }}{% endif %}' }}</td>
+
+                            {%- elseif metadata.type in ['boolean'] %}
+
+                                <td width="40" class="no-padding js-{{ field }}" ref="{{ '{{ entity.id }}' }}">
+                                    {{ '{% if entity.' ~ field|replace({'_': ''}) ~ ' %}' }}
+                                        SI
+                                    {{ '{% else %}' }}
+                                        NO
+                                    {{ '{% endif %}' }}
+                                </td> 
+
+                            {%- else %}
+
+                                <td>{{ '{{ entity.' ~ field|replace({'_': ''}) ~ ' }}' }}</td>
+
+                            {%- endif %}
+
+                            {%- if loop.last %}
+
+                                <td>
+                                    {%- include "crud/views/others/actions.html.twig.twig" %}
+                                </td>
+
+                            {%- endif %}
+                        {%- endfor %}
+
+                            </tr>
+                        {{ '{% endfor %}' }}
+
+
+            </tbody>
+        </table>
+                </div>
+            </div>
+        </div>
+        <!-- END SAMPLE TABLE PORTLET-->
+    </div>
+    <div class="col-md-4">
+        <!-- BEGIN SAMPLE TABLE PORTLET-->
+        <div class="portlet box blue">
+            <div class="portlet-title">
+                <div class="caption"><i class="fa fa-bar-chart-o"></i>Statistiche</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+{#
+                    <a href="#portlet-config" data-toggle="modal" class="config"></a>
+                    <a href="javascript:;" class="reload"></a>
+#}
+                </div>
+            </div>
+            <div class="portlet-body">
+                TODO
+            </div>
+        </div>
+        <!-- END SAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+{{ "{% endblock %}" }}
+{% endblock body %}
