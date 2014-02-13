@@ -44,6 +44,7 @@ class AppKernel extends Kernel {
             new WSP\ACLBundle\WSPACLBundle(),
             new WSP\AdminBundle\WSPAdminBundle(),
             new WSP\PromoBundle\WSPPromoBundle(),
+            new WSP\ShopBundle\WSPShopBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

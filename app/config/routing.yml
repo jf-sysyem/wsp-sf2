@@ -1,3 +1,8 @@
+wsp_shop:
+    resource: "@WSPShopBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
 hours_video:
     resource: "@HoursVideoBundle/Controller/"
     type:     annotation

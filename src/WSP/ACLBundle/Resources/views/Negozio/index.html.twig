@@ -1,7 +1,7 @@
 {% set page_title = negozio.nome %}
 {% set page_subtitle = 'di ' ~ negozio.cliente.referente.fullName %}
 
-{% extends '::base.html.twig' %}
+{% extends '::baseJs.html.twig' %}
 
 {% block css %}
 {% stylesheets 
@@ -25,6 +25,14 @@
 {% block ready_js %}
 Negozio.init();
 {% endblock ready_js %}
+
+{% block inline_css %}
+div.uploader {
+    width: 100% !important;
+    background-image: none;
+    height: auto;
+}
+{% endblock %}
 
 {% block content %}
 <!-- BEGIN PAGE CONTENT-->
