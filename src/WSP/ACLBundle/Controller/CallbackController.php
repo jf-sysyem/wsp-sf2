@@ -19,7 +19,7 @@ class CallbackController extends Controller {
     /**
      * Displays a form to edit an existing Categoria entity.
      *
-     * @Route("/{id}/logo", name="callback_negozio_logo", defaults={"_format": "json"})
+     * @Route("/{id}/logo", name="callback_negozio_logo", defaults={"_format": "html"})
      * @Method("POST")
      */
     public function logoAction($id) {
@@ -39,23 +39,31 @@ class CallbackController extends Controller {
             $logo->setDescrizione('Logo di ' . $entity->getNome());
             $logo->setNome($file->name);
             $logo->setPath($file->path);
+            $logo->setSize($file->size);
             $logo->setTitolo($entity->getNome());
+            $logo->setType($file->type);
             $logo->setUser($entity->getCliente()->getReferente());
             $urls = array();
             foreach ($file as $k => $v) {
                 if (strpos($k, 'url') !== false) {
-                    $k = str_replace('_url', '', $k);
+                    $urls[$k] = $v;
+                } elseif (strpos($k, 'Url') !== false) {
+                    $k = str_replace('Url', '', $k);
                     $urls[$k] = $v;
                 }
             }
             $logo->setUrls($urls);
             $this->persist($logo);
 
+            $oldLogo = $entity->getLogo();
+            // TODO chiamata DELETE per cancellazione
+            
             $entity->setLogo($logo);
             $this->persist($entity);
             $this->getEm()->commit();
         } catch (\Exception $ex) {
             $this->getEm()->rollback();
+            throw $ex;
             return $this->jsonResponse(array('status' => 500, 'error' => $ex->getMessage()));
         }
         return $this->jsonResponse(array('status' => 200));
